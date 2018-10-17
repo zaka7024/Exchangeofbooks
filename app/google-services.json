@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "410646431296",
+    "firebase_url": "https://exchange-of-books.firebaseio.com",
+    "project_id": "exchange-of-books",
+    "storage_bucket": "exchange-of-books.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:410646431296:android:ba12eca87f3d38b8",
+        "android_client_info": {
+          "package_name": "exchangeofbooks.lemonlab.com.exchangeofbooks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "410646431296-fo99pk0ei65ju96qvgee845haciputd0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "exchangeofbooks.lemonlab.com.exchangeofbooks",
+            "certificate_hash": "3f994a6ab52a430044869b536433f7456ab5cd0d"
+          }
+        },
+        {
+          "client_id": "410646431296-6gn1r0mf30fan7evlgfbai47dh1c47pg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAX1KM2RInQQnDn8IKBAnDJ3ahOtsh-VzY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "410646431296-6gn1r0mf30fan7evlgfbai47dh1c47pg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
