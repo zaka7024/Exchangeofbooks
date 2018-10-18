@@ -4,24 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".RegisterActivity" >
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/rounded_edittext_blue"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="textPersonName"
-        android:paddingLeft="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/circleImageView"
-        app:layout_constraintStart_toStartOf="@+id/circleImageView"
-        app:layout_constraintTop_toBottomOf="@+id/circleImageView" />
-
-    <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/password_textview_register_activity"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
@@ -30,38 +16,12 @@
         android:hint="Passowrd"
         android:inputType="textPassword"
         android:paddingLeft="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/editText3"
-        app:layout_constraintStart_toStartOf="@+id/editText3"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
-
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/rounded_edittext_blue"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:paddingLeft="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/editText"
-        app:layout_constraintStart_toStartOf="@+id/editText"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:background="@drawable/rounded_btn_blue"
-        android:text="SELECT PHOTO"
-        android:textColor="#FFF"
-        app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
-        app:layout_constraintEnd_toEndOf="@+id/circleImageView"
-        app:layout_constraintStart_toStartOf="@+id/circleImageView"
-        app:layout_constraintTop_toTopOf="@+id/circleImageView" />
+        app:layout_constraintEnd_toEndOf="@+id/email_textview_register_activity"
+        app:layout_constraintStart_toStartOf="@+id/email_textview_register_activity"
+        app:layout_constraintTop_toBottomOf="@+id/email_textview_register_activity" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageView"
+        android:id="@+id/image_profile_register_activity"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginStart="8dp"
@@ -71,21 +31,62 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/email_textview_register_activity"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_edittext_blue"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/username_textview_register_activity"
+        app:layout_constraintStart_toStartOf="@+id/username_textview_register_activity"
+        app:layout_constraintTop_toBottomOf="@+id/username_textview_register_activity" />
+
     <Button
-        android:id="@+id/button2"
-        android:layout_width="120dp"
+        android:id="@+id/register_btn_register_activity"
+        android:layout_width="220dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/small_rounded_btn_blue"
         android:fontFamily="@font/noto_sans_bold"
         android:text="Regiser"
         android:textColor="@color/white"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/select_image_profile_register_activity"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/rounded_btn_blue"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="SELECT PHOTO"
+        android:textColor="#FFF"
+        app:layout_constraintBottom_toBottomOf="@+id/image_profile_register_activity"
+        app:layout_constraintEnd_toEndOf="@+id/image_profile_register_activity"
+        app:layout_constraintStart_toStartOf="@+id/image_profile_register_activity"
+        app:layout_constraintTop_toTopOf="@+id/image_profile_register_activity" />
+
+    <EditText
+        android:id="@+id/username_textview_register_activity"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/rounded_edittext_blue"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/image_profile_register_activity"
+        app:layout_constraintStart_toStartOf="@+id/image_profile_register_activity"
+        app:layout_constraintTop_toBottomOf="@+id/image_profile_register_activity" />
 
 </android.support.constraint.ConstraintLayout>
