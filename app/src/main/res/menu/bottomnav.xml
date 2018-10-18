@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/b1"
+        android:title="1"
+        android:icon="@drawable/leaf"       />
+    <item
+        android:id="@+id/b2"
+        android:title="2"
+        android:icon="@drawable/leaf"        />
+
+    <item
+        android:id="@+id/b3"
+        android:title="3"
+        android:icon="@drawable/leaf"        />
+
+    <item
+        android:id="@+id/b4"
+        android:title="4"
+        android:icon="@drawable/leaf"        />
+
+</menu>
