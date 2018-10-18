@@ -27,4 +27,8 @@
         <!-- The textColor property is backward compatible with the Support Library -->
     </style>
 
+    <style name="BottomNavigation">
+        <item name="android:textSize">200sp</item>
+    </style>
+
 </resources>

@@ -2,21 +2,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/b1"
-        android:title="1"
-        android:icon="@drawable/leaf"       />
+        android:title="Home"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_home"       />
     <item
         android:id="@+id/b2"
-        android:title="2"
-        android:icon="@drawable/leaf"        />
+        android:title="Posts"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_post"        />
 
     <item
         android:id="@+id/b3"
-        android:title="3"
-        android:icon="@drawable/leaf"        />
+        app:showAsAction="ifRoom"
+        android:title="Chat"
+        android:icon="@drawable/ic_action_chat"        />
 
     <item
         android:id="@+id/b4"
-        android:title="4"
-        android:icon="@drawable/leaf"        />
+        app:showAsAction="ifRoom"
+        android:title="Settings"
+        android:icon="@drawable/ic_action_settings"        />
 
 </menu>
