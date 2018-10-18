@@ -1,10 +1,13 @@
 package exchangeofbooks.lemonlab.com.exchangeofbooks
 
+import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.util.Pair
 import android.support.v7.app.AlertDialog
@@ -20,6 +23,7 @@ class RegisterActivity : AppCompatActivity() {
     var username:String? = null
     var email:String? = null
     var password:String? = null
+    var imageProfileUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,13 +36,28 @@ class RegisterActivity : AppCompatActivity() {
 
         // check if user is signed in
         if(FirebaseAuth.getInstance().uid != null){
-            startMainActivity()
+            StartMainActivity()
+        }
+
+        // pick image
+        select_image_profile_register_activity.setOnClickListener {
+            PickProfileImage()
         }
 
         register_btn_register_activity.setOnClickListener {
             RegisterNewUser()
         }
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode == Activity.RESULT_OK && requestCode == 0 && data != null){
+            imageProfileUri = data?.data
+            var bitmap = MediaStore.Images.Media.getBitmap(contentResolver,imageProfileUri)
+            image_profile_register_activity.setImageBitmap(bitmap)
+            select_image_profile_register_activity.alpha = 0f
+        }
     }
 
     private fun RegisterNewUser(){
@@ -62,17 +81,23 @@ class RegisterActivity : AppCompatActivity() {
             Log.i("RegisterActivty","new user sign up")
             Log.i("RegisterActivty","user id: ${ref.uid}")
                 dialog.hide()
-                startMainActivity()
+            StartMainActivity()
             }
 
     }
 
-    fun startMainActivity(){
+    private fun StartMainActivity(){
         var intent = Intent(this@RegisterActivity, MainActivity::class.java)
         // make a transition before exit
         var compat = ActivityOptionsCompat.makeSceneTransitionAnimation(this@RegisterActivity)
         startActivity(intent,compat.toBundle())
         Log.i("RegisterActivty","MainActivity is ready")
         finish()
+    }
+
+    private fun PickProfileImage(){
+        var intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        startActivityForResult(intent,0)
     }
 }

@@ -1,11 +1,14 @@
 package exchangeofbooks.lemonlab.com.exchangeofbooks
 
+import android.content.Intent
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.transition.Fade
 import android.transition.Slide
 import android.view.Menu
+import android.view.MenuItem
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +23,23 @@ class MainActivity : AppCompatActivity() {
             window.enterTransition = slide
         }
         setContentView(R.layout.activity_main)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item!!.itemId){
+            R.id.sign_out ->{
+                FirebaseAuth.getInstance().signOut()
+                var intent = Intent(this,RegisterActivity::class.java)
+                startActivity(intent)
+                this.finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 
