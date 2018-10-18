@@ -48,6 +48,12 @@ class RegisterActivity : AppCompatActivity() {
             RegisterNewUser()
         }
 
+        // have an account
+        have_account_btn.setOnClickListener {
+            var intent = Intent(this@RegisterActivity,LoginActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -68,7 +74,7 @@ class RegisterActivity : AppCompatActivity() {
         // connect to firebase and create new user
         var ref = FirebaseAuth.getInstance()
 
-        if(username!!.trim().isEmpty() || password!!.trim().isEmpty() || username!!.trim().isEmpty()){
+        if(email!!.trim().isEmpty() || password!!.trim().isEmpty() || username!!.trim().isEmpty()){
             Toast.makeText(this@RegisterActivity,"please fill all fields",Toast.LENGTH_SHORT).show()
             return
         }

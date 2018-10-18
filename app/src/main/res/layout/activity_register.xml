@@ -16,6 +16,7 @@
         android:hint="Passowrd"
         android:inputType="textPassword"
         android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="@+id/email_textview_register_activity"
         app:layout_constraintStart_toStartOf="@+id/email_textview_register_activity"
         app:layout_constraintTop_toBottomOf="@+id/email_textview_register_activity" />
@@ -41,6 +42,7 @@
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="@+id/username_textview_register_activity"
         app:layout_constraintStart_toStartOf="@+id/username_textview_register_activity"
         app:layout_constraintTop_toBottomOf="@+id/username_textview_register_activity" />
@@ -85,8 +87,21 @@
         android:hint="Username"
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="@+id/image_profile_register_activity"
         app:layout_constraintStart_toStartOf="@+id/image_profile_register_activity"
         app:layout_constraintTop_toBottomOf="@+id/image_profile_register_activity" />
+
+    <TextView
+        android:id="@+id/have_account_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/noto_sans"
+        android:text="Already have an acount?"
+        android:textColor="@color/mainColorBlue"
+        app:layout_constraintEnd_toEndOf="@+id/password_textview_register_activity"
+        app:layout_constraintStart_toStartOf="@+id/password_textview_register_activity"
+        app:layout_constraintTop_toBottomOf="@+id/password_textview_register_activity" />
 
 </android.support.constraint.ConstraintLayout>

@@ -6,4 +6,63 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
+    <Button
+        android:id="@+id/login_btn_login_activity"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/small_rounded_btn_blue"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="Login"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/password_textview_login_activity"
+        app:layout_constraintStart_toStartOf="@+id/password_textview_login_activity"
+        app:layout_constraintTop_toBottomOf="@+id/password_textview_login_activity" />
+
+    <EditText
+        android:id="@+id/password_textview_login_activity"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rounded_edittext_blue"
+        android:ems="10"
+        android:hint="Passowrd"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/email_textview_login_activity"
+        app:layout_constraintStart_toStartOf="@+id/email_textview_login_activity"
+        app:layout_constraintTop_toBottomOf="@+id/email_textview_login_activity" />
+
+    <EditText
+        android:id="@+id/email_textview_login_activity"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_edittext_blue"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/bact_to_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/noto_sans"
+        android:text="New to this app?"
+        android:textColor="@color/mainColorBlue"
+        app:layout_constraintEnd_toEndOf="@+id/login_btn_login_activity"
+        app:layout_constraintStart_toStartOf="@+id/login_btn_login_activity"
+        app:layout_constraintTop_toBottomOf="@+id/login_btn_login_activity" />
 </android.support.constraint.ConstraintLayout>
