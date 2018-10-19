@@ -9,8 +9,14 @@ import android.transition.Fade
 import android.transition.Slide
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.HomeFragment
+import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -25,7 +31,24 @@ class MainActivity : AppCompatActivity() {
             //window.reenterTransition = fade
             window.enterTransition = slide
         }
+
         setContentView(R.layout.activity_main)
+        var u: User? = null
+        var uid = FirebaseAuth.getInstance().uid
+        var ref = FirebaseDatabase.getInstance().getReference("users/${uid}")
+        ref.addValueEventListener(object : ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                u = p0.getValue(User::class.java)
+            }
+
+        })
+        Toast.makeText(this,u?.username,Toast.LENGTH_SHORT).show()
+        replaceFragment(HomeFragment())
+        checkIfUserLoged()
 
         bottom_navigation.setOnNavigationItemSelectedListener {
             when(it?.itemId){
@@ -34,7 +57,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 else->{
-                    replaceFragment(HomeFragment())
+                    //replaceFragment(HomeFragment())
                     true
                 }
 
@@ -63,6 +86,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun checkIfUserLoged(){
+        if(FirebaseAuth.getInstance().uid == null){
+            var intent = Intent(this,RegisterActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
+        }
     }
 
 

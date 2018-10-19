@@ -39,9 +39,9 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         // check if user is signed in
-        /*if(FirebaseAuth.getInstance().uid != null){
+        if(FirebaseAuth.getInstance().uid != null){
             StartMainActivity()
-        }*/
+        }
 
         // pick image
         select_image_profile_register_activity.setOnClickListener {
