@@ -18,6 +18,10 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        login_btn_login_activity.setOnClickListener {
+            LoginUser()
+        }
+
         bact_to_register.setOnClickListener {
             this.finish()
         }

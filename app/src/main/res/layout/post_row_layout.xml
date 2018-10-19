@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/imageView"
+        android:id="@+id/post_image_profile"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
@@ -16,17 +16,17 @@
         app:srcCompat="@android:drawable/btn_star_big_on" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/post_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toStartOf="@+id/post_image_profile"
+        app:layout_constraintTop_toTopOf="@+id/post_image_profile"
         tools:text="zaka7024" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/pots_post_textview"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -34,19 +34,19 @@
         android:fontFamily="@font/noto_sans"
         android:minHeight="120dp"
         android:text="Clan War Leagues are coming to Clash of Clans this October! Skill-based matchmaking, new MAGIC ITEMS and much more! #clashofclans #clanwarleagues  "
-        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/post_image_profile"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/post_image_profile" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/post_image_view"
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="@+id/pots_post_textview"
+        app:layout_constraintStart_toStartOf="@+id/pots_post_textview"
+        app:layout_constraintTop_toBottomOf="@+id/pots_post_textview"
         tools:srcCompat="@tools:sample/backgrounds/scenic[15]" />
 
     <LinearLayout
@@ -56,12 +56,12 @@
         android:layout_marginBottom="8dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView2"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        app:layout_constraintEnd_toEndOf="@+id/post_image_view"
+        app:layout_constraintStart_toStartOf="@+id/post_image_view"
+        app:layout_constraintTop_toBottomOf="@+id/post_image_view">
 
         <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/post_like_text_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -70,14 +70,14 @@
             android:textAlignment="center" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/post_like_image_view"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/ic_action_like" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/post_comment_text_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -86,14 +86,14 @@
             android:textAlignment="center" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/post_comment_image_view"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/ic_action_comments" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/post_report_text_view"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -102,7 +102,7 @@
             android:textAlignment="center" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/post_report_image_view"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_weight="1"
