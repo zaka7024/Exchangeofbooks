@@ -27,7 +27,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/noto_sans_bold"
-        android:text="Book Category"
+        android:text="Book Category *"
         android:textColor="@color/mainColorBlue"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,23 +39,72 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/noto_sans_bold"
-        android:text="Post Text"
+        android:text="Post Text *"
         android:textColor="@color/mainColorBlue"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/book_category_spinner"
         app:layout_constraintTop_toBottomOf="@+id/book_category_spinner" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="Post Image *"
+        android:textColor="@color/mainColorBlue"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/post_text_post_activity"
+        app:layout_constraintTop_toBottomOf="@+id/post_text_post_activity" />
+
+    <EditText
+        android:id="@+id/post_text_post_activity"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/book_category_background"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:minHeight="160dp"
+        android:fontFamily="@font/noto_sans"
+        android:inputType="textMultiLine"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <ImageView
+        android:id="@+id/post_image_post_activity"
+        android:layout_width="0dp"
+        android:layout_height="147dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:srcCompat="@drawable/book" />
+
+    <Button
+        android:id="@+id/upload_image_btn_post_activity"
+        android:layout_width="118dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/small_rounded_btn_blue"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="Upload Image"
+        android:textColor="#fff"
+        app:layout_constraintStart_toStartOf="@+id/post_image_post_activity"
+        app:layout_constraintTop_toBottomOf="@+id/post_image_post_activity" />
+
+    <Button
+        android:id="@+id/post_btn_post_activity"
+        android:layout_width="118dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/small_rounded_btn_blue"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="POST NOW"
+        android:textColor="#fff"
+        app:layout_constraintStart_toEndOf="@+id/upload_image_btn_post_activity"
+        app:layout_constraintTop_toTopOf="@+id/upload_image_btn_post_activity" />
 </android.support.constraint.ConstraintLayout>
