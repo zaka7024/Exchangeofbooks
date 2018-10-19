@@ -15,8 +15,12 @@ import android.transition.TransitionInflater
 import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
+import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.loadin_layout.*
+import java.util.*
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -35,9 +39,9 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         // check if user is signed in
-        if(FirebaseAuth.getInstance().uid != null){
+        /*if(FirebaseAuth.getInstance().uid != null){
             StartMainActivity()
-        }
+        }*/
 
         // pick image
         select_image_profile_register_activity.setOnClickListener {
@@ -86,24 +90,48 @@ class RegisterActivity : AppCompatActivity() {
         ref.createUserWithEmailAndPassword(email!!,password!!).addOnCompleteListener {
             Log.i("RegisterActivty","new user sign up")
             Log.i("RegisterActivty","user id: ${ref.uid}")
-                dialog.hide()
-            StartMainActivity()
-            }
+            SaveImageInTheStorage()
+            dialog.hide()
+        }
 
     }
 
     private fun StartMainActivity(){
         var intent = Intent(this@RegisterActivity, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
         // make a transition before exit
         var compat = ActivityOptionsCompat.makeSceneTransitionAnimation(this@RegisterActivity)
         startActivity(intent,compat.toBundle())
         Log.i("RegisterActivty","MainActivity is ready")
-        finish()
     }
 
     private fun PickProfileImage(){
         var intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
         startActivityForResult(intent,0)
+    }
+
+    private fun SaveImageInTheStorage(){
+        if(imageProfileUri == null) return
+        var filename = UUID.randomUUID().toString()
+        var ref = FirebaseStorage.getInstance().getReference("images/$filename")
+        ref.putFile(imageProfileUri!!).addOnSuccessListener {
+            Log.i("RegisterActivty","image profile uploaded to firebase storage")
+            ref.downloadUrl.addOnSuccessListener {
+                Log.i("RegisterActivty","image url $it")
+                SaveUserToDatabase(it.toString())
+
+            }
+        }
+    }
+
+    private fun SaveUserToDatabase(profile_image_url:String){
+        var uid = FirebaseAuth.getInstance().uid
+        var new_user = User(uid!!,username!!,email!!,profile_image_url,null,null)
+        var database = FirebaseDatabase.getInstance().getReference("users/$uid")
+        database.setValue(new_user).addOnSuccessListener {
+            Log.i("RegisterActivty","user saved to firebase")
+            StartMainActivity()
+        }
     }
 }
