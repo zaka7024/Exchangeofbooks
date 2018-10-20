@@ -9,7 +9,7 @@
         android:id="@+id/b2"
         android:title="Posts"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_action_post"        />
+        android:icon="@drawable/ic_action_home"        />
 
     <item
         android:id="@+id/b3"
