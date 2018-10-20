@@ -1,5 +1,7 @@
 package exchangeofbooks.lemonlab.com.exchangeofbooks.items
 
+import android.net.Uri
+import android.widget.ImageView
 import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.Item
@@ -8,6 +10,7 @@ import exchangeofbooks.lemonlab.com.exchangeofbooks.R
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Post
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import kotlinx.android.synthetic.main.post_row_layout.view.*
+import kotlin.coroutines.experimental.coroutineContext
 
 class post_item(var post:Post?):Item<ViewHolder>() {
     var user:User? = null
@@ -18,12 +21,28 @@ class post_item(var post:Post?):Item<ViewHolder>() {
 
     override fun bind(viewHolder: ViewHolder, position: Int) {
 
+        // get user from database
+
+        val database = FirebaseDatabase.getInstance().getReference("users/${post?.from_id}")
+
+        database.addValueEventListener(object :ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                user = p0.getValue(User::class.java)
+                viewHolder.itemView.post_username.text = user?.username
+                Picasso.get().load(user?.image_profile).into( viewHolder.itemView.post_image_profile)
+            }
+
+        })
+
         viewHolder.itemView.pots_post_textview.text = post?.text
         // load image from cash or picasso
         Picasso.get().load(post?.post_image).into(viewHolder.itemView.post_image_view)
         if(user != null){
-            viewHolder.itemView.post_username.text = user?.username
-            Picasso.get().load(user?.image_profile).into(viewHolder.itemView.post_image_profile)
+
         }
 
     }

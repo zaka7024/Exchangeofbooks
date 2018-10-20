@@ -127,7 +127,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun SaveUserToDatabase(profile_image_url:String){
         var uid = FirebaseAuth.getInstance().uid
-        var new_user = User(uid!!,username!!,email!!,profile_image_url,null,null)
+        var new_user = User(uid!!,username!!,email!!,profile_image_url)
         var database = FirebaseDatabase.getInstance().getReference("users/$uid")
         database.setValue(new_user).addOnSuccessListener {
             Log.i("RegisterActivty","user saved to firebase")

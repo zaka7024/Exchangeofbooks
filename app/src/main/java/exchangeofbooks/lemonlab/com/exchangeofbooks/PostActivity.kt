@@ -32,6 +32,7 @@ class PostActivity : AppCompatActivity() {
         ,resources.getStringArray(R.array.book_category))*/
 
         post_btn_post_activity.setOnClickListener {
+            // save post and close the activity
             UploadImageToStorage()
         }
 

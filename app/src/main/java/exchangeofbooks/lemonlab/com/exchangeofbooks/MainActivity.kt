@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.transition.Fade
 import android.transition.Slide
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -21,6 +22,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    var CurrentUser:User? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if(Build.VERSION.SDK_INT >= 21){
@@ -33,20 +36,21 @@ class MainActivity : AppCompatActivity() {
         }
 
         setContentView(R.layout.activity_main)
-        var u: User? = null
+
         var uid = FirebaseAuth.getInstance().uid
-        var ref = FirebaseDatabase.getInstance().getReference("users/${uid}")
+        var ref = FirebaseDatabase.getInstance().getReference("users/$uid")
         ref.addValueEventListener(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onDataChange(p0: DataSnapshot) {
-                u = p0.getValue(User::class.java)
+                CurrentUser = p0.getValue(User::class.java)
+                Log.i("MainActivity","CurrentUser ->" + CurrentUser?.username)
             }
 
         })
-        Toast.makeText(this,u?.username,Toast.LENGTH_SHORT).show()
+
         replaceFragment(HomeFragment())
         checkIfUserLoged()
 
