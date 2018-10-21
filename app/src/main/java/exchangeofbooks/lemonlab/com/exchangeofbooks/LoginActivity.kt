@@ -23,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         bact_to_register.setOnClickListener {
+
             this.finish()
         }
     }

@@ -55,7 +55,7 @@ class HomeFragment : Fragment() {
 
         var get_post = FirebaseDatabase.getInstance().getReference("posts")
         var up:Post? = null
-        var temp_list:ArrayList<Post>? = null
+
 
         // get data from firebase database
 
@@ -66,20 +66,22 @@ class HomeFragment : Fragment() {
 
             override fun onDataChange(p0: DataSnapshot) {
                 adapter.clear()
-
+                var temp_list:ArrayList<Post>? = ArrayList<Post>()
                 p0.children.forEach {
                     up = it.getValue(Post::class.java)
-                    temp_list?.add(up!!)
+                    temp_list!!.add(up!!)
+                }
+
+                // revers post then add it in recyclerView adapter
+                temp_list?.reverse()
+                Log.i("HomeFragemnt","post size: ${temp_list?.size}")
+                temp_list?.forEach {
+                    adapter.add(post_item(it))
                 }
             }
 
         })
 
-        // revers post then add it in recyclerView adapter
-        temp_list?.reverse()
-        temp_list?.forEach {
-            adapter.add(post_item(it))
-        }
 
     }
 }
