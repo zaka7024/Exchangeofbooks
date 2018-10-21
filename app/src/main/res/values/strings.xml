@@ -4,7 +4,34 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <array name="book_category">
-        <item>math</item>
-        <item>novel</item>
+        <!-- Books used in school -->
+        <item>Math</item>
+        <item>Computer Science</item>
+        <item>Religion</item>
+        <item>Social Science</item>
+        <item>Language and literature</item>
+        <item>Natural Science</item>
+        <item>History</item>
+        <item>Self-Improvement</item>
+        <!-- Novels -->
+        <item>Philosophical</item>
+        <item>Romance</item>
+        <item>Fiction</item>
+        <item>Realistic Fiction</item>
+    </array>
+    <array name="jordan_major_cities">
+        <!-- Governorates of Jordan -->
+        <item>Irbid</item>
+        <item>Ajloun</item>
+        <item>Jarash</item>
+        <item>Mafraq</item>
+        <item>Balqa</item>
+        <item>Amman</item>
+        <item>Zarqa</item>
+        <item>Madaba</item>
+        <item>Karak</item>
+        <item>Tafilah</item>
+        <item>Ma'an</item>
+        <item>Aqaba</item>
     </array>
 </resources>

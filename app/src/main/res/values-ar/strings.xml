@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">تبادل الكتب</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">مرحبا يالفراغمنت الفاضية</string>
+    <array name="book_category">
+        <!-- كتب جامعية -->
+        <item>الرياضيات</item>
+        <item>علوم الحاسوب</item>
+        <item>الدين</item>
+        <item>العلوم الاجتماعية</item>
+        <item>اللغة والآداب</item>
+        <item>العلوم الطبيعية</item>
+        <item>التاريخ</item>
+        <item>تطوير الذات</item>
+        <!-- روايات -->
+        <item>الروايات الفيلسوفيّة</item>
+        <item>الروايات الرومنسيّة</item>
+        <item>الروايات الخياليّة</item>
+        <item>الروايات الواقعيّة</item>
+    </array>
+    <array name="jordan_major_cities">
+        <!-- محافظات الأردن -->
+        <item>اربد</item>
+        <item>عجلون</item>
+        <item>جرش</item>
+        <item>المفرق</item>
+        <item>البلقاء</item>
+        <item>عمان</item>
+        <item>الزرقاء</item>
+        <item>مأدبا</item>
+        <item>الكرك</item>
+        <item>الطفيلة</item>
+        <item>معان</item>
+        <item>العقبة</item>
+    </array>
+</resources>
