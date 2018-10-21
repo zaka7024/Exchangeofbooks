@@ -41,9 +41,6 @@ class post_item(var post:Post?):Item<ViewHolder>() {
         viewHolder.itemView.pots_post_textview.text = post?.text
         // load image from cash or picasso
         Picasso.get().load(post?.post_image).into(viewHolder.itemView.post_image_view)
-        if(user != null){
-
-        }
 
     }
 }

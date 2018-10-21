@@ -16,6 +16,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Post
 import kotlinx.android.synthetic.main.activity_post.*
+import java.util.*
 
 class PostActivity : AppCompatActivity() {
 
@@ -65,7 +66,8 @@ class PostActivity : AppCompatActivity() {
     }
 
     private fun UploadImageToStorage(){
-        val ref = FirebaseStorage.getInstance().getReference("images")
+        var uid = UUID.randomUUID().toString()
+        val ref = FirebaseStorage.getInstance().getReference("images/$uid")
         if(post_image == null) return
         val dialog = ProgressDialog(this@PostActivity)
         dialog.setTitle("Posting")
