@@ -27,6 +27,7 @@ import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Post
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 class HomeFragment : Fragment() {
 
@@ -54,6 +55,10 @@ class HomeFragment : Fragment() {
 
         var get_post = FirebaseDatabase.getInstance().getReference("posts")
         var up:Post? = null
+        var temp_list:ArrayList<Post>? = null
+
+        // get data from firebase database
+
         get_post.addValueEventListener(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
 
@@ -61,12 +66,20 @@ class HomeFragment : Fragment() {
 
             override fun onDataChange(p0: DataSnapshot) {
                 adapter.clear()
+
                 p0.children.forEach {
                     up = it.getValue(Post::class.java)
-                    adapter.add(post_item(up))
+                    temp_list?.add(up!!)
                 }
             }
 
         })
+
+        // revers post then add it in recyclerView adapter
+        temp_list?.reverse()
+        temp_list?.forEach {
+            adapter.add(post_item(it))
+        }
+
     }
 }
