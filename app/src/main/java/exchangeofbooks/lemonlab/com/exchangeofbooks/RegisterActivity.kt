@@ -120,7 +120,6 @@ class RegisterActivity : AppCompatActivity() {
             ref.downloadUrl.addOnSuccessListener {
                 Log.i("RegisterActivty","image url $it")
                 SaveUserToDatabase(it.toString())
-
             }
         }
     }

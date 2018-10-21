@@ -88,3 +88,12 @@ class HomeFragment : Fragment() {
 
     }
 }
+/*
+        val vieww=activity.findViewById<View>(R.id.coordinatorLayout)
+val snackB= Snackbar.make(vieww, "MSG(eg : new posts)", Snackbar.LENGTH_LONG)
+snackB.setAction("Refresh"){
+        //if pressed refresh, what to do
+}
+snackB.setActionTextColor(Color.GREEN)
+snackB.show()
+ */
