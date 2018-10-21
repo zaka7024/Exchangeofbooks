@@ -22,7 +22,7 @@ class PostActivity : AppCompatActivity() {
 
     var category:String? = null
     var post_text:String? = null
-    var post_image: Uri? = null
+    var post_image: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,30 +60,38 @@ class PostActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if((requestCode == 0 || requestCode == 1)&& resultCode == Activity.RESULT_OK && data!= null){
-            post_image = data?.data
+            post_image = data?.data.toString()
             post_image_post_activity.setImageBitmap(MediaStore.Images.Media.getBitmap(contentResolver,data?.data))
+        }else{
+            post_image = "null"
         }
     }
 
     private fun UploadImageToStorage(){
         var uid = UUID.randomUUID().toString()
         val ref = FirebaseStorage.getInstance().getReference("images/$uid")
-        if(post_image == null) return
+        // check id post image is not equal null then...else we will use defult image
         val dialog = ProgressDialog(this@PostActivity)
         dialog.setTitle("Posting")
         dialog.setMessage("Pleas wait...")
         dialog.show()
-        ref.putFile(post_image!!).addOnSuccessListener {
-            Log.i("PostActivity", "post image uploaded to storage")
-            ref.downloadUrl.addOnSuccessListener {
-                Log.i("PostActivity", "post image url: ${it}")
-                PushNewPost(it!!)
-                dialog.hide()
+        if(post_image != null){
+            ref.putFile(Uri.parse(post_image!!)).addOnSuccessListener {
+                Log.i("PostActivity", "post image uploaded to storage")
+                ref.downloadUrl.addOnSuccessListener {
+                    Log.i("PostActivity", "post image url: ${it}")
+                    PushNewPost(it!!.toString())
+                    dialog.hide()
+                }
             }
+        }else if(post_image == null){
+            post_image = "null"
+            PushNewPost(post_image)
+            dialog.hide()
         }
     }
 
-    private fun PushNewPost(post_image_uri:Uri?){
+    private fun PushNewPost(post_image_uri:String?){
         //category = book_category_spinner.selectedItem.toString()
         post_text = post_text_post_activity.text.toString()
         val ref = FirebaseDatabase.getInstance().getReference("posts").push()

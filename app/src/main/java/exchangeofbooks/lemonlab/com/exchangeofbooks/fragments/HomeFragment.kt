@@ -76,7 +76,7 @@ class HomeFragment : Fragment() {
                 temp_list?.reverse()
                 Log.i("HomeFragemnt","post size: ${temp_list?.size}")
                 temp_list?.forEach {
-                    adapter.add(post_item(it))
+                    adapter.add(post_item(it,context!!))
                 }
             }
 
