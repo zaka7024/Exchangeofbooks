@@ -60,6 +60,7 @@ class HomeFragment : Fragment() {
             }
 
             override fun onDataChange(p0: DataSnapshot) {
+                adapter.clear()
                 p0.children.forEach {
                     up = it.getValue(Post::class.java)
                     adapter.add(post_item(up))

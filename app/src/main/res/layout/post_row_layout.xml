@@ -33,7 +33,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/noto_sans_bold"
         android:minHeight="40dp"
         android:text="Clan War Leagues are coming to Clash of Clans this October! Skill-based matchmaking, new MAGIC ITEMS and much more! #clashofclans #clanwarleagues  "
@@ -46,7 +46,7 @@
     <ImageView
         android:id="@+id/post_image_view"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="180dp"
         android:layout_marginTop="2dp"
         android:background="@drawable/image_post_container"
         android:scaleType="centerCrop"

@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:title="sign out"
-        android:id="@+id/sign_out"/>
+        android:id="@+id/sign_out"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_action_signout"/>
+    <item android:title="user"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_action_user"
+        android:id="@+id/user_btn" />
 
 </menu>
