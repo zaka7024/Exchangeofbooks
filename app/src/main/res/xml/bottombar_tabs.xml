@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/home"
+        icon="@drawable/ic_action_home"
+        title="Home" />
+    <tab
+        id="@+id/b2"
+        icon="@drawable/ic_action_post"
+        title="Nearby" />
+    <tab
+        id="@+id/b3"
+        icon="@drawable/ic_action_chat"
+        title="Friends" />
+
+    <tab
+        id="@+id/b4"
+        icon="@drawable/ic_action_settings"
+        title="Friends" />
+</tabs>

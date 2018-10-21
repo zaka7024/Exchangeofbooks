@@ -16,6 +16,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.roughike.bottombar.OnTabSelectListener
 import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.HomeFragment
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import kotlinx.android.synthetic.main.activity_main.*
@@ -54,19 +55,22 @@ class MainActivity : AppCompatActivity() {
         replaceFragment(HomeFragment())
         checkIfUserLoged()
 
-        bottom_navigation.setOnNavigationItemSelectedListener {
-            when(it?.itemId){
-                R.id.home -> {
-                    replaceFragment(HomeFragment())
-                    true
-                }
-                else->{
-                    //replaceFragment(HomeFragment())
-                    true
-                }
+        bottom_navigation.setOnTabSelectListener(object :OnTabSelectListener{
+            override fun onTabSelected(tabId: Int) {
+                when(tabId){
+                    R.id.home -> {
+                        replaceFragment(HomeFragment())
+                        true
+                    }
+                    else->{
+                        //replaceFragment(HomeFragment())
+                        true
+                    }
 
+                }
             }
-        }
+
+        })
 
     }
     private fun replaceFragment(fragment:Fragment){

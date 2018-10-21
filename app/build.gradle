@@ -42,4 +42,5 @@ dependencies {
     implementation 'com.xwray:groupie:2.1.0'
     implementation 'com.xwray:groupie-kotlin-android-extensions:2.1.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
+    implementation 'com.roughike:bottom-bar:2.3.1'
 }

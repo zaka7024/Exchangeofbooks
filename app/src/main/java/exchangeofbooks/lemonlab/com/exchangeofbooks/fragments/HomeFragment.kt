@@ -75,8 +75,11 @@ class HomeFragment : Fragment() {
                 // revers post then add it in recyclerView adapter
                 temp_list?.reverse()
                 Log.i("HomeFragemnt","post size: ${temp_list?.size}")
-                temp_list?.forEach {
-                    adapter.add(post_item(it,context!!))
+                if(temp_list != null){
+                    temp_list?.forEach {
+                        if(it != null)
+                            adapter.add(post_item(it,context))
+                    }
                 }
             }
 
