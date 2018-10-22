@@ -63,7 +63,12 @@ class CommentsActivity : AppCompatActivity() {
             override fun onDataChange(p0: DataSnapshot) {
                 post = p0.getValue(Post::class.java)
                 Picasso.get().load(user_post?.image_profile).into(post_image_comments_activity)
-                Picasso.get().load(post?.post_image).into(post_image_view_comments_activity)
+                if(post?.post_image == "null"){
+                    post_image_view_comments_activity.setImageResource(R.drawable.default_post_image)
+                }else{
+                    Picasso.get().load(post?.post_image).into(post_image_view_comments_activity)
+                }
+
                 pots_post_textview_comment_activity.text = post?.text
                 Log.i("CommentsActivity","post: ${post?.text}")
                 Log.i("CommentsActivity","post image: ${post?.post_image}")

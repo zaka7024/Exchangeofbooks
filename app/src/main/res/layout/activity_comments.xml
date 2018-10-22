@@ -8,17 +8,16 @@
 
     <TextView
         android:id="@+id/pots_post_textview_comment_activity"
-        android:layout_width="384dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/spary"
         android:fontFamily="@font/noto_sans"
-        android:minHeight="40dp"
+        android:minHeight="80dp"
+        android:padding="6dp"
         android:text="Clan War Leagues are coming to Clash of Clans this October! Skill-based matchmaking, new MAGIC ITEMS and much more! #clashofclans #clanwarleagues  "
         android:textColor="@color/mainColorBlue"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/post_image_view_comments_activity"
-        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="@+id/post_image_view_comments_activity"
         app:layout_constraintTop_toBottomOf="@+id/post_image_view_comments_activity" />
 
@@ -48,43 +47,52 @@
         android:id="@+id/post_image_view_comments_activity"
         android:layout_width="0dp"
         android:layout_height="180dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/image_post_container"
         android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="@+id/post_image_comments_activity"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/post_image_comments_activity"
         tools:srcCompat="@tools:sample/backgrounds/scenic[15]" />
 
-    <EditText
-        android:id="@+id/cooment_edittext_comments_activity"
-        android:layout_width="280dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/comments_edittext_background"
-        android:ems="10"
-        android:hint="Write a new comment"
-        android:inputType="textPersonName"
-        android:paddingLeft="4dp"
-        android:paddingRight="4dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pots_post_textview_comment_activity" />
-
-    <Button
-        android:id="@+id/send_comment_comments_activity"
+    <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/small_rounded_btn_blue"
-        android:fontFamily="@font/noto_sans"
-        android:text="send"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/cooment_edittext_comments_activity"
+        android:layout_height="wrap_content"
+        android:background="#eeeeee"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:weightSum="1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/cooment_edittext_comments_activity"
-        app:layout_constraintTop_toTopOf="@+id/cooment_edittext_comments_activity" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pots_post_textview_comment_activity">
+
+        <EditText
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:id="@+id/cooment_edittext_comments_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="0.8"
+            android:background="@drawable/comments_edittext_background"
+            android:ems="10"
+            android:hint="Write a new comment"
+            android:inputType="textPersonName"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp" />
+
+        <Button
+            android:id="@+id/send_comment_comments_activity"
+            android:layout_width="20dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:layout_weight="0.2"
+            android:background="@drawable/small_rounded_btn_blue"
+            android:fontFamily="@font/noto_sans"
+            android:text="send"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+
 
 </android.support.constraint.ConstraintLayout>
