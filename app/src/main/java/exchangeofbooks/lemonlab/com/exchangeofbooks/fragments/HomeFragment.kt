@@ -39,7 +39,6 @@ class HomeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-
         //add new post
         add_post_btn.setOnClickListener {
             var intent = Intent(context,PostActivity::class.java)
@@ -99,3 +98,4 @@ snackB.setAction("Refresh"){
 snackB.setActionTextColor(Color.GREEN)
 snackB.show()
  */
+

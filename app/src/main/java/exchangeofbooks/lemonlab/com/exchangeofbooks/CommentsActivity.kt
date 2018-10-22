@@ -30,13 +30,13 @@ class CommentsActivity : AppCompatActivity() {
         // get user from data base and post
         getUser()
         getPost()
-        Log.i("CommentsActivity","user id:$user_id user name: ${user_post?.username}")
+
         Log.i("CommentsActivity","post id:$post_id")
 
     }
 
     private fun getUser(){
-        val ref = FirebaseDatabase.getInstance().getReference("users/$user_id")
+        var ref = FirebaseDatabase.getInstance().getReference("users/$user_id")
         ref.addValueEventListener(object:ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
                 TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -44,11 +44,10 @@ class CommentsActivity : AppCompatActivity() {
 
             override fun onDataChange(p0: DataSnapshot) {
                 user_post = p0.getValue(User::class.java)
+                Log.i("CommentsActivity","user id:$user_id user name: ${user_post?.username}")
                 // change ui value
                 post_username_comments_activity.text = user_post?.username
-                pots_post_textview_comment_activity.text = post?.text
-                Picasso.get().load(user_post?.image_profile).into(post_image_comments_activity)
-                Picasso.get().load(post?.post_image).into(post_image_comments_activity)
+
             }
 
         })
@@ -63,6 +62,11 @@ class CommentsActivity : AppCompatActivity() {
 
             override fun onDataChange(p0: DataSnapshot) {
                 post = p0.getValue(Post::class.java)
+                Picasso.get().load(user_post?.image_profile).into(post_image_comments_activity)
+                Picasso.get().load(post?.post_image).into(post_image_view_comments_activity)
+                pots_post_textview_comment_activity.text = post?.text
+                Log.i("CommentsActivity","post: ${post?.text}")
+                Log.i("CommentsActivity","post image: ${post?.post_image}")
             }
 
         })
