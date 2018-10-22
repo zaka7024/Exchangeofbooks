@@ -88,6 +88,8 @@ class HomeFragment : Fragment() {
 
     }
 }
+// we wiil use the snackbar to update pur recyclerview when a new post has added to firebase data base
+
 /*
         val vieww=activity.findViewById<View>(R.id.coordinatorLayout)
 val snackB= Snackbar.make(vieww, "MSG(eg : new posts)", Snackbar.LENGTH_LONG)

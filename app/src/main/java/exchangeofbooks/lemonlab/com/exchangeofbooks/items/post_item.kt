@@ -1,6 +1,7 @@
 package exchangeofbooks.lemonlab.com.exchangeofbooks.items
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.util.Log
 import android.widget.ImageView
@@ -8,7 +9,9 @@ import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
+import exchangeofbooks.lemonlab.com.exchangeofbooks.CommentsActivity
 import exchangeofbooks.lemonlab.com.exchangeofbooks.R
+import exchangeofbooks.lemonlab.com.exchangeofbooks.keys.keys
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Post
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import kotlinx.android.synthetic.main.post_row_layout.view.*
@@ -52,6 +55,15 @@ class post_item(var post:Post?, var context:Context?):Item<ViewHolder>() {
             viewHolder.itemView.post_image_view.setImageDrawable(context!!.resources.getDrawable(R.drawable.default_post_image))
         }else{
             Picasso.get().load(post?.post_image).into(viewHolder.itemView.post_image_view)
+        }
+
+        // event lestiner
+
+        viewHolder.itemView.setOnClickListener {
+            var intent = Intent(context,CommentsActivity::class.java)
+            intent.putExtra(keys.USER_POST_FROM_ID,post?.from_id)
+            intent.putExtra(keys.POST_ID,post?.post_id)
+            context?.startActivity(intent)
         }
 
 

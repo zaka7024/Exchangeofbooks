@@ -6,4 +6,85 @@
     android:layout_height="match_parent"
     tools:context=".CommentsActivity">
 
+    <TextView
+        android:id="@+id/pots_post_textview_comment_activity"
+        android:layout_width="384dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/noto_sans"
+        android:minHeight="40dp"
+        android:text="Clan War Leagues are coming to Clash of Clans this October! Skill-based matchmaking, new MAGIC ITEMS and much more! #clashofclans #clanwarleagues  "
+        android:textColor="@color/mainColorBlue"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/post_image_view_comments_activity"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="@+id/post_image_view_comments_activity"
+        app:layout_constraintTop_toBottomOf="@+id/post_image_view_comments_activity" />
+
+    <TextView
+        android:id="@+id/post_username_comments_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/post_image_comments_activity"
+        app:layout_constraintTop_toTopOf="@+id/post_image_comments_activity"
+        tools:text="zaka7024" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/post_image_comments_activity"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:civ_border_color="@color/mainColorBlue"
+        app:civ_border_width="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/btn_star_big_on" />
+
+    <ImageView
+        android:id="@+id/post_image_view_comments_activity"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/image_post_container"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="@+id/post_image_comments_activity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/post_image_comments_activity"
+        tools:srcCompat="@tools:sample/backgrounds/scenic[15]" />
+
+    <EditText
+        android:id="@+id/cooment_edittext_comments_activity"
+        android:layout_width="280dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/comments_edittext_background"
+        android:ems="10"
+        android:hint="Write a new comment"
+        android:inputType="textPersonName"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pots_post_textview_comment_activity" />
+
+    <Button
+        android:id="@+id/send_comment_comments_activity"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/small_rounded_btn_blue"
+        android:fontFamily="@font/noto_sans"
+        android:text="send"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/cooment_edittext_comments_activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cooment_edittext_comments_activity"
+        app:layout_constraintTop_toTopOf="@+id/cooment_edittext_comments_activity" />
+
 </android.support.constraint.ConstraintLayout>
