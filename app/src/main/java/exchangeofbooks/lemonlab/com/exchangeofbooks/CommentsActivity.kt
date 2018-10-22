@@ -2,6 +2,7 @@ package exchangeofbooks.lemonlab.com.exchangeofbooks
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.widget.Toast
 import com.google.firebase.database.DataSnapshot
@@ -9,7 +10,11 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.ViewHolder
+import exchangeofbooks.lemonlab.com.exchangeofbooks.items.comment_item
 import exchangeofbooks.lemonlab.com.exchangeofbooks.keys.keys
+import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Comment
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Post
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import kotlinx.android.synthetic.main.activity_comments.*
@@ -20,6 +25,7 @@ class CommentsActivity : AppCompatActivity() {
     var post_id:String? = null
     var user_post:User? = null
     var post:Post? = null
+    var adapter = GroupAdapter<ViewHolder>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_comments)
@@ -32,6 +38,13 @@ class CommentsActivity : AppCompatActivity() {
         getPost()
 
         Log.i("CommentsActivity","post id:$post_id")
+
+        comments_recycler_view.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+        comments_recycler_view.adapter = adapter
+
+        send_comment_comments_activity.setOnClickListener {
+            adapter.add(comment_item(Comment(user_id!!,"hala","","")))
+        }
 
     }
 
