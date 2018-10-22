@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:paddingBottom="4dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/post_image_profile"
@@ -12,10 +13,10 @@
         android:layout_height="55dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        app:civ_border_color="@color/mainColorBlue"
+        app:civ_border_width="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:civ_border_width="1dp"
-        app:civ_border_color="@color/mainColorBlue"
         app:srcCompat="@android:drawable/btn_star_big_on" />
 
     <TextView
@@ -48,71 +49,30 @@
         android:layout_width="0dp"
         android:layout_height="200dp"
         android:layout_marginTop="2dp"
-        android:background="@drawable/image_post_container"
         android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="@+id/pots_post_textview"
-        app:layout_constraintStart_toStartOf="@+id/pots_post_textview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pots_post_textview"
+        app:srcCompat="@drawable/default_post_image"
         tools:srcCompat="@tools:sample/backgrounds/scenic[15]" />
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/post_image_view"
-        app:layout_constraintStart_toStartOf="@+id/post_image_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/post_image_view">
 
-        <TextView
-            android:id="@+id/post_like_text_view"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/tkae_book_main_activity"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:fontFamily="@font/noto_sans"
-            android:text="12"
-            android:textAlignment="center" />
-
-        <ImageView
-            android:id="@+id/post_like_image_view"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ic_action_like" />
-
-        <TextView
-            android:id="@+id/post_comment_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:fontFamily="@font/noto_sans"
-            android:text="3"
-            android:textAlignment="center" />
-
-        <ImageView
-            android:id="@+id/post_comment_image_view"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ic_action_comments" />
-
-        <TextView
-            android:id="@+id/post_report_text_view"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:fontFamily="@font/noto_sans"
-            android:text="Report"
-            android:textAlignment="center" />
-
-        <ImageView
-            android:id="@+id/post_report_image_view"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/ic_action_report" />
+            android:background="@color/mainColorBlue"
+            android:text="take this book"
+            android:textColor="@color/white" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

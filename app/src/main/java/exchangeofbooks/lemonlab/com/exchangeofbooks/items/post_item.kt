@@ -59,7 +59,7 @@ class post_item(var post:Post?, var context:Context?):Item<ViewHolder>() {
 
         // event lestiner
 
-        viewHolder.itemView.setOnClickListener {
+        viewHolder.itemView.tkae_book_main_activity.setOnClickListener {
             var intent = Intent(context,CommentsActivity::class.java)
             intent.putExtra(keys.USER_POST_FROM_ID,post?.from_id)
             intent.putExtra(keys.POST_ID,post?.post_id)

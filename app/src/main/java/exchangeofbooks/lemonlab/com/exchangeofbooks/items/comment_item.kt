@@ -26,18 +26,18 @@ class comment_item(var comment:Comment):Item<ViewHolder>() {
 
 
         var ref = FirebaseDatabase.getInstance().getReference("users/${comment.from_id}")
-        ref.addValueEventListener(object :ValueEventListener{
+        ref.addListenerForSingleValueEvent(object:ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
-
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onDataChange(p0: DataSnapshot) {
-                var user = p0.getValue(User::class.java)
+                val user:User? = p0.getValue(User::class.java)
                 Log.i("comment_item","comment user: ${user}")
-                    viewHolder.itemView.username_comment_row.text = user?.username
+                viewHolder.itemView.username_comment_row.text = user?.username
                 Picasso.get().load(user?.image_profile).into(viewHolder.itemView.image_profile_comment_row)
-
             }
+
         })
     }
 }
