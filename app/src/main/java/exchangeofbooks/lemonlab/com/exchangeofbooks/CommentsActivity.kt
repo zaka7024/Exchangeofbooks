@@ -12,12 +12,14 @@ import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
+import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity.Companion.CurrentUser
 import exchangeofbooks.lemonlab.com.exchangeofbooks.items.comment_item
 import exchangeofbooks.lemonlab.com.exchangeofbooks.keys.keys
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Comment
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Post
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import kotlinx.android.synthetic.main.activity_comments.*
+import java.util.*
 
 class CommentsActivity : AppCompatActivity() {
 
@@ -42,8 +44,15 @@ class CommentsActivity : AppCompatActivity() {
         comments_recycler_view.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         comments_recycler_view.adapter = adapter
 
+
+
+
         send_comment_comments_activity.setOnClickListener {
-            adapter.add(comment_item(Comment(user_id!!,"hala","","")))
+            var comment_id = UUID.randomUUID().toString()
+            var new_comment = Comment(comment_id,cooment_edittext_comments_activity.text.toString(),
+                    CurrentUser!!.id,post_id!!,"today")
+            adapter.add(comment_item(new_comment))
+            putComment(new_comment)
         }
 
     }
@@ -88,5 +97,14 @@ class CommentsActivity : AppCompatActivity() {
             }
 
         })
+    }
+
+    private fun putComment(comment:Comment){
+        // create node in firebase and set data
+
+        val ref = FirebaseDatabase.getInstance().getReference("comments/${post_id}").push()
+        ref.setValue(comment).addOnCompleteListener {
+            Log.i("CommentsActivity","new comment posted: ${comment?.text}")
+        }
     }
 }
