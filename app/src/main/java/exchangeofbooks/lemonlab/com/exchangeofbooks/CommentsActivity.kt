@@ -39,7 +39,7 @@ class CommentsActivity : AppCompatActivity() {
 
         Log.i("CommentsActivity","post id:$post_id")
 
-        comments_recycler_view.layoutManager = LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+        comments_recycler_view.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         comments_recycler_view.adapter = adapter
 
         send_comment_comments_activity.setOnClickListener {

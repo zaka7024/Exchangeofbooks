@@ -8,6 +8,7 @@ import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
+import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity.Companion.CurrentUser
 import exchangeofbooks.lemonlab.com.exchangeofbooks.R
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Comment
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
@@ -23,21 +24,7 @@ class comment_item(var comment:Comment):Item<ViewHolder>() {
 
 
         viewHolder.itemView.text_comment_row.text = comment.text
-
-
-        var ref = FirebaseDatabase.getInstance().getReference("users/${comment.from_id}")
-        ref.addListenerForSingleValueEvent(object:ValueEventListener{
-            override fun onCancelled(p0: DatabaseError) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
-
-            override fun onDataChange(p0: DataSnapshot) {
-                val user:User? = p0.getValue(User::class.java)
-                Log.i("comment_item","comment user: ${user}")
-                viewHolder.itemView.username_comment_row.text = user?.username
-                Picasso.get().load(user?.image_profile).into(viewHolder.itemView.image_profile_comment_row)
-            }
-
-        })
+        viewHolder.itemView.username_comment_row.text = CurrentUser?.username
+        Picasso.get().load(CurrentUser?.image_profile).into(viewHolder.itemView.image_profile_comment_row)
     }
 }
