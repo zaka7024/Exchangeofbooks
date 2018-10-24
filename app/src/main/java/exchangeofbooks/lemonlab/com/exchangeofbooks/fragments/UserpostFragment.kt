@@ -51,7 +51,6 @@ class UserpostFragment : Fragment() {
                 //when user has swiped
                 val adapter = cuurent_user_posts_recycler_view.adapter as GroupAdapter
                 //action to do
-                TODO()
                 adapter.removeGroup(viewHolder.adapterPosition)
 
             }
@@ -110,7 +109,7 @@ class UserpostFragment : Fragment() {
 
             if (isCanceled) {
                 clearCanvas(c, itemView.right + dX, itemView.top.toFloat(), itemView.right.toFloat(), itemView.bottom.toFloat())
-                super.onChildDraw(c, recyclerView, viewHolder, dX/4, dY, actionState, isCurrentlyActive)
+                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
                 return
             }
 
@@ -131,7 +130,7 @@ class UserpostFragment : Fragment() {
             deleteIcon!!.setBounds(deleteIconLeft, deleteIconTop, deleteIconRight, deleteIconBottom)
             deleteIcon.draw(c)
 
-            super.onChildDraw(c, recyclerView, viewHolder, dX/4, dY, actionState, isCurrentlyActive)
+            super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
         }
 
         private fun clearCanvas(c: Canvas?, left: Float, top: Float, right: Float, bottom: Float) {
