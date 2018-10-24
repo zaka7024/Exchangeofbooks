@@ -1,5 +1,6 @@
 package exchangeofbooks.lemonlab.com.exchangeofbooks
 
+import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -18,6 +19,7 @@ import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Post
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import kotlinx.android.synthetic.main.activity_comments.*
 import kotlinx.android.synthetic.main.fragment_home.*
+import java.lang.Exception
 import java.util.*
 
 class CommentsActivity : AppCompatActivity() {
@@ -129,11 +131,23 @@ class CommentsActivity : AppCompatActivity() {
                 // get the comments from database and put it into our adapter
                 var comment = p0.getValue(Comment::class.java)
                 adapter.add(comment_item(comment!!))//
+
             }
+            /*
+                val dingSound=MediaPlayer.create(this@CommentsActivity, R.raw.ding_new_comment)
+                //if two comments come in the same time, one sound is played.
+                //remove try & catch if you want two sounds at the same time.
+                try{
+                    dingSound.stop()
+                    dingSound.reset()
+                }catch (e:Exception){}
+                dingSound.start()
+             */
 
             override fun onChildRemoved(p0: DataSnapshot) {
 
             }
+
 
         })
     }
