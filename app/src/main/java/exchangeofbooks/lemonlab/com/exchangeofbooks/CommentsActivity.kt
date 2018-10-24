@@ -127,7 +127,7 @@ class CommentsActivity : AppCompatActivity() {
 
             override fun onChildAdded(p0: DataSnapshot, p1: String?) {
                 var comment = p0.getValue(Comment::class.java)
-                adapter.add(comment_item(comment!!))
+                adapter.add(comment_item(comment!!))//
             }
 
             override fun onChildRemoved(p0: DataSnapshot) {
