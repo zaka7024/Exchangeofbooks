@@ -4,7 +4,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="android:actionBarStyle">@style/MyActionBar</item>
-        <item name="colorPrimary">#FF00B5CC</item>
+        <item name="colorPrimary">@color/mainColorBlue</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <!-- Support library compatibility -->
         <item name="android:windowContentTransitions" tools:ignore="NewApi">true</item>
