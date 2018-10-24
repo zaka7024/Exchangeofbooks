@@ -11,6 +11,7 @@ import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,11 +47,12 @@ class UserpostFragment : Fragment() {
         cuurent_user_posts_recycler_view.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         cuurent_user_posts_recycler_view.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         getUserPosts()
-        val swipeHandlerDel = object : SwipeToDeleteCallback(context!!.applicationContext) {
+        val swipeHandlerDel = object : SwipeToDeleteCallback(context!!) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, po: Int) {
                 //when user has swiped
-                val adapter = cuurent_user_posts_recycler_view.adapter as GroupAdapter
                 //action to do
+                deletePost()
+                Log.i("UserpostFragment","you delete this post: $po")
                 adapter.removeGroup(viewHolder.adapterPosition)
 
             }
@@ -76,6 +78,21 @@ class UserpostFragment : Fragment() {
 
         })
     }
+
+    private fun deletePost(){
+        /*
+        val ref = FirebaseDatabase.getInstance().getReference("posts/${post_id}")
+        ref.removeValue().addOnCompleteListener {
+
+        }
+
+        val user_ref = FirebaseDatabase.getInstance().getReference("user_posts/${post_id}")
+        user_ref.removeValue().addOnCompleteListener {
+
+        }
+        */
+    }
+
     abstract class SwipeToDeleteCallback(context: Context) :
             ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
 
