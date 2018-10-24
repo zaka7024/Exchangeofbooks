@@ -109,8 +109,13 @@ class UserpostFragment : Fragment() {
             return false
         }
 
-        override fun getSwipeThreshold(viewHolder: RecyclerView.ViewHolder) = 0.3f
+        override fun getAnimationDuration(recyclerView: RecyclerView, animationType: Int,
+                                          animateDx: Float, animateDy: Float): Long {
+            return 0
+        }
 
+
+        override fun getSwipeThreshold(viewHolder: RecyclerView.ViewHolder) = 0.3f
         override fun onChildDraw(
                 c: Canvas,
                 recyclerView: RecyclerView,
@@ -130,7 +135,6 @@ class UserpostFragment : Fragment() {
                 super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
                 return
             }
-
             // Draw the red delete background
             background.color = backgroundColor
             background.setBounds(itemView.right + dX.toInt()/4, itemView.top, itemView.right, itemView.bottom)
