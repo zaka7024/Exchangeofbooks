@@ -51,7 +51,7 @@ class UserpostFragment : Fragment() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, po: Int) {
                 //when user has swiped
                 //action to do
-                deletePost()
+                deletePost((adapter.getItem(viewHolder.adapterPosition) as cuurent_user_item).post)
                 Log.i("UserpostFragment","you delete this post: ${viewHolder.adapterPosition}")
                 adapter.removeGroup(viewHolder.adapterPosition)
 
@@ -79,18 +79,19 @@ class UserpostFragment : Fragment() {
         })
     }
 
-    private fun deletePost(){
-        /*
-        val ref = FirebaseDatabase.getInstance().getReference("posts/${post_id}")
+    private fun deletePost(post: Post){
+        Log.i("UserpostFragment","i will delete this post: ${post.post_id}")
+        Log.i("UserpostFragment","current user id: ${CurrentUser?.id}")
+        val ref = FirebaseDatabase.getInstance().getReference("posts/${post.post_id}")
         ref.removeValue().addOnCompleteListener {
-
+            Log.i("UserpostFragment","deleted")
         }
 
-        val user_ref = FirebaseDatabase.getInstance().getReference("user_posts/${post_id}")
+        val user_ref = FirebaseDatabase.getInstance().getReference("users_post/${CurrentUser?.id}/${post.post_id}")
         user_ref.removeValue().addOnCompleteListener {
 
         }
-        */
+
     }
 
     abstract class SwipeToDeleteCallback(context: Context) :
