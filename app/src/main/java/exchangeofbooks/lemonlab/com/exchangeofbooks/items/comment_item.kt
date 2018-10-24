@@ -22,9 +22,23 @@ class comment_item(var comment:Comment):Item<ViewHolder>() {
 
     override fun bind(viewHolder: ViewHolder, position: Int) {
 
+        val ref = FirebaseDatabase.getInstance().getReference("users/${comment.from_id}")
 
-        viewHolder.itemView.text_comment_row.text = comment.text
-        viewHolder.itemView.username_comment_row.text = CurrentUser?.username
-        Picasso.get().load(CurrentUser?.image_profile).into(viewHolder.itemView.image_profile_comment_row)
+        ref.addValueEventListener(object:ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                // get user that posted the comment
+                var user_comment:User? = p0.getValue(User::class.java)
+
+                viewHolder.itemView.text_comment_row.text = comment.text
+                viewHolder.itemView.username_comment_row.text = user_comment?.username
+                Picasso.get().load(user_comment?.image_profile).into(viewHolder.itemView.image_profile_comment_row)
+            }
+
+        })
+
     }
 }

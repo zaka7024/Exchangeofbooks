@@ -4,11 +4,9 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import android.view.View
 import android.widget.Toast
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
@@ -19,6 +17,7 @@ import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Comment
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Post
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import kotlinx.android.synthetic.main.activity_comments.*
+import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
 
 class CommentsActivity : AppCompatActivity() {
@@ -38,7 +37,7 @@ class CommentsActivity : AppCompatActivity() {
         // get user from data base and post
         getUser()
         getPost()
-
+        lestenToComments()
         Log.i("CommentsActivity","post id:$post_id")
 
         comments_recycler_view.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
@@ -51,7 +50,9 @@ class CommentsActivity : AppCompatActivity() {
             var comment_id = UUID.randomUUID().toString()
             var new_comment = Comment(comment_id,cooment_edittext_comments_activity.text.toString(),
                     CurrentUser!!.id,post_id!!,"today")
-            adapter.add(comment_item(new_comment))
+            // clear the ui and move to end of rv
+            cooment_edittext_comments_activity.setText("")
+            scrollToLastItem()
             putComment(new_comment)
         }
 
@@ -103,8 +104,41 @@ class CommentsActivity : AppCompatActivity() {
         // create node in firebase and set data
 
         val ref = FirebaseDatabase.getInstance().getReference("comments/${post_id}").push()
-        ref.setValue(comment).addOnCompleteListener {
+        comment.id = ref.key.toString()
+                ref.setValue(comment).addOnCompleteListener {
             Log.i("CommentsActivity","new comment posted: ${comment?.text}")
         }
+    }
+
+    private fun lestenToComments(){
+        val ref = FirebaseDatabase.getInstance().getReference("comments/${post_id}")
+        ref.addChildEventListener(object: ChildEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onChildMoved(p0: DataSnapshot, p1: String?) {
+
+            }
+
+            override fun onChildChanged(p0: DataSnapshot, p1: String?) {
+
+            }
+
+            override fun onChildAdded(p0: DataSnapshot, p1: String?) {
+                var comment = p0.getValue(Comment::class.java)
+                adapter.add(comment_item(comment!!))
+            }
+
+            override fun onChildRemoved(p0: DataSnapshot) {
+
+            }
+
+        })
+    }
+
+    fun scrollToLastItem(){
+        comment_activity_scroll_view.fullScroll(View.FOCUS_DOWN)
+        comments_recycler_view.scrollToPosition(adapter.itemCount - 1 )
     }
 }
