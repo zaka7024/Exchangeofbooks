@@ -130,7 +130,7 @@ class UserpostFragment : Fragment() {
             deleteIcon!!.setBounds(deleteIconLeft, deleteIconTop, deleteIconRight, deleteIconBottom)
             deleteIcon.draw(c)
 
-            super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+            super.onChildDraw(c, recyclerView, viewHolder, dX/4, dY, actionState, isCurrentlyActive)
         }
 
         private fun clearCanvas(c: Canvas?, left: Float, top: Float, right: Float, bottom: Float) {
