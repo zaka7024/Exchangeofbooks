@@ -52,7 +52,7 @@ class UserpostFragment : Fragment() {
                 //when user has swiped
                 //action to do
                 deletePost()
-                Log.i("UserpostFragment","you delete this post: $po")
+                Log.i("UserpostFragment","you delete this post: ${viewHolder.adapterPosition}")
                 adapter.removeGroup(viewHolder.adapterPosition)
 
             }
