@@ -61,6 +61,8 @@ class UserpostFragment : Fragment() {
     }
 }
 
+// left your work here
+
 class cuurent_user_item(var post:Post):Item<ViewHolder>(){ // this is the viewhollder from adpater
     // you can access the itemview like this:
     // viewHolder.itemView. ....
