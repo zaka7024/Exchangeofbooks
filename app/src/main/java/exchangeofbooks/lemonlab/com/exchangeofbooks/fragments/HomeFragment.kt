@@ -20,9 +20,11 @@ import com.google.firebase.database.ValueEventListener
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import exchangeofbooks.lemonlab.com.exchangeofbooks.PostActivity
+import exchangeofbooks.lemonlab.com.exchangeofbooks.Profile
 
 import exchangeofbooks.lemonlab.com.exchangeofbooks.R
 import exchangeofbooks.lemonlab.com.exchangeofbooks.items.post_item
+import exchangeofbooks.lemonlab.com.exchangeofbooks.keys.keys
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Post
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -83,6 +85,7 @@ class HomeFragment : Fragment() {
             }
 
         })
+
 
 
     }

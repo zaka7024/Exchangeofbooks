@@ -10,6 +10,7 @@ import com.squareup.picasso.Picasso
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 import exchangeofbooks.lemonlab.com.exchangeofbooks.CommentsActivity
+import exchangeofbooks.lemonlab.com.exchangeofbooks.Profile
 import exchangeofbooks.lemonlab.com.exchangeofbooks.R
 import exchangeofbooks.lemonlab.com.exchangeofbooks.keys.keys
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Post
@@ -66,6 +67,12 @@ class post_item(var post:Post?, var context:Context?):Item<ViewHolder>() {
             context?.startActivity(intent)
         }
 
-
+        // open user profile activity
+        viewHolder.itemView.post_image_profile.setOnClickListener {
+            var _post = viewHolder as Post
+            var intent = Intent(context, Profile::class.java)
+            intent.putExtra(keys.USER_ID,post?.from_id)
+            context?.startActivity(intent)
+        }
     }
 }
