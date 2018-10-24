@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
+import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity.Companion.CurrentUser
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Post
 import kotlinx.android.synthetic.main.activity_post.*
 import java.util.*
@@ -98,6 +99,11 @@ class PostActivity : AppCompatActivity() {
         var post = Post(ref.key!!,FirebaseAuth.getInstance().uid!!,post_text!!,"0","0",post_image_uri.toString(),"")
         ref.setValue(post).addOnCompleteListener {
             Log.i("PostActivity","post pushed")
+
+        }
+        val user_ref = FirebaseDatabase.getInstance().getReference("users_post/${CurrentUser?.id}").push()
+        post.post_id = user_ref.key!!
+        user_ref.setValue(post).addOnCompleteListener {
             this@PostActivity.finish()
         }
     }

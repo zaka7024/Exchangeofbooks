@@ -18,6 +18,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.roughike.bottombar.OnTabSelectListener
 import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.HomeFragment
+import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.UserpostFragment
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -63,6 +64,9 @@ class MainActivity : AppCompatActivity() {
                     R.id.home -> {
                         replaceFragment(HomeFragment())
                         true
+                    }
+                    R.id.user_post ->{
+                        replaceFragment(UserpostFragment())
                     }
                     else->{
                         //replaceFragment(HomeFragment())

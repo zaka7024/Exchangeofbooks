@@ -5,7 +5,7 @@
         icon="@drawable/ic_action_home"
         title="Home" />
     <tab
-        id="@+id/b2"
+        id="@+id/user_post"
         icon="@drawable/ic_action_post"
         title="Nearby" />
     <tab
