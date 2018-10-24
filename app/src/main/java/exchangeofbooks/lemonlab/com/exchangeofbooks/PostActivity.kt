@@ -101,7 +101,7 @@ class PostActivity : AppCompatActivity() {
             Log.i("PostActivity","post pushed")
 
         }
-        val user_ref = FirebaseDatabase.getInstance().getReference("users_post/${CurrentUser?.id}").push()
+        val user_ref = FirebaseDatabase.getInstance().getReference("users_post/${CurrentUser?.id}/${ref.key}")
         //post.post_id = user_ref.key!! // i do not need that
         user_ref.setValue(post).addOnCompleteListener {
             this@PostActivity.finish()
