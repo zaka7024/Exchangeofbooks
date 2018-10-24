@@ -51,6 +51,7 @@ class UserpostFragment : Fragment() {
                 //when user has swiped
                 val adapter = cuurent_user_posts_recycler_view.adapter as GroupAdapter
                 //action to do
+                TODO()
                 adapter.removeGroup(viewHolder.adapterPosition)
 
             }
@@ -64,7 +65,6 @@ class UserpostFragment : Fragment() {
         var ref = FirebaseDatabase.getInstance().getReference("users_post/${CurrentUser?.id}")
         ref.addValueEventListener(object:ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
-
             }
 
             override fun onDataChange(p0: DataSnapshot) {
@@ -92,7 +92,8 @@ class UserpostFragment : Fragment() {
             return false
         }
 
-        override fun getSwipeThreshold(viewHolder: RecyclerView.ViewHolder) = 0.8f
+        override fun getSwipeThreshold(viewHolder: RecyclerView.ViewHolder) = 0.3f
+
         override fun onChildDraw(
                 c: Canvas,
                 recyclerView: RecyclerView,
@@ -109,13 +110,13 @@ class UserpostFragment : Fragment() {
 
             if (isCanceled) {
                 clearCanvas(c, itemView.right + dX, itemView.top.toFloat(), itemView.right.toFloat(), itemView.bottom.toFloat())
-                super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+                super.onChildDraw(c, recyclerView, viewHolder, dX/4, dY, actionState, isCurrentlyActive)
                 return
             }
 
             // Draw the red delete background
             background.color = backgroundColor
-            background.setBounds(itemView.right + dX.toInt(), itemView.top, itemView.right, itemView.bottom)
+            background.setBounds(itemView.right + dX.toInt()/4, itemView.top, itemView.right, itemView.bottom)
             background.draw(c)
 
 
@@ -130,7 +131,7 @@ class UserpostFragment : Fragment() {
             deleteIcon!!.setBounds(deleteIconLeft, deleteIconTop, deleteIconRight, deleteIconBottom)
             deleteIcon.draw(c)
 
-            super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive)
+            super.onChildDraw(c, recyclerView, viewHolder, dX/4, dY, actionState, isCurrentlyActive)
         }
 
         private fun clearCanvas(c: Canvas?, left: Float, top: Float, right: Float, bottom: Float) {
@@ -146,9 +147,6 @@ class UserpostFragment : Fragment() {
 class cuurent_user_item(var post:Post):Item<ViewHolder>(){ // this is the viewhollder from adpater
     // you can access the itemview like this:
     // viewHolder.itemView. ....
-    fun removeAt(){
-
-    }
     override fun getLayout(): Int {
         return R.layout.current_user_post
     }
