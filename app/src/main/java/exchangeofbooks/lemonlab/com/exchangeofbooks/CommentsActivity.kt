@@ -33,7 +33,7 @@ class CommentsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_comments)
 
-        // get user id from prevus activity
+        // get user id from previous activity
         user_id = intent.extras.getString(keys.USER_POST_FROM_ID)
         post_id = intent.extras.getString(keys.POST_ID)
         // get user from data base and post

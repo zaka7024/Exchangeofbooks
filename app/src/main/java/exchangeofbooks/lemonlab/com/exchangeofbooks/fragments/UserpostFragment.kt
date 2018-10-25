@@ -1,7 +1,9 @@
 package exchangeofbooks.lemonlab.com.exchangeofbooks.fragments
 
 
+import android.app.Application
 import android.content.Context
+import android.content.Intent
 import android.graphics.*
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -23,13 +25,16 @@ import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
+import exchangeofbooks.lemonlab.com.exchangeofbooks.CommentsActivity
 import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity.Companion.CurrentUser
 import exchangeofbooks.lemonlab.com.exchangeofbooks.PostActivity
 
 import exchangeofbooks.lemonlab.com.exchangeofbooks.R
+import exchangeofbooks.lemonlab.com.exchangeofbooks.keys.keys
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Post
 import kotlinx.android.synthetic.main.current_user_post.view.*
 import kotlinx.android.synthetic.main.fragment_userpost.*
+import kotlin.coroutines.experimental.coroutineContext
 
 class UserpostFragment : Fragment() {
 
@@ -70,9 +75,17 @@ class UserpostFragment : Fragment() {
 
             override fun onDataChange(p0: DataSnapshot) {
                 adapter.clear()
+                var post_list = ArrayList<Post>()
                 p0.children.forEach {
                     var post = it.getValue(Post::class.java)
-                    adapter.add(cuurent_user_item(post!!))
+                    post_list.add(post!!)
+                }
+
+                // reverse the list
+
+                post_list.reverse()
+                post_list.forEach {
+                    adapter.add(cuurent_user_item(it!!,context!!))
                 }
             }
 
@@ -163,11 +176,8 @@ class UserpostFragment : Fragment() {
 }
 
 
-// left your work here
+class cuurent_user_item(var post:Post, var context: Context):Item<ViewHolder>(){
 
-class cuurent_user_item(var post:Post):Item<ViewHolder>(){ // this is the viewhollder from adpater
-    // you can access the itemview like this:
-    // viewHolder.itemView. ....
     override fun getLayout(): Int {
         return R.layout.current_user_post
     }
@@ -180,7 +190,13 @@ class cuurent_user_item(var post:Post):Item<ViewHolder>(){ // this is the viewho
                 Picasso.get().load(post.post_image).into(viewHolder.itemView.cuurent_user_post_image_view)
             }
         }
-    }
 
+        viewHolder.itemView.setOnClickListener {
+            var intent = Intent(context,CommentsActivity::class.java)
+            intent.putExtra(keys.USER_POST_FROM_ID,post.from_id)
+            intent.putExtra(keys.POST_ID,post.post_id)
+            context.startActivity(intent)
+        }
+    }
 
 }
