@@ -132,13 +132,25 @@
         app:layout_constraintTop_toBottomOf="@+id/image_profile_user_profile" />
 
     <android.support.design.widget.FloatingActionButton
+        android:id="@+id/add_wish_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/ic_action_add"
         app:backgroundTint="@color/mainColorBlue"
-        android:src="@drawable/ic_action_add"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/wishlist_recycler_view"
+        android:layout_width="344dp"
+        android:layout_height="161dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
 </android.support.constraint.ConstraintLayout>

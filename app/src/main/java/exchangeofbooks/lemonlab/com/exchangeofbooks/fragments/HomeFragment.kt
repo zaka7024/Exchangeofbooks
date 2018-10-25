@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
+import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity
 import exchangeofbooks.lemonlab.com.exchangeofbooks.PostActivity
 import exchangeofbooks.lemonlab.com.exchangeofbooks.Profile
 
@@ -86,8 +87,14 @@ class HomeFragment : Fragment() {
 
         })
 
-
-
+        // update user image profile
+        if(MainActivity.CurrentUser != null){
+            var database = FirebaseDatabase.getInstance().getReference("users/${
+            FirebaseAuth.getInstance().uid}")
+            database.updateChildren(mapOf(Pair("image_profile", MainActivity.CurrentUser?.image_profile))).addOnSuccessListener {
+                Log.i("ProfileFragment","uri updated in database")
+            }
+        }
     }
 }
 // we wiil use the snackbar to update pur recyclerview when a new post has added to firebase data base
