@@ -33,8 +33,9 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="outputName" value="ic_action_delete" />
-                                      <entry key="theme" value="HOLO_DARK" />
+                                      <entry key="outputName" value="ic_del" />
+                                      <entry key="theme" value="CUSTOM" />
+                                      <entry key="themeColor" value="a6001a" />
                                     </map>
                                   </option>
                                 </PersistentState>
