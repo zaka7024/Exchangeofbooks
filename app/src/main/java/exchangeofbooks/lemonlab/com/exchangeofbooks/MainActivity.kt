@@ -1,6 +1,8 @@
 package exchangeofbooks.lemonlab.com.exchangeofbooks
 
+import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -16,13 +18,16 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.FirebaseStorage
 import com.roughike.bottombar.OnTabSelectListener
 import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.HomeFragment
+import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.ProfileFragment
 import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.UserpostFragment
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
 
     companion object {
         var CurrentUser:User? = null
@@ -45,7 +50,7 @@ class MainActivity : AppCompatActivity() {
         var ref = FirebaseDatabase.getInstance().getReference("users/$uid")
         ref.addValueEventListener(object : ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
             }
 
             override fun onDataChange(p0: DataSnapshot) {
@@ -68,6 +73,9 @@ class MainActivity : AppCompatActivity() {
                     R.id.user_post ->{
                         replaceFragment(UserpostFragment())
                     }
+                    R.id.user_profile ->{
+                        replaceFragment(ProfileFragment())
+                    }
                     else->{
                         //replaceFragment(HomeFragment())
                         true
@@ -78,6 +86,10 @@ class MainActivity : AppCompatActivity() {
 
         })
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
     }
     private fun replaceFragment(fragment:Fragment){
         val manager = supportFragmentManager.beginTransaction()
@@ -109,6 +121,5 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
 
 }

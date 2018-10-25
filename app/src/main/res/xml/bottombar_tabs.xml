@@ -7,11 +7,11 @@
     <tab
         id="@+id/user_post"
         icon="@drawable/ic_action_post"
-        title="Nearby" />
+        title="Posts" />
     <tab
-        id="@+id/b3"
+        id="@+id/user_profile"
         icon="@drawable/ic_action_chat"
-        title="Friends" />
+        title="Profile" />
 
     <tab
         id="@+id/b4"
