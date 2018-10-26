@@ -83,7 +83,7 @@ class UserpostFragment : Fragment() {
 
                 post_list.reverse()
                 post_list.forEach {
-                    adapter.add(cuurent_user_item(it!!,context!!))
+                    adapter.add(cuurent_user_item(it,context!!))
                 }
             }
 

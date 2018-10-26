@@ -84,6 +84,7 @@ class PostActivity : AppCompatActivity() {
                     PushNewPost(it!!.toString())
                     dialog.hide()
                 }
+
             }
         }else if(post_image == null){
             post_image = "null"

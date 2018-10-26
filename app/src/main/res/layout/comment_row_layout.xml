@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="140dp"
-    android:background="#e4f1fe">
+    android:layout_height="wrap_content"
+    android:background="#e4f1fe"
+    android:minHeight="90dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/image_profile_comment_row"

@@ -2,21 +2,21 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     android:id="@+id/comment_activity_scroll_view"
-    >
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/main_const"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/main_const"
         tools:context=".CommentsActivity">
+
         <TextView
             android:id="@+id/pots_post_textview_comment_activity"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@color/spary"
+            android:background="@color/white"
             android:fontFamily="@font/noto_sans"
             android:minHeight="80dp"
             android:padding="6dp"
@@ -65,7 +65,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="#eeeeee"
+            android:background="#fafafa"
             android:orientation="horizontal"
             android:paddingBottom="10dp"
             android:weightSum="1"
@@ -73,31 +73,49 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/pots_post_textview_comment_activity">
 
-            <EditText
-                android:id="@+id/cooment_edittext_comments_activity"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="4dp"
-                android:layout_weight="0.8"
-                android:background="@drawable/comments_edittext_background"
-                android:ems="10"
-                android:hint="Write a new comment"
-                android:inputType="textPersonName"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp" />
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8">
 
-            <Button
-                android:id="@+id/send_comment_comments_activity"
-                android:layout_width="20dp"
-                android:layout_height="40dp"
-                android:layout_margin="10dp"
-                android:layout_weight="0.2"
-                android:background="@drawable/small_rounded_btn_blue"
-                android:fontFamily="@font/noto_sans"
-                android:text="send"
-                android:textColor="@color/white" />
+                <ImageView
+                    android:id="@+id/send_comment_comments_activity"
+                    android:layout_width="30dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="0.2"
+                    android:tint="@color/irisBlue"
+                    app:layout_constraintBottom_toBottomOf="@+id/cooment_edittext_comments_activity"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cooment_edittext_comments_activity"
+                    app:layout_constraintTop_toTopOf="@+id/cooment_edittext_comments_activity"
+                    app:srcCompat="@drawable/ic_download" />
+
+                <EditText
+                    android:id="@+id/cooment_edittext_comments_activity"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_weight="0.8"
+                    android:background="@drawable/comments_edittext_background"
+                    android:ems="10"
+                    android:hint="WRITE A NEW COMMENT"
+                    android:inputType="textPersonName"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textColorHint="@color/irisBlue"
+                    android:theme="@style/edit_text_style"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/send_comment_comments_activity"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </android.support.constraint.ConstraintLayout>
+
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView

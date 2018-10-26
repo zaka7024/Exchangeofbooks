@@ -3,6 +3,7 @@ package exchangeofbooks.lemonlab.com.exchangeofbooks
 import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
@@ -43,6 +44,7 @@ class CommentsActivity : AppCompatActivity() {
         Log.i("CommentsActivity","post id:$post_id")
 
         comments_recycler_view.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+        comments_recycler_view.addItemDecoration(DividerItemDecoration(this@CommentsActivity,DividerItemDecoration.VERTICAL ))
         comments_recycler_view.adapter = adapter
 
 
