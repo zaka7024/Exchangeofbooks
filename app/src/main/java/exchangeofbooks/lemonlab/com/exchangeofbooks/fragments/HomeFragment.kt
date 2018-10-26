@@ -50,7 +50,7 @@ class HomeFragment : Fragment() {
         }
 
         var adapter = GroupAdapter<ViewHolder>()
-
+        post_recyclerView.visibility = View.INVISIBLE
         post_recyclerView.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
         post_recyclerView.addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL ))
         post_recyclerView.adapter = adapter
@@ -74,7 +74,11 @@ class HomeFragment : Fragment() {
                     up = it.getValue(Post::class.java)
                     temp_list!!.add(up!!)
                 }
-
+                if(post_progress_bar_fragment_home != null){
+                    post_progress_bar_fragment_home.visibility = View.GONE
+                }
+                if(post_recyclerView!=null)
+                post_recyclerView.visibility = View.VISIBLE
                 // revers post then add it in recyclerView adapter
                 temp_list?.reverse()
                 Log.i("HomeFragemnt","post size: ${temp_list?.size}")

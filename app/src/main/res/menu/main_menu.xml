@@ -8,10 +8,10 @@
         android:title="sign out"
         app:showAsAction="always" />
     <item
-        android:id="@+id/user_btn"
-        android:icon="@drawable/ic_action_user"
+        android:id="@+id/settings_btn"
+        android:icon="@drawable/ic_action_settings"
         android:iconTint="@color/white"
-        android:title="user"
+        android:title="settings"
         app:showAsAction="always" />
 
 </menu>

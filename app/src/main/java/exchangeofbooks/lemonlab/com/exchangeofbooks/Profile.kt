@@ -1,9 +1,12 @@
 package exchangeofbooks.lemonlab.com.exchangeofbooks
 
+import android.annotation.SuppressLint
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
+import android.view.View
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -23,7 +26,9 @@ class Profile : AppCompatActivity() {
     var user_id:String? = null
     var user_profile:User? = null
     var adapter = GroupAdapter<ViewHolder>()
+    var listOfFriends = ArrayList<String>()
 
+    @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
@@ -35,10 +40,21 @@ class Profile : AppCompatActivity() {
         //init
         wishlist_recycler_view_activity_profile.adapter = adapter
         wishlist_recycler_view_activity_profile.layoutManager = LinearLayoutManager(this@Profile,LinearLayoutManager.VERTICAL,false)
+        getUserListFriends()
         getWishList()
+        checkIfUserIsFriends()
+        if(checkIfUserIsFriends()){
+            add_frined_btn.visibility = View.GONE
+        }else{
+            add_frined_btn.visibility = View.VISIBLE
+        }
 
         ratingBar.setOnRatingChangeListener { ratingBar, rating ->
             Log.i("Profile","rating value: $rating")
+        }
+
+        add_frined_btn.setOnClickListener {
+            addFrined()
         }
     }
 
@@ -81,5 +97,48 @@ class Profile : AppCompatActivity() {
             }
 
         })
+    }
+
+    fun addFrined(){
+        val ref = FirebaseDatabase.getInstance().getReference("friends/${FirebaseAuth.getInstance()
+                .uid}").push()
+        ref.setValue("${user_id}").addOnCompleteListener {
+            Log.i("Profile","friend added to database ")
+        }
+    }
+
+    fun removeFriend(){
+        val ref = FirebaseDatabase.getInstance().getReference("friends/${FirebaseAuth.getInstance()
+                .uid}/${user_id}")
+        ref.removeValue().addOnCompleteListener {
+            Log.i("Profile","friend removed to database ")
+        }
+    }
+
+    fun getUserListFriends(){
+        val ref = FirebaseDatabase.getInstance().getReference("friends/${FirebaseAuth.getInstance().uid}")
+        ref.addValueEventListener(object:ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                p0.children.forEach {
+                    listOfFriends.add(it.getValue(String::class.java)!!)
+                }
+            }
+
+        })
+    }
+
+    private fun checkIfUserIsFriends():Boolean{
+        Log.i("Progile","friend list size -> ${listOfFriends.size}")
+        listOfFriends.forEach {
+            Log.i("Progile","list frind -> ${it}")
+            if(it == user_id){
+                return true
+            }
+        }
+        return false
     }
 }
