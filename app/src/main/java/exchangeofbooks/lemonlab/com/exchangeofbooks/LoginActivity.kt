@@ -49,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
             dialog.hide()
             StartMainActivity()
             Log.i("LoginActivity","MainActivity is ready")
-            finish()
+            this@LoginActivity.finish()
         }
     }
 
@@ -59,6 +59,6 @@ class LoginActivity : AppCompatActivity() {
         var compat = ActivityOptionsCompat.makeSceneTransitionAnimation(this@LoginActivity)
         startActivity(intent,compat.toBundle())
         Log.i("RegisterActivty","MainActivity is ready")
-        finish()
+        this@LoginActivity.finish()
     }
 }

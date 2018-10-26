@@ -103,6 +103,7 @@ class RegisterActivity : AppCompatActivity() {
         var compat = ActivityOptionsCompat.makeSceneTransitionAnimation(this@RegisterActivity)
         startActivity(intent,compat.toBundle())
         Log.i("RegisterActivty","MainActivity is ready")
+        this@RegisterActivity.finish()
     }
 
     private fun PickProfileImage(){

@@ -3,6 +3,7 @@ package exchangeofbooks.lemonlab.com.exchangeofbooks
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -35,6 +36,10 @@ class Profile : AppCompatActivity() {
         wishlist_recycler_view_activity_profile.adapter = adapter
         wishlist_recycler_view_activity_profile.layoutManager = LinearLayoutManager(this@Profile,LinearLayoutManager.VERTICAL,false)
         getWishList()
+
+        ratingBar.setOnRatingChangeListener { ratingBar, rating ->
+            Log.i("Profile","rating value: $rating")
+        }
     }
 
     fun getUser(){

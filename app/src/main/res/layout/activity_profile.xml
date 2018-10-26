@@ -20,7 +20,7 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
-        android:layout_height="210dp"
+        android:layout_height="250dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -45,6 +45,7 @@
         android:fontFamily="@font/noto_sans_bold"
         android:text="Uername"
         android:textColor="@color/white"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/user_image_profile_activity"
         app:layout_constraintStart_toStartOf="@+id/user_image_profile_activity"
         app:layout_constraintTop_toBottomOf="@+id/user_image_profile_activity" />
@@ -54,12 +55,12 @@
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         app:cardElevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_name_profile_activity">
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
@@ -141,4 +142,21 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
+
+    <me.zhanghai.android.materialratingbar.MaterialRatingBar
+        android:id="@+id/ratingBar"
+        style="@style/Widget.MaterialRatingBar.RatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:stepSize="1"
+        android:numStars="5"
+        android:theme="@style/rating_bar_style"
+        android:transformPivotX="0dp"
+        android:transformPivotY="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_name_profile_activity" />
 </android.support.constraint.ConstraintLayout>

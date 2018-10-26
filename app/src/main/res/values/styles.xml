@@ -26,10 +26,19 @@
         <item name="android:fontFamily">@font/noto_sans</item>
         <!-- The textColor property is backward compatible with the Support Library -->
     </style>
+    
     <!-- EditTextStyle[Commentes Activity] -->
     <style name="edit_text_style">
         <item name="android:textColorHint">@color/irisBlue</item>
         <item name="android:colorControlNormal" tools:targetApi="lollipop">@color/mainColorBlue</item>
         <item name="android:colorControlActivated" tools:targetApi="lollipop">@color/white</item>
     </style>
+    
+    <!-- -->
+    <style name="rating_bar_style">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">#EEEEEE</item>
+        <item name="android:numStars">5</item>
+    </style>
+    
 </resources>
