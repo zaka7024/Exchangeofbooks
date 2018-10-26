@@ -107,6 +107,7 @@ class MainActivity : AppCompatActivity() {
         when(item!!.itemId){
             R.id.sign_out ->{
                 FirebaseAuth.getInstance().signOut()
+                CurrentUser = null
                 var intent = Intent(this,RegisterActivity::class.java)
                 startActivity(intent)
                 this.finish()

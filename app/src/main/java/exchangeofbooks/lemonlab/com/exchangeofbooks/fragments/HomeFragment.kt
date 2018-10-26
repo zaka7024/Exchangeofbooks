@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -54,6 +55,21 @@ class HomeFragment : Fragment() {
         post_recyclerView.addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL ))
         post_recyclerView.adapter = adapter
 
+        post_recyclerView.addOnScrollListener(object :RecyclerView.OnScrollListener(){
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+            }
+
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+
+                if(dy > 0){
+                    add_post_btn.alpha = 0f
+                }else{
+                    add_post_btn.alpha = 1f
+                }
+            }
+        })
 
         var get_post = FirebaseDatabase.getInstance().getReference("posts")
         var up:Post? = null
