@@ -55,21 +55,6 @@ class HomeFragment : Fragment() {
         post_recyclerView.addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL ))
         post_recyclerView.adapter = adapter
 
-        post_recyclerView.addOnScrollListener(object :RecyclerView.OnScrollListener(){
-            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                super.onScrollStateChanged(recyclerView, newState)
-            }
-
-            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-                super.onScrolled(recyclerView, dx, dy)
-
-                if(dy > 0){
-                    add_post_btn.alpha = 0f
-                }else{
-                    add_post_btn.alpha = 1f
-                }
-            }
-        })
 
         var get_post = FirebaseDatabase.getInstance().getReference("posts")
         var up:Post? = null

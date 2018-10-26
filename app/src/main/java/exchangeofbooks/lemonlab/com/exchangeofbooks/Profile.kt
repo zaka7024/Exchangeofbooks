@@ -11,6 +11,7 @@ import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import exchangeofbooks.lemonlab.com.exchangeofbooks.items.wish_item
+import exchangeofbooks.lemonlab.com.exchangeofbooks.items.wish_item_others
 import exchangeofbooks.lemonlab.com.exchangeofbooks.keys.keys
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.wish
@@ -70,7 +71,7 @@ class Profile : AppCompatActivity() {
                 }
                 wishList.reverse()
                 wishList.forEach {
-                    adapter.add(wish_item(it))
+                    adapter.add(wish_item_others(it))
                 }
             }
 

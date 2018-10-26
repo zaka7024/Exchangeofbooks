@@ -26,6 +26,7 @@ import exchangeofbooks.lemonlab.com.exchangeofbooks.R
 import exchangeofbooks.lemonlab.com.exchangeofbooks.items.wish_item
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.wish
 import kotlinx.android.synthetic.main.fragment_profile.*
+import java.util.*
 
 class ProfileFragment() : Fragment() {
 
@@ -55,7 +56,7 @@ class ProfileFragment() : Fragment() {
         // add item in wishlist
         add_wish_btn.setOnClickListener {
             val ref = FirebaseDatabase.getInstance().getReference("wishlist/${CurrentUser?.id}").push()
-            var new_wish = wish(ref.key!!,"hello this is ,y first wish",FirebaseAuth.getInstance().uid!!)
+            var new_wish = wish(ref.key!!,"ارغب بالحصول على رواية ارض زيكولا الجزء الثاني",FirebaseAuth.getInstance().uid!!)
             ref.setValue(new_wish).addOnCompleteListener {
                 Log.i("ProfileFragment","wish added to databse")
             }
@@ -84,8 +85,8 @@ class ProfileFragment() : Fragment() {
     }
 
     private fun uploadImage(){
-        val ref = FirebaseStorage.getInstance().getReference("images/")
-        var final_uri = ""
+        var id = UUID.randomUUID().toString()
+        val ref = FirebaseStorage.getInstance().getReference("images/$id")
         ref.putFile(Uri.parse(temp_imagre_uri)).addOnCompleteListener{
             Log.i("ProfileFragment","image profile changed")
             ref.downloadUrl.addOnSuccessListener {
