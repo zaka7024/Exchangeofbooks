@@ -49,6 +49,10 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         register_btn_register_activity.setOnClickListener {
+            if(imageProfileUri == null){
+                Toast.makeText(this@RegisterActivity,"الرجاء اختيار صورة شخصية للحساب",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
             RegisterNewUser()
         }
 

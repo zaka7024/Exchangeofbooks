@@ -1,128 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/comment_activity_scroll_view"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/main_const"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".CommentsActivity">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/post_image_comments_activity"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/pots_post_textview_comment_activity"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:fontFamily="@font/noto_sans"
-            android:minHeight="80dp"
-            android:padding="6dp"
-            android:text="Clan War Leagues are coming to Clash of Clans this October! Skill-based matchmaking, new MAGIC ITEMS and much more! #clashofclans #clanwarleagues  "
-            android:textColor="@color/mainColorBlue"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@+id/post_image_view_comments_activity"
-            app:layout_constraintStart_toStartOf="@+id/post_image_view_comments_activity"
-            app:layout_constraintTop_toBottomOf="@+id/post_image_view_comments_activity" />
+    <TextView
+        android:id="@+id/send_comment_comments_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Post"
+        android:textColor="@color/mainColorBlue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/cooment_edittext_comments_activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cooment_edittext_comments_activity" />
 
-        <TextView
-            android:id="@+id/post_username_comments_activity"
-            android:layout_width="wrap_content"
-            android:layout_height="24dp"
-            android:layout_marginEnd="8dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toStartOf="@+id/post_image_comments_activity"
-            app:layout_constraintTop_toTopOf="@+id/post_image_comments_activity"
-            tools:text="zaka7024" />
+    <EditText
+        android:id="@+id/cooment_edittext_comments_activity"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/white"
+        android:ems="10"
+        android:hint="Add a comment"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textColorHint="@color/sand"
+        app:layout_constraintBottom_toBottomOf="@+id/post_image_comments_activity"
+        app:layout_constraintEnd_toStartOf="@+id/send_comment_comments_activity"
+        app:layout_constraintStart_toEndOf="@+id/post_image_comments_activity"
+        app:layout_constraintTop_toTopOf="@+id/post_image_comments_activity" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/post_image_comments_activity"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            app:civ_border_color="@color/mainColorBlue"
-            app:civ_border_width="1dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@android:drawable/btn_star_big_on" />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/comments_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/cooment_edittext_comments_activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/post_image_view_comments_activity"
-            android:layout_width="0dp"
-            android:layout_height="180dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/image_post_container"
-            android:scaleType="centerCrop"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/post_image_comments_activity"
-            tools:srcCompat="@tools:sample/backgrounds/scenic[15]" />
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="#fafafa"
-            android:orientation="horizontal"
-            android:paddingBottom="10dp"
-            android:weightSum="1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/pots_post_textview_comment_activity">
-
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.8">
-
-                <ImageView
-                    android:id="@+id/send_comment_comments_activity"
-                    android:layout_width="30dp"
-                    android:layout_height="0dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_weight="0.2"
-                    android:tint="@color/irisBlue"
-                    app:layout_constraintBottom_toBottomOf="@+id/cooment_edittext_comments_activity"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/cooment_edittext_comments_activity"
-                    app:srcCompat="@drawable/ic_download" />
-
-                <EditText
-                    android:id="@+id/cooment_edittext_comments_activity"
-                    android:layout_width="0dp"
-                    android:layout_height="40dp"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:layout_weight="0.8"
-                    android:background="@drawable/comments_edittext_background"
-                    android:ems="10"
-                    android:hint="WRITE A NEW COMMENT"
-                    android:inputType="textPersonName"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:textColorHint="@color/irisBlue"
-                    android:theme="@style/edit_text_style"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/send_comment_comments_activity"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </android.support.constraint.ConstraintLayout>
-
-        </LinearLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/comments_recycler_view"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-    </android.support.constraint.ConstraintLayout>
-
-
-</ScrollView>
+</android.support.constraint.ConstraintLayout>

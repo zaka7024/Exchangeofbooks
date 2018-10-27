@@ -160,26 +160,48 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_name_profile_activity" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/add_frined_btn"
+    <com.github.clans.fab.FloatingActionMenu
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_action_add_friend"
-        app:backgroundTint="@color/white"
+        android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/user_image_profile_activity"
+        app:menu_backgroundColor="@android:color/transparent"
+        app:menu_fab_label=""
+        app:menu_openDirection="down"
+        app:menu_showShadow="true"
+        app:menu_labels_textColor="@color/mainColorBlue"
+        app:menu_colorNormal="@color/white"
 
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_action_remove_friend"
-        android:visibility="gone"
-        app:backgroundTint="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:menu_labels_colorNormal="@color/white"
+        android:id="@+id/fab_menu"
+        app:menu_colorPressed="@color/irisBlue"
+        app:menu_animationDelayPerItem="50"
+        app:menu_icon="@drawable/ic_action_list"
+        app:menu_labels_textSize="14sp"
+        app:menu_labels_colorPressed="#444444"
+        app:menu_labels_position="left"
+        >
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/add_frined_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_add_friend"
+            app:fabSize="mini"
+            android:background="@color/white"
+
+            />
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/remove_frined_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_action_remove_friend"
+            app:fabSize="mini"
+            android:background="@color/white"
+
+            />
+    </com.github.clans.fab.FloatingActionMenu>
 
 </android.support.constraint.ConstraintLayout>

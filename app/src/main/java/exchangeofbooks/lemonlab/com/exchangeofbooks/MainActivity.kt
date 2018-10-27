@@ -60,7 +60,9 @@ class MainActivity : AppCompatActivity() {
 
         })
 
-        replaceFragment(HomeFragment())
+        val manager = supportFragmentManager.beginTransaction()
+        manager.add(R.id.fragment_container_mainActivity,HomeFragment())
+        manager.commit()
         checkIfUserLoged()
 
         bottom_navigation.setOnTabSelectListener(object :OnTabSelectListener{
@@ -77,7 +79,7 @@ class MainActivity : AppCompatActivity() {
                         replaceFragment(ProfileFragment())
                     }
                     else->{
-                        //replaceFragment(HomeFragment())
+                        replaceFragment(HomeFragment())
                         true
                     }
 

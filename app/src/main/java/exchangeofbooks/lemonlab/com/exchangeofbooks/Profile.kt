@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -27,8 +28,8 @@ class Profile : AppCompatActivity() {
     var user_profile:User? = null
     var adapter = GroupAdapter<ViewHolder>()
     var listOfFriends = ArrayList<String>()
+    var hasFriends:Boolean = false
 
-    @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
@@ -40,21 +41,48 @@ class Profile : AppCompatActivity() {
         //init
         wishlist_recycler_view_activity_profile.adapter = adapter
         wishlist_recycler_view_activity_profile.layoutManager = LinearLayoutManager(this@Profile,LinearLayoutManager.VERTICAL,false)
-        getUserListFriends()
         getWishList()
-        checkIfUserIsFriends()
-        if(checkIfUserIsFriends()){
-            add_frined_btn.visibility = View.GONE
-        }else{
-            add_frined_btn.visibility = View.VISIBLE
+
+        fab_menu.setOnClickListener {
+            Log.i("Profile","has friends $hasFriends")
+            if(hasFriends){
+                add_frined_btn.visibility = View.GONE
+            }
         }
+
 
         ratingBar.setOnRatingChangeListener { ratingBar, rating ->
             Log.i("Profile","rating value: $rating")
         }
 
         add_frined_btn.setOnClickListener {
-            addFrined()
+            val ref = FirebaseDatabase.getInstance().getReference("friends/${FirebaseAuth.getInstance().uid}")
+
+            ref.addValueEventListener(object:ValueEventListener{
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    listOfFriends.clear()
+                    p0.children.forEach {
+                        listOfFriends.add(it.getValue(String::class.java)!!)
+                    }
+                    Log.i("Profile","friend list size -> ${listOfFriends.size}")
+                    if(listOfFriends.contains(user_id!!)){
+                        Toast.makeText(this@Profile,"الصديق موجود بالفعل",Toast.LENGTH_SHORT).show()
+                    }else{
+                        addFrined()
+                        ref.removeEventListener(this)
+                    }
+                }
+
+            })
+
+        }
+
+        remove_frined_btn.setOnClickListener {
+            removeFriend()
         }
     }
 
@@ -101,7 +129,7 @@ class Profile : AppCompatActivity() {
 
     fun addFrined(){
         val ref = FirebaseDatabase.getInstance().getReference("friends/${FirebaseAuth.getInstance()
-                .uid}").push()
+                .uid}/${user_id}")
         ref.setValue("${user_id}").addOnCompleteListener {
             Log.i("Profile","friend added to database ")
         }
@@ -111,34 +139,8 @@ class Profile : AppCompatActivity() {
         val ref = FirebaseDatabase.getInstance().getReference("friends/${FirebaseAuth.getInstance()
                 .uid}/${user_id}")
         ref.removeValue().addOnCompleteListener {
-            Log.i("Profile","friend removed to database ")
+            Log.i("Profile","friend removed from database ")
+            Toast.makeText(this@Profile,"تم الحذف",Toast.LENGTH_SHORT).show()
         }
-    }
-
-    fun getUserListFriends(){
-        val ref = FirebaseDatabase.getInstance().getReference("friends/${FirebaseAuth.getInstance().uid}")
-        ref.addValueEventListener(object:ValueEventListener{
-            override fun onCancelled(p0: DatabaseError) {
-
-            }
-
-            override fun onDataChange(p0: DataSnapshot) {
-                p0.children.forEach {
-                    listOfFriends.add(it.getValue(String::class.java)!!)
-                }
-            }
-
-        })
-    }
-
-    private fun checkIfUserIsFriends():Boolean{
-        Log.i("Progile","friend list size -> ${listOfFriends.size}")
-        listOfFriends.forEach {
-            Log.i("Progile","list frind -> ${it}")
-            if(it == user_id){
-                return true
-            }
-        }
-        return false
     }
 }

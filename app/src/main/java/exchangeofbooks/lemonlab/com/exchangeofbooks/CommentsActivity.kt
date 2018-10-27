@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.Toast
@@ -34,6 +36,8 @@ class CommentsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_comments)
 
+        //init
+        supportActionBar?.title = "التعليقات"
         // get user id from previous activity
         user_id = intent.extras.getString(keys.USER_POST_FROM_ID)
         post_id = intent.extras.getString(keys.POST_ID)
@@ -56,9 +60,28 @@ class CommentsActivity : AppCompatActivity() {
                     CurrentUser!!.id,post_id!!,"today")
             // clear the ui and move to end of rv
             cooment_edittext_comments_activity.setText("")
-            scrollToLastItem()
+            //scrollToLastItem()
             putComment(new_comment)
         }
+
+        cooment_edittext_comments_activity.addTextChangedListener(object:TextWatcher{
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if(s!!.trim().isEmpty()){
+                    send_comment_comments_activity.setTextColor(resources.getColor(R.color.irisBlue))
+                }else{
+                    send_comment_comments_activity.setTextColor(resources.getColor(R.color.mainColorBlue))
+                }
+            }
+
+        })
 
     }
 
@@ -72,9 +95,6 @@ class CommentsActivity : AppCompatActivity() {
             override fun onDataChange(p0: DataSnapshot) {
                 user_post = p0.getValue(User::class.java)
                 Log.i("CommentsActivity","user id:$user_id user name: ${user_post?.username}")
-                // change ui value
-                post_username_comments_activity.text = user_post?.username
-
             }
 
         })
@@ -90,13 +110,6 @@ class CommentsActivity : AppCompatActivity() {
             override fun onDataChange(p0: DataSnapshot) {
                 post = p0.getValue(Post::class.java)
                 Picasso.get().load(user_post?.image_profile).into(post_image_comments_activity)
-                if(post?.post_image == "null"){
-                    post_image_view_comments_activity.setImageResource(R.drawable.default_post_image)
-                }else{
-                    Picasso.get().load(post?.post_image).into(post_image_view_comments_activity)
-                }
-
-                pots_post_textview_comment_activity.text = post?.text
                 Log.i("CommentsActivity","post: ${post?.text}")
                 Log.i("CommentsActivity","post image: ${post?.post_image}")
             }
@@ -133,7 +146,7 @@ class CommentsActivity : AppCompatActivity() {
                 // get the comments from database and put it into our adapter
                 var comment = p0.getValue(Comment::class.java)
                 adapter.add(comment_item(comment!!))//
-
+                scrollToLastItem()
             }
             /*
                 val dingSound=MediaPlayer.create(this@CommentsActivity, R.raw.ding_new_comment)
@@ -155,7 +168,6 @@ class CommentsActivity : AppCompatActivity() {
     }
 
     fun scrollToLastItem(){
-        comment_activity_scroll_view.fullScroll(View.FOCUS_DOWN)
-        comments_recycler_view.scrollToPosition(adapter.itemCount - 1 )
+        comments_recycler_view.smoothScrollToPosition(adapter.itemCount - 1)
     }
 }

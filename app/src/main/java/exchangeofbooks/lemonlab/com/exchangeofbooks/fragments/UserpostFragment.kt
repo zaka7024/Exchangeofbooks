@@ -17,6 +17,8 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -46,6 +48,8 @@ class UserpostFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        Toast.makeText(context,"اسحب العنصر للحذف", Toast.LENGTH_SHORT).show()
+
         cuurent_user_posts_recycler_view.adapter = adapter
         cuurent_user_posts_recycler_view.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         cuurent_user_posts_recycler_view.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
@@ -66,7 +70,8 @@ class UserpostFragment : Fragment() {
     }
 
     private fun getUserPosts(){
-        var ref = FirebaseDatabase.getInstance().getReference("users_post/${CurrentUser?.id}")
+        if(CurrentUser == null) return
+        var ref = FirebaseDatabase.getInstance().getReference("users_post/${FirebaseAuth.getInstance().uid}")
         ref.addValueEventListener(object:ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
             }
@@ -74,15 +79,18 @@ class UserpostFragment : Fragment() {
             override fun onDataChange(p0: DataSnapshot) {
                 adapter.clear()
                 var post_list = ArrayList<Post>()
-                p0.children.forEach {
-                    var post = it.getValue(Post::class.java)
-                    post_list.add(post!!)
+                if(p0.exists()){
+                    p0.children.forEach {
+                        var post = it.getValue(Post::class.java)
+                        post_list.add(post!!)
+                    }
                 }
 
                 // reverse the list
 
                 post_list.reverse()
                 post_list.forEach {
+                    if(it != null && context != null)
                     adapter.add(cuurent_user_item(it,context!!))
                 }
             }
