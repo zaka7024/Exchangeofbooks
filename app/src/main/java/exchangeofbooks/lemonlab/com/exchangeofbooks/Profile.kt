@@ -28,7 +28,7 @@ class Profile : AppCompatActivity() {
     var user_profile:User? = null
     var adapter = GroupAdapter<ViewHolder>()
     var listOfFriends = ArrayList<String>()
-    var hasFriends:Boolean = false
+    var isFriend:Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,14 +42,6 @@ class Profile : AppCompatActivity() {
         wishlist_recycler_view_activity_profile.adapter = adapter
         wishlist_recycler_view_activity_profile.layoutManager = LinearLayoutManager(this@Profile,LinearLayoutManager.VERTICAL,false)
         getWishList()
-
-        fab_menu.setOnClickListener {
-            Log.i("Profile","has friends $hasFriends")
-            if(hasFriends){
-                add_frined_btn.visibility = View.GONE
-            }
-        }
-
 
         ratingBar.setOnRatingChangeListener { ratingBar, rating ->
             Log.i("Profile","rating value: $rating")
@@ -73,6 +65,7 @@ class Profile : AppCompatActivity() {
                         Toast.makeText(this@Profile,"الصديق موجود بالفعل",Toast.LENGTH_SHORT).show()
                     }else{
                         addFrined()
+                        isFriend = true
                         ref.removeEventListener(this)
                     }
                 }
@@ -81,8 +74,32 @@ class Profile : AppCompatActivity() {
 
         }
 
+        rate_frined_btn.setOnClickListener {
+            val ref = FirebaseDatabase.getInstance().getReference("friends/${FirebaseAuth.getInstance().uid}")
+
+            ref.addValueEventListener(object:ValueEventListener{
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+
+                override fun onDataChange(p0: DataSnapshot) {
+                    listOfFriends.clear()
+                    p0.children.forEach {
+                        listOfFriends.add(it.getValue(String::class.java)!!)
+                    }
+                    if(listOfFriends.contains(user_id!!)){
+                        ratingBar.visibility = View.VISIBLE
+                    }else{
+                        ratingBar.visibility = View.GONE
+                    }
+                }
+
+            })
+        }
+
         remove_frined_btn.setOnClickListener {
             removeFriend()
+            isFriend = false
         }
     }
 

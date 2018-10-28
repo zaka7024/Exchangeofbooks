@@ -14,7 +14,7 @@
         title="Profile" />
 
     <tab
-        id="@+id/b4"
+        id="@+id/user_chat"
         icon="@drawable/ic_action_settings"
         title="Friends" />
 </tabs>

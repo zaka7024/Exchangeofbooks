@@ -20,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.roughike.bottombar.OnTabSelectListener
+import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.ChatFragment
 import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.HomeFragment
 import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.ProfileFragment
 import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.UserpostFragment
@@ -77,6 +78,9 @@ class MainActivity : AppCompatActivity() {
                     }
                     R.id.user_profile ->{
                         replaceFragment(ProfileFragment())
+                    }
+                    R.id.user_chat ->{
+                        replaceFragment(ChatFragment())
                     }
                     else->{
                         replaceFragment(HomeFragment())
