@@ -153,14 +153,6 @@ class Profile : AppCompatActivity() {
         }
     }
 
-   /* fun addFrined(){
-        val ref = FirebaseDatabase.getInstance().getReference("friends/${FirebaseAuth.getInstance()
-                .uid}/${user_id}")
-        ref.setValue("${user_id}").addOnCompleteListener {
-            Log.i("Profile","friend added to database ")
-        }
-    } */
-
     fun removeFriend(){
         val ref = FirebaseDatabase.getInstance().getReference("friends/${FirebaseAuth.getInstance()
                 .uid}/${user_id}")

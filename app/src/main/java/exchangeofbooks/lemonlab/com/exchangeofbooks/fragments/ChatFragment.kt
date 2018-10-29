@@ -67,9 +67,12 @@ class ChatFragment : Fragment() {
             }
 
             override fun onDataChange(p0: DataSnapshot) {
-                p0.children.forEach {
-                    var user = it.getValue(String::class.java)
-                    convertToUser(user.toString())
+                if(p0.exists()){
+                    p0.children.forEach {
+                        var user_id = it.key.toString()
+                        if(user_id != null)
+                        convertToUser(user_id.toString())
+                    }
                 }
             }
 
@@ -85,7 +88,8 @@ class ChatFragment : Fragment() {
 
             override fun onDataChange(p0: DataSnapshot) {
                 var user = p0.getValue(User::class.java)
-                adapter.add(friend_item(user!!,context!!))
+                if(user != null && context != null)
+                adapter.add(friend_item(user,context!!))
             }
 
         })
@@ -106,6 +110,7 @@ class ChatFragment : Fragment() {
                         adapter.add(friend_request_item(id,adapter))
                     }
                 }
+                //ref.removeEventListener(this)
             }
 
         })

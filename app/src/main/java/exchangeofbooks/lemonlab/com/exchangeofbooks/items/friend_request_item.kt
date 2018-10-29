@@ -36,8 +36,8 @@ class friend_request_item(var user_id:String, var adapter: GroupAdapter<ViewHold
         })
 
         viewHolder.itemView.accept_friend_request_btn.setOnClickListener {
-            val ref = FirebaseDatabase.getInstance().getReference("friends/${CurrentUser?.id}/").push()
-            val other_ref = FirebaseDatabase.getInstance().getReference("friends/${user_id}").push()
+            val ref = FirebaseDatabase.getInstance().getReference("friends/${CurrentUser?.id}/$user_id").push()
+            val other_ref = FirebaseDatabase.getInstance().getReference("friends/${user_id}/${CurrentUser?.id}").push()
 
             ref.setValue(user_id).addOnCompleteListener {
                 Log.i("Profile", "friend added to database ")

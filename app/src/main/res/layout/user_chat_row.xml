@@ -27,4 +27,14 @@
         app:layout_constraintTop_toTopOf="@+id/user_image_profile_chat_fragment"
         tools:text="zaka7024" />
 
+    <ImageView
+        android:id="@+id/user_chat_row_settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_action_list" />
+
 </android.support.constraint.ConstraintLayout>
