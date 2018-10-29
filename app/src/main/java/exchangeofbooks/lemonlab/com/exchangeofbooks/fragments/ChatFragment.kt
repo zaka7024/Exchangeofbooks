@@ -22,11 +22,13 @@ import com.google.firebase.database.ValueEventListener
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity
+import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity.Companion.CurrentUser
 import exchangeofbooks.lemonlab.com.exchangeofbooks.PostActivity
 import exchangeofbooks.lemonlab.com.exchangeofbooks.Profile
 
 import exchangeofbooks.lemonlab.com.exchangeofbooks.R
 import exchangeofbooks.lemonlab.com.exchangeofbooks.items.friend_item
+import exchangeofbooks.lemonlab.com.exchangeofbooks.items.friend_request_item
 import exchangeofbooks.lemonlab.com.exchangeofbooks.items.post_item
 import exchangeofbooks.lemonlab.com.exchangeofbooks.keys.keys
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Post
@@ -52,6 +54,7 @@ class ChatFragment : Fragment() {
         chat_recyclerView.adapter = adapter
         chat_recyclerView.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
         chat_recyclerView.addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL ))
+        getFriendRequest()
         getFriendsInChat()
 
     }
@@ -83,6 +86,26 @@ class ChatFragment : Fragment() {
             override fun onDataChange(p0: DataSnapshot) {
                 var user = p0.getValue(User::class.java)
                 adapter.add(friend_item(user!!))
+            }
+
+        })
+    }
+
+    fun getFriendRequest(){
+        val ref = FirebaseDatabase.getInstance().getReference("friend_request/${CurrentUser?.id}")
+        ref.addValueEventListener(object:ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                if(p0.exists()){
+                    p0.children.forEach {
+                        var id = it.key.toString()
+                        Log.i("ChatFragment","friend request id: $id")
+                        adapter.add(friend_request_item(id,adapter))
+                    }
+                }
             }
 
         })

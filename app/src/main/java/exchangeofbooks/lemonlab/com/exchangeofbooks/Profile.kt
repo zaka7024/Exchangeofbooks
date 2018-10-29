@@ -15,6 +15,7 @@ import com.google.firebase.database.ValueEventListener
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
+import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity.Companion.CurrentUser
 import exchangeofbooks.lemonlab.com.exchangeofbooks.items.wish_item
 import exchangeofbooks.lemonlab.com.exchangeofbooks.items.wish_item_others
 import exchangeofbooks.lemonlab.com.exchangeofbooks.keys.keys
@@ -64,7 +65,7 @@ class Profile : AppCompatActivity() {
                     if(listOfFriends.contains(user_id!!)){
                         Toast.makeText(this@Profile,"الصديق موجود بالفعل",Toast.LENGTH_SHORT).show()
                     }else{
-                        addFrined()
+                        sendFriendRequest()
                         isFriend = true
                         ref.removeEventListener(this)
                     }
@@ -144,13 +145,21 @@ class Profile : AppCompatActivity() {
         })
     }
 
-    fun addFrined(){
+
+    fun sendFriendRequest(){
+        var ref = FirebaseDatabase.getInstance().getReference("friend_request/${user_id}/${CurrentUser?.id}").push()
+        ref.setValue(FirebaseAuth.getInstance().uid).addOnCompleteListener {
+            Log.i("Profile","friend request send")
+        }
+    }
+
+   /* fun addFrined(){
         val ref = FirebaseDatabase.getInstance().getReference("friends/${FirebaseAuth.getInstance()
                 .uid}/${user_id}")
         ref.setValue("${user_id}").addOnCompleteListener {
             Log.i("Profile","friend added to database ")
         }
-    }
+    } */
 
     fun removeFriend(){
         val ref = FirebaseDatabase.getInstance().getReference("friends/${FirebaseAuth.getInstance()
