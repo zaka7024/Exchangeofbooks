@@ -85,7 +85,6 @@ class ChatLogActivity : AppCompatActivity() {
         val ref = FirebaseDatabase.getInstance().getReference("messages/$from_id/$to_id").push()
         var new_message = Message(ref.key!!,from_id!!,to_id,chat_message_edit_text_chat_activity.text.toString())
         chat_message_edit_text_chat_activity.setText("")
-        goToLastItem()
         ref.setValue(new_message).addOnCompleteListener {
             Log.i("ChatLogActivity","message send to firebase")
         }
