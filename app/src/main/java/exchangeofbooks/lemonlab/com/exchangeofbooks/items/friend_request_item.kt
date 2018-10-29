@@ -37,10 +37,16 @@ class friend_request_item(var user_id:String, var adapter: GroupAdapter<ViewHold
 
         viewHolder.itemView.accept_friend_request_btn.setOnClickListener {
             val ref = FirebaseDatabase.getInstance().getReference("friends/${CurrentUser?.id}/").push()
-            ref.setValue(id).addOnCompleteListener {
+            val other_ref = FirebaseDatabase.getInstance().getReference("friends/${user_id}").push()
+
+            ref.setValue(user_id).addOnCompleteListener {
                 Log.i("Profile", "friend added to database ")
                 deleteFriendRequest()
                 adapter.removeGroup(viewHolder.adapterPosition)
+            }
+
+            other_ref.setValue(CurrentUser?.id).addOnCompleteListener {
+                Log.i("Profile", "other friend added to database ")
             }
         }
 

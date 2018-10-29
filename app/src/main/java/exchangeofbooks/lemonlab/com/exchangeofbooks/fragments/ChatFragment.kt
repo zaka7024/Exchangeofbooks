@@ -85,7 +85,7 @@ class ChatFragment : Fragment() {
 
             override fun onDataChange(p0: DataSnapshot) {
                 var user = p0.getValue(User::class.java)
-                adapter.add(friend_item(user!!))
+                adapter.add(friend_item(user!!,context!!))
             }
 
         })
