@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -33,10 +35,6 @@ class PostActivity : AppCompatActivity() {
         book_category_spinner.adapter = ArrayAdapter<String>(this@PostActivity,android.R.layout.simple_spinner_dropdown_item
         ,resources.getStringArray(R.array.book_category))
 
-        post_btn_post_activity.setOnClickListener {
-            // save post and close the activity
-            UploadImageToStorage()
-        }
 
         upload_image_btn_post_activity.setOnClickListener {
             PickImage()
@@ -45,6 +43,23 @@ class PostActivity : AppCompatActivity() {
         select_image_camera_btn_post_activity.setOnClickListener {
             PickImageFromCamera()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.post_activity_menu,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item?.itemId){
+            R.id.post_btn_post_activity ->{
+                // save post and close the activity
+                // left here message to the user
+                if(book_category_spinner.selectedItem == null || post_text_post_activity.text.trim().isEmpty()) return false
+                UploadImageToStorage()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun PickImage(){

@@ -174,6 +174,7 @@ class Profile : AppCompatActivity() {
                         Log.i("Profile","post in profile text: ${post.text}")
                     }
                 }
+                post_list.reverse()
                 post_list.forEach { adapter.add(post_profile_item(it)) }
             }
 
