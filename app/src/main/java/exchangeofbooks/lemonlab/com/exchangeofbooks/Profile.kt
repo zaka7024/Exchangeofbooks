@@ -51,7 +51,7 @@ class Profile : AppCompatActivity() {
         }
 
         add_frined_btn.setOnClickListener {
-            val ref = FirebaseDatabase.getInstance().getReference("friends/${FirebaseAuth.getInstance().uid}")
+            val ref = FirebaseDatabase.getInstance().getReference("friends/${CurrentUser?.id}")
 
             ref.addValueEventListener(object:ValueEventListener{
                 override fun onCancelled(p0: DatabaseError) {
@@ -60,8 +60,12 @@ class Profile : AppCompatActivity() {
 
                 override fun onDataChange(p0: DataSnapshot) {
                     listOfFriends.clear()
+                    if(CurrentUser != null)
                     p0.children.forEach {
-                        listOfFriends.add(it.getValue(String::class.java)!!)
+                        it.children.forEach {
+                            Log.i("Profile","friend : ${it.toString()}")
+                            listOfFriends.add(it.getValue(String::class.java)!!)
+                        }
                     }
                     Log.i("Profile","friend list size -> ${listOfFriends.size}")
                     if(listOfFriends.contains(user_id!!)){
