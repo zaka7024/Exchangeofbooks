@@ -68,6 +68,7 @@ class ChatFragment : Fragment() {
 
             override fun onDataChange(p0: DataSnapshot) {
                 if(p0.exists()){
+                    adapter.clear()
                     p0.children.forEach {
                         var user_id = it.key.toString()
                         if(user_id != null)

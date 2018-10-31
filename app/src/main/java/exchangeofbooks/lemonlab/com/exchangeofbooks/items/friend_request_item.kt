@@ -42,7 +42,7 @@ class friend_request_item(var user_id:String, var adapter: GroupAdapter<ViewHold
             ref.setValue(user_id).addOnCompleteListener {
                 Log.i("Profile", "friend added to database ")
                 deleteFriendRequest()
-                adapter.removeGroup(viewHolder.adapterPosition)
+                //adapter.removeGroup(viewHolder.adapterPosition)
             }
 
             other_ref.setValue(CurrentUser?.id).addOnCompleteListener {
