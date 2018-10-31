@@ -15,6 +15,6 @@
 
     <tab
         id="@+id/user_chat"
-        icon="@drawable/ic_action_settings"
+        icon="@drawable/ic_action_people"
         title="Friends" />
 </tabs>

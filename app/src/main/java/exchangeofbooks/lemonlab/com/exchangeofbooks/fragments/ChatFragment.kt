@@ -58,7 +58,7 @@ class ChatFragment : Fragment() {
         getFriendsInChat()
 
     }
-
+    // get user friends from firebase database
     fun getFriendsInChat(){
         val ref = FirebaseDatabase.getInstance().getReference("friends/${FirebaseAuth.getInstance().uid}")
         ref.addValueEventListener(object :ValueEventListener{
@@ -79,6 +79,7 @@ class ChatFragment : Fragment() {
         })
     }
 
+    // get user id and return user object from firebase database
     fun convertToUser(id:String){
         var ref = FirebaseDatabase.getInstance().getReference("users/$id")
         ref.addValueEventListener(object :ValueEventListener{
@@ -89,12 +90,12 @@ class ChatFragment : Fragment() {
             override fun onDataChange(p0: DataSnapshot) {
                 var user = p0.getValue(User::class.java)
                 if(user != null && context != null)
-                adapter.add(friend_item(user,context!!))
+                adapter.add(friend_item(user,context!!,adapter))
             }
 
         })
     }
-
+    // get user friends request from firebase database
     fun getFriendRequest(){
         val ref = FirebaseDatabase.getInstance().getReference("friend_request/${CurrentUser?.id}")
         ref.addValueEventListener(object:ValueEventListener{

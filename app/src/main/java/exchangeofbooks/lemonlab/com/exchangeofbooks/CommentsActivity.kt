@@ -50,9 +50,7 @@ class CommentsActivity : AppCompatActivity() {
         comments_recycler_view.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         comments_recycler_view.addItemDecoration(DividerItemDecoration(this@CommentsActivity,DividerItemDecoration.VERTICAL ))
         comments_recycler_view.adapter = adapter
-
-
-
+        Picasso.get().load(CurrentUser?.image_profile).into(post_image_comments_activity)
 
         send_comment_comments_activity.setOnClickListener {
             var comment_id = UUID.randomUUID().toString()
@@ -109,7 +107,6 @@ class CommentsActivity : AppCompatActivity() {
 
             override fun onDataChange(p0: DataSnapshot) {
                 post = p0.getValue(Post::class.java)
-                Picasso.get().load(user_post?.image_profile).into(post_image_comments_activity)
                 Log.i("CommentsActivity","post: ${post?.text}")
                 Log.i("CommentsActivity","post image: ${post?.post_image}")
             }

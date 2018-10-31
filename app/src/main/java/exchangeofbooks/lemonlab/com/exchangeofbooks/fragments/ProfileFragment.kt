@@ -6,16 +6,10 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
@@ -23,8 +17,6 @@ import com.xwray.groupie.ViewHolder
 import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity.Companion.CurrentUser
 
 import exchangeofbooks.lemonlab.com.exchangeofbooks.R
-import exchangeofbooks.lemonlab.com.exchangeofbooks.items.wish_item
-import exchangeofbooks.lemonlab.com.exchangeofbooks.models.wish
 import kotlinx.android.synthetic.main.fragment_profile.*
 import java.util.*
 
@@ -44,7 +36,12 @@ class ProfileFragment() : Fragment() {
 
         //inti
         setUserData()
-        getWishList()
+
+        // we will remove this code soon
+        /*
+        //getWishList()
+
+
         wishlist_recycler_view.adapter = adapter
         wishlist_recycler_view.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
 
@@ -61,7 +58,7 @@ class ProfileFragment() : Fragment() {
                 Log.i("ProfileFragment","wish added to databse")
             }
             getWishList()
-        }
+        }*/
     }
 
     private fun setUserData(){
@@ -96,7 +93,9 @@ class ProfileFragment() : Fragment() {
         }
     }
 
-    private fun getWishList(){
+    // we will remov ethis code soon
+
+    /*private fun getWishList(){
         var ref = FirebaseDatabase.getInstance().getReference("wishlist/${CurrentUser?.id}")
         ref.addValueEventListener(object:ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
@@ -111,10 +110,10 @@ class ProfileFragment() : Fragment() {
                 }
                 wish_list.reverse()
                 wish_list.forEach {
-                    adapter.add(wish_item(it))
+                    adapter.add(post_profile_item(it))
                 }
             }
 
         })
-    }
+    }*/
 }

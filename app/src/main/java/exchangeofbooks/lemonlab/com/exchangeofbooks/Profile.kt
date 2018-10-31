@@ -1,6 +1,5 @@
 package exchangeofbooks.lemonlab.com.exchangeofbooks
 
-import android.annotation.SuppressLint
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
@@ -16,11 +15,11 @@ import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity.Companion.CurrentUser
-import exchangeofbooks.lemonlab.com.exchangeofbooks.items.wish_item
-import exchangeofbooks.lemonlab.com.exchangeofbooks.items.wish_item_others
+import exchangeofbooks.lemonlab.com.exchangeofbooks.items.post_item
+import exchangeofbooks.lemonlab.com.exchangeofbooks.items.post_profile_item
 import exchangeofbooks.lemonlab.com.exchangeofbooks.keys.keys
+import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Post
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
-import exchangeofbooks.lemonlab.com.exchangeofbooks.models.wish
 import kotlinx.android.synthetic.main.activity_profile.*
 
 class Profile : AppCompatActivity() {
@@ -42,7 +41,10 @@ class Profile : AppCompatActivity() {
         //init
         wishlist_recycler_view_activity_profile.adapter = adapter
         wishlist_recycler_view_activity_profile.layoutManager = LinearLayoutManager(this@Profile,LinearLayoutManager.VERTICAL,false)
-        getWishList()
+        getUserPosts()
+
+        // // we will remove this code soon
+        //getWishList()
 
         ratingBar.setOnRatingChangeListener { ratingBar, rating ->
             Log.i("Profile","rating value: $rating")
@@ -97,11 +99,6 @@ class Profile : AppCompatActivity() {
 
             })
         }
-
-        remove_frined_btn.setOnClickListener {
-            removeFriend()
-            isFriend = false
-        }
     }
 
     fun getUser(){
@@ -124,6 +121,10 @@ class Profile : AppCompatActivity() {
         user_name_profile_activity.text = user?.username
     }
 
+    // we will remove this code soon
+
+    /*
+
     fun getWishList(){
         val ref = FirebaseDatabase.getInstance().getReference("wishlist/${user_id}")
         ref.addValueEventListener(object:ValueEventListener{
@@ -144,7 +145,7 @@ class Profile : AppCompatActivity() {
 
         })
     }
-
+    */
 
     fun sendFriendRequest(){
         var ref = FirebaseDatabase.getInstance().getReference("friend_request/${user_id}/${CurrentUser?.id}").push()
@@ -153,12 +154,25 @@ class Profile : AppCompatActivity() {
         }
     }
 
-    fun removeFriend(){
-        val ref = FirebaseDatabase.getInstance().getReference("friends/${FirebaseAuth.getInstance()
-                .uid}/${user_id}")
-        ref.removeValue().addOnCompleteListener {
-            Log.i("Profile","friend removed from database ")
-            Toast.makeText(this@Profile,"تم الحذف",Toast.LENGTH_SHORT).show()
-        }
+    fun getUserPosts(){
+        val ref = FirebaseDatabase.getInstance().getReference("users_post/$user_id")
+        ref.addValueEventListener(object:ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                var post_list = ArrayList<Post>()
+                if(p0.exists()){
+                    p0.children.forEach {
+                        var post = it.getValue(Post::class.java)
+                        post_list.add(post!!)
+                        Log.i("Profile","post in profile text: ${post.text}")
+                    }
+                }
+                post_list.forEach { adapter.add(post_profile_item(it)) }
+            }
+
+        })
     }
 }
