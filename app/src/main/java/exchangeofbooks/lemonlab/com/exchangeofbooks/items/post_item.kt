@@ -49,6 +49,8 @@ class post_item(var post:Post?, var context:Context?):Item<ViewHolder>() {
 
         })
 
+        viewHolder.itemView.book_category_post_row.text = post?.category
+
         viewHolder.itemView.pots_post_textview.text = post?.text
         // load image from cash or picasso
         //Log.i("post_item",post?.post_image) // temp

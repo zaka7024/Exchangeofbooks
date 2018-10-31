@@ -18,10 +18,10 @@
         android:paddingTop="10dp"
         android:paddingRight="12dp"
         android:paddingBottom="10dp"
-        android:text="TextView"
         android:textColor="#000"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Chat Vlaue" />
 </android.support.constraint.ConstraintLayout>

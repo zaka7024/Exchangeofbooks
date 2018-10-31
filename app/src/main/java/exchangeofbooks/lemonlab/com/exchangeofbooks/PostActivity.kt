@@ -30,8 +30,8 @@ class PostActivity : AppCompatActivity() {
         setContentView(R.layout.activity_post)
 
         //set data to spinner
-        /*book_category_spinner.adapter = ArrayAdapter<String>(this@PostActivity,android.R.layout.simple_spinner_dropdown_item
-        ,resources.getStringArray(R.array.book_category))*/
+        book_category_spinner.adapter = ArrayAdapter<String>(this@PostActivity,android.R.layout.simple_spinner_dropdown_item
+        ,resources.getStringArray(R.array.book_category))
 
         post_btn_post_activity.setOnClickListener {
             // save post and close the activity
@@ -97,7 +97,9 @@ class PostActivity : AppCompatActivity() {
         //category = book_category_spinner.selectedItem.toString()
         post_text = post_text_post_activity.text.toString()
         val ref = FirebaseDatabase.getInstance().getReference("posts").push()
-        var post = Post(ref.key!!,FirebaseAuth.getInstance().uid!!,post_text!!,"0","0",post_image_uri.toString(),"")
+        var post = Post(ref.key!!,FirebaseAuth.getInstance().uid!!,post_text!!,post_image_uri.toString(),
+                book_category_spinner.selectedItem.toString())
+
         ref.setValue(post).addOnCompleteListener {
             Log.i("PostActivity","post pushed")
 

@@ -35,12 +35,13 @@
                 android:layout_height="0dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginEnd="8dp"
-                android:text="TextView"
+                android:padding="2dp"
                 android:textColor="@color/mainColorBlue"
                 app:layout_constraintBottom_toBottomOf="@+id/cuurent_user_post_image_view"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/cuurent_user_post_image_view"
-                app:layout_constraintTop_toTopOf="@+id/cuurent_user_post_image_view" />
+                app:layout_constraintTop_toTopOf="@+id/cuurent_user_post_image_view"
+                tools:text="Post Text" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
 </android.support.constraint.ConstraintLayout>

@@ -24,7 +24,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="TextView"
         app:layout_constraintEnd_toStartOf="@+id/post_image_profile"
         app:layout_constraintTop_toTopOf="@+id/post_image_profile"
         tools:text="zaka7024" />
@@ -37,12 +36,12 @@
         android:layout_marginTop="4dp"
         android:fontFamily="@font/noto_sans_bold"
         android:minHeight="40dp"
-        android:text="Clan War Leagues are coming to Clash of Clans this October! Skill-based matchmaking, new MAGIC ITEMS and much more! #clashofclans #clanwarleagues  "
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="@+id/post_image_profile"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/post_image_profile" />
+        app:layout_constraintTop_toBottomOf="@+id/post_image_profile"
+        tools:text="Clan War Leagues are coming to Clash of Clans this October! Skill-based matchmaking, new MAGIC ITEMS and much more! #clashofclans #clanwarleagues  " />
 
     <ImageView
         android:id="@+id/post_image_view"
@@ -74,5 +73,18 @@
             android:text="take this book"
             android:textColor="@color/white" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/book_category_post_row"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/noto_sans"
+        android:textColor="#CCC"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/post_image_profile"
+        app:layout_constraintTop_toBottomOf="@+id/post_username"
+        tools:text="Bokk Category" />
 
 </android.support.constraint.ConstraintLayout>

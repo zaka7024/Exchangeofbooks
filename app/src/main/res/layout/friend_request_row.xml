@@ -20,10 +20,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:fontFamily="@font/noto_sans_bold"
-        android:text="Username"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/user_image_profile_friend_request"
-        app:layout_constraintTop_toTopOf="@+id/user_image_profile_friend_request" />
+        app:layout_constraintTop_toTopOf="@+id/user_image_profile_friend_request"
+        tools:text="Username" />
 
     <Button
         android:id="@+id/delete_friend_request_btn"
