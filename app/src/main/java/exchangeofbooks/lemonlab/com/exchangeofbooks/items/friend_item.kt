@@ -35,7 +35,7 @@ class friend_item(var user: User,var context: Context, var adapter: GroupAdapter
         }
 
         var pop = PopupMenu(context,viewHolder.itemView.user_chat_row_settings)
-        pop.menu.add("Remove")
+        pop.menu.add("Remove Friend")
 
         pop.setOnMenuItemClickListener {
             adapter.removeGroup(viewHolder.adapterPosition)

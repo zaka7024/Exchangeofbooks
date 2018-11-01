@@ -13,6 +13,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -55,7 +56,10 @@ class PostActivity : AppCompatActivity() {
             R.id.post_btn_post_activity ->{
                 // save post and close the activity
                 // left here message to the user
-                if(book_category_spinner.selectedItem == null || post_text_post_activity.text.trim().isEmpty()) return false
+                if(book_category_spinner.selectedItem == null || post_text_post_activity.text.trim().isEmpty()){
+                    Toast.makeText(this@PostActivity,"لا يجوز ترك اي حقل فارغ",Toast.LENGTH_SHORT).show()
+                    return false
+                }
                 UploadImageToStorage()
             }
         }

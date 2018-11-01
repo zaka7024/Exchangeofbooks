@@ -175,7 +175,7 @@ class Profile : AppCompatActivity() {
                     }
                 }
                 post_list.reverse()
-                post_list.forEach { adapter.add(post_profile_item(it)) }
+                post_list.forEach { adapter.add(post_profile_item(it,this@Profile)) }
             }
 
         })
