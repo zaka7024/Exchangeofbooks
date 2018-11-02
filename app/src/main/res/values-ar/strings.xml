@@ -32,6 +32,8 @@
     <string name="upload_image_p">ارفع صورة</string>
     <string name="camera_p">الكاميرا</string>
     <string name="get_book_pos">الحصول على الكتاب</string>
+    <string name="post_menupos">انشر</string>
+
     <!-- Profile Activity -->
     <string name="alreadyFriends">أنتم أصدقاء بالفعل</string>
     <string name="rep_profile">السمعة</string>

@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:title="Post"
+        android:title="@string/post_menupos"
         android:id="@+id/post_btn_post_activity"
         app:showAsAction="always"
         android:icon="@drawable/ic_action_send"

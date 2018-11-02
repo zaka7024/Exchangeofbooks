@@ -33,6 +33,8 @@
     <string name="upload_image_p">Upload Image</string>
     <string name="camera_p">Camera</string>
     <string name="get_book_pos">Get This Book</string>
+    <string name="post_menupos">Post</string>
+
     <!-- Profile Activity -->
     <string name="alreadyFriends">You are already friends</string>
     <string name="rep_profile">Reputation</string>
