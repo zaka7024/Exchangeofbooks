@@ -71,7 +71,8 @@ class Profile : AppCompatActivity() {
                     }
                     Log.i("Profile","friend list size -> ${listOfFriends.size}")
                     if(listOfFriends.contains(user_id!!)){
-                        Toast.makeText(this@Profile,"الصديق موجود بالفعل",Toast.LENGTH_SHORT).show()
+                        val alreadyFriends=getString(R.string.alreadyFriends)
+                        Toast.makeText(this@Profile,alreadyFriends,Toast.LENGTH_SHORT).show()
                     }else{
                         sendFriendRequest()
                         isFriend = true

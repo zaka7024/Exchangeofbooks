@@ -37,7 +37,8 @@ class CommentsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_comments)
 
         //init
-        supportActionBar?.title = "التعليقات"
+        val comments=getString(R.string.comments_c)
+        supportActionBar?.title = comments
         // get user id from previous activity
         user_id = intent.extras.getString(keys.USER_POST_FROM_ID)
         post_id = intent.extras.getString(keys.POST_ID)

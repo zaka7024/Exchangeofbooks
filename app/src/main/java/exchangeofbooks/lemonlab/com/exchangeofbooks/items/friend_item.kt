@@ -2,6 +2,7 @@ package exchangeofbooks.lemonlab.com.exchangeofbooks.items
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Resources
 import android.util.Log
 import android.widget.PopupMenu
 import android.widget.Toast
@@ -33,9 +34,9 @@ class friend_item(var user: User,var context: Context, var adapter: GroupAdapter
             intent.putExtra(keys.USER_NAME,user.username)
             context.startActivity(intent)
         }
-
         var pop = PopupMenu(context,viewHolder.itemView.user_chat_row_settings)
-        pop.menu.add("Remove Friend")
+        val removeFriend=context.getString(R.string.Remove_Friend)
+        pop.menu.add(removeFriend)
 
         pop.setOnMenuItemClickListener {
             adapter.removeGroup(viewHolder.adapterPosition)

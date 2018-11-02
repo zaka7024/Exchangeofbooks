@@ -50,7 +50,8 @@ class ChatFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         //init
-        (activity as AppCompatActivity).supportActionBar?.title = "friends"
+        val friends=getString(R.string.friends_title)
+        (activity as AppCompatActivity).supportActionBar?.title = friends
         chat_recyclerView.adapter = adapter
         chat_recyclerView.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
         chat_recyclerView.addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL ))

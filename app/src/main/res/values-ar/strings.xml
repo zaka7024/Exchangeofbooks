@@ -3,6 +3,59 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">مرحبا يالفراغمنت الفاضية</string>
+    <!-- Chat Fragment -->
+    <string name="friends_title">الأصدقاء</string>
+
+    <!-- User Posts Fragment -->
+    <string name="Drag_Delete">اسحب للحذف</string>
+
+    <!-- Friends items Fragment -->
+    <string name="Remove_Friend">حذف الصديق</string>
+    <string name="delete_req">حذف الطلب</string>
+    <string name="accept_req">قبول</string>
+    <!-- Comments Activity -->
+    <string name="comments_c">التعليقات</string>
+    <!-- Login Activity -->
+    <string name="FillFields_L">فضلًا، املأ كل الحقول</string>
+    <string name="Loading_L">جار التحميل 😊</string>
+    <string name="LoggingIn_L">جار تسجيل الدخول</string>
+
+    <string name="login_l">سجل الدخول</string>
+    <string name="password_l">كلمة المرور</string>
+    <string name="email_l">البريد الالكتروني</string>
+    <string name="new_l">جديد هنا؟</string>
+    <!-- Post Activity -->
+    <string name="FillFields_P">فضلًا، املأ كل الحقول</string>
+    <string name="book_category_p">تصنيف الكتاب *</string>
+    <string name="post_text_p">نص المنشور *</string>
+    <string name="post_image_p">صورة *</string>
+    <string name="upload_image_p">ارفع صورة</string>
+    <string name="camera_p">الكاميرا</string>
+    <string name="get_book_pos">الحصول على الكتاب</string>
+    <!-- Profile Activity -->
+    <string name="alreadyFriends">أنتم أصدقاء بالفعل</string>
+    <string name="rep_profile">السمعة</string>
+    <string name="posts_no_prof">عدد المنشورات</string>
+    <string name="books_prof">الكتب</string>
+    <string name="posts_prof">المنشورات</string>
+    <!-- Register Activity -->
+    <string name="chooseImg_R">فضلًا، اختر صورة شخصيّة</string>
+    <string name="Registering_R">جار تسجيل المستخدم</string>
+
+    <string name="password_R">كلمةالمرور</string>
+    <string name="email_R">البريد</string>
+    <string name="register_R">افتح حسابًا</string>
+    <string name="select_photo_R">اختر صورة</string>
+    <string name="username_R">اسم المستخدم</string>
+    <string name="have_Account_R">مسجل بالفعل؟</string>
+    <!-- Chat-->
+    <string name="message_chatlog">اكتب رسالة</string>
+    <!-- Comments-->
+    <string name="post_c">انشر</string>
+    <string name="publish_comment">أضف تعليقًا</string>
+
+
+
     <array name="book_category">
         <!-- كتب جامعية -->
         <item>الرياضيات</item>

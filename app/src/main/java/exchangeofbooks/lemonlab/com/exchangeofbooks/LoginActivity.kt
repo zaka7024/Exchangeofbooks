@@ -34,13 +34,16 @@ class LoginActivity : AppCompatActivity() {
         password = password_textview_login_activity.text.toString()
 
         if(email!!.trim().isEmpty() || password!!.trim().isEmpty()){
-            Toast.makeText(this@LoginActivity,"please fill all fields", Toast.LENGTH_SHORT).show()
+            val fillDaFields=getString(R.string.FillFields_L)
+            Toast.makeText(this@LoginActivity,fillDaFields, Toast.LENGTH_SHORT).show()
             return
         }
 
         var dialog: ProgressDialog = ProgressDialog(this@LoginActivity)
-        dialog.setTitle("Loading 😊")
-        dialog.setMessage("Logging In...")
+        val loading=getString(R.string.Loading_L)
+        val loggingIn=getString(R.string.LoggingIn_L)
+        dialog.setTitle(loading)
+        dialog.setMessage(loggingIn)
         dialog.show()
 
         ref.signInWithEmailAndPassword(email!!,password!!).addOnCompleteListener {

@@ -47,8 +47,8 @@ class UserpostFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-        Toast.makeText(context,"اسحب العنصر للحذف", Toast.LENGTH_SHORT).show()
+        val dragToDelete=getString(R.string.Drag_Delete)
+        Toast.makeText(context,dragToDelete, Toast.LENGTH_SHORT).show()
 
         cuurent_user_posts_recycler_view.adapter = adapter
         cuurent_user_posts_recycler_view.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)

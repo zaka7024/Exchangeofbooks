@@ -50,7 +50,8 @@ class RegisterActivity : AppCompatActivity() {
 
         register_btn_register_activity.setOnClickListener {
             if(imageProfileUri == null){
-                Toast.makeText(this@RegisterActivity,"الرجاء اختيار صورة شخصية للحساب",Toast.LENGTH_SHORT).show()
+                val chooseProfileImg=getString(R.string.chooseImg_R)
+                Toast.makeText(this@RegisterActivity,chooseProfileImg,Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             RegisterNewUser()
@@ -83,13 +84,16 @@ class RegisterActivity : AppCompatActivity() {
         var ref = FirebaseAuth.getInstance()
 
         if(email!!.trim().isEmpty() || password!!.trim().isEmpty() || username!!.trim().isEmpty()){
-            Toast.makeText(this@RegisterActivity,"please fill all fields",Toast.LENGTH_SHORT).show()
+            val fillDaFields=getString(R.string.FillFields_L)
+            Toast.makeText(this@RegisterActivity,fillDaFields,Toast.LENGTH_SHORT).show()
             return
         }
 
         var dialog:ProgressDialog = ProgressDialog(this@RegisterActivity)
-        dialog.setTitle("Loading 😊")
-        dialog.setMessage("Registration...")
+        val loading=getString(R.string.Loading_L)
+        val registeringUser=getString(R.string.Registering_R)
+        dialog.setTitle(loading)
+        dialog.setMessage(registeringUser)
         dialog.show()
         ref.createUserWithEmailAndPassword(email!!,password!!).addOnCompleteListener {
             Log.i("RegisterActivty","new user sign up")

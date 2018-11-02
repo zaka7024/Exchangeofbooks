@@ -57,7 +57,8 @@ class PostActivity : AppCompatActivity() {
                 // save post and close the activity
                 // left here message to the user
                 if(book_category_spinner.selectedItem == null || post_text_post_activity.text.trim().isEmpty()){
-                    Toast.makeText(this@PostActivity,"لا يجوز ترك اي حقل فارغ",Toast.LENGTH_SHORT).show()
+                    val fillDaFields=getString(R.string.FillFields_P)
+                    Toast.makeText(this@PostActivity,fillDaFields,Toast.LENGTH_SHORT).show()
                     return false
                 }
                 UploadImageToStorage()

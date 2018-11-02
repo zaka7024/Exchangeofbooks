@@ -3,6 +3,60 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Chat Fragment -->
+    <string name="friends_title">Friends</string>
+
+    <!-- User Posts Fragment -->
+    <string name="Drag_Delete">Drag to delete</string>
+
+    <!-- Friends items Fragment -->
+    <string name="Remove_Friend">Remove Friend</string>
+    <string name="delete_req">Delete</string>
+    <string name="accept_req">Accept</string>
+    <!-- Comments Activity -->
+    <string name="comments_c">Comments</string>
+
+    <!-- Login Activity -->
+    <string name="FillFields_L">Fill All Fields, please</string>
+    <string name="Loading_L">Loading 😊</string>
+    <string name="LoggingIn_L">Logging in</string>
+
+    <string name="login_l">Login</string>
+    <string name="password_l">Password</string>
+    <string name="email_l">Email</string>
+    <string name="new_l">New here?</string>
+    <!-- Post Activity -->
+    <string name="FillFields_P">Fill All Fields, please</string>
+    <string name="book_category_p">Book Category *</string>
+    <string name="post_text_p">Post Text *</string>
+    <string name="post_image_p">Post Image *</string>
+    <string name="upload_image_p">Upload Image</string>
+    <string name="camera_p">Camera</string>
+    <string name="get_book_pos">Get This Book</string>
+    <!-- Profile Activity -->
+    <string name="alreadyFriends">You are already friends</string>
+    <string name="rep_profile">Reputation</string>
+    <string name="posts_no_prof">Posts #</string>
+    <string name="books_prof">Books</string>
+    <string name="posts_prof">Posts</string>
+    <!-- Register Activity -->
+    <string name="chooseImg_R">Please choose a profile image</string>
+    <string name="Registering_R">Registering New User</string>
+    <string name="password_R">Password</string>
+    <string name="email_R">Email</string>
+    <string name="register_R">Register</string>
+    <string name="select_photo_R">SELECT PHOTO</string>
+    <string name="username_R">Username</string>
+    <string name="have_Account_R">Have an Account?</string>
+    <!-- Chat -->
+    <string name="message_chatlog">Write a message</string>
+    <!-- Comments -->
+
+    <string name="post_c">Send</string>
+    <string name="publish_comment">Add a comment</string>
+
+
+
     <array name="book_category">
         <!-- Books used in school -->
         <item>Math</item>

@@ -15,7 +15,7 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/message_edittext_background"
         android:ems="10"
-        android:hint="Write a message"
+        android:hint="@string/message_chatlog"
         android:padding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/send_message_btn_chat_activity"
