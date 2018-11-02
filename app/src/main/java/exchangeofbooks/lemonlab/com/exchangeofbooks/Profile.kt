@@ -2,6 +2,7 @@ package exchangeofbooks.lemonlab.com.exchangeofbooks
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
@@ -41,6 +42,7 @@ class Profile : AppCompatActivity() {
         //init
         wishlist_recycler_view_activity_profile.adapter = adapter
         wishlist_recycler_view_activity_profile.layoutManager = LinearLayoutManager(this@Profile,LinearLayoutManager.VERTICAL,false)
+        wishlist_recycler_view_activity_profile.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL ))
         getUserPosts()
 
         // // we will remove this code soon
