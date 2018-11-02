@@ -38,6 +38,8 @@
     <string name="posts_no_prof">عدد المنشورات</string>
     <string name="books_prof">الكتب</string>
     <string name="posts_prof">المنشورات</string>
+    <string name="username_prof">اسم المستخدم</string>
+
     <!-- Register Activity -->
     <string name="chooseImg_R">فضلًا، اختر صورة شخصيّة</string>
     <string name="Registering_R">جار تسجيل المستخدم</string>
@@ -53,7 +55,16 @@
     <!-- Comments-->
     <string name="post_c">انشر</string>
     <string name="publish_comment">أضف تعليقًا</string>
+    <!-- Navigation Bar-->
 
+    <string name="home_nav"> الرئيسية</string>
+    <string name="posts_nav">منشوراتي</string>
+    <string name="chat_nav">الدردشة</string>
+    <string name="settings_nav">الاعدادات</string>
+    <!-- Menu-->
+    <string name="sign_out_menu">تسجيل الخروج</string>
+    <string name="settings_menu">الاعدادات</string>
+    <string name="search_menu">البحث</string>
 
 
     <array name="book_category">

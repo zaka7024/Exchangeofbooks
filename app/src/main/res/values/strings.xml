@@ -39,6 +39,7 @@
     <string name="posts_no_prof">Posts #</string>
     <string name="books_prof">Books</string>
     <string name="posts_prof">Posts</string>
+    <string name="username_prof">Username</string>
     <!-- Register Activity -->
     <string name="chooseImg_R">Please choose a profile image</string>
     <string name="Registering_R">Registering New User</string>
@@ -51,10 +52,17 @@
     <!-- Chat -->
     <string name="message_chatlog">Write a message</string>
     <!-- Comments -->
-
     <string name="post_c">Send</string>
     <string name="publish_comment">Add a comment</string>
-
+    <!-- Navigation Bar-->
+    <string name="home_nav">Home</string>
+    <string name="posts_nav">Posts</string>
+    <string name="chat_nav">Chat</string>
+    <string name="settings_nav">Settings</string>
+    <!-- Menu-->
+    <string name="sign_out_menu">Sign Out</string>
+    <string name="settings_menu">Settings</string>
+    <string name="search_menu">Search</string>
 
 
     <array name="book_category">

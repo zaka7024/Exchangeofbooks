@@ -2,25 +2,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/home"
-        android:title="Home"
+        android:title="@string/home_nav"
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_action_home"       />
     <item
         android:id="@+id/b2"
-        android:title="Posts"
+        android:title="@string/posts_nav"
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_action_post"        />
 
     <item
         android:id="@+id/b3"
         app:showAsAction="ifRoom"
-        android:title="Chat"
+        android:title="@string/chat_nav"
         android:icon="@drawable/ic_action_chat"        />
 
     <item
         android:id="@+id/b4"
         app:showAsAction="ifRoom"
-        android:title="Settings"
+        android:title="@string/settings_nav"
         android:icon="@drawable/ic_action_settings"        />
 
 </menu>
