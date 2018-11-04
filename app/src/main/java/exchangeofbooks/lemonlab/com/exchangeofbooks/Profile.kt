@@ -45,13 +45,6 @@ class Profile : AppCompatActivity() {
         wishlist_recycler_view_activity_profile.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL ))
         getUserPosts()
 
-        // // we will remove this code soon
-        //getWishList()
-
-        ratingBar.setOnRatingChangeListener { ratingBar, rating ->
-            Log.i("Profile","rating value: $rating")
-        }
-
         add_frined_btn.setOnClickListener {
             val ref = FirebaseDatabase.getInstance().getReference("friends/${CurrentUser?.id}")
 
@@ -97,11 +90,6 @@ class Profile : AppCompatActivity() {
                     p0.children.forEach {
                         listOfFriends.add(it.getValue(String::class.java)!!)
                     }
-                    if(listOfFriends.contains(user_id!!)){
-                        ratingBar.visibility = View.VISIBLE
-                    }else{
-                        ratingBar.visibility = View.GONE
-                    }
                 }
 
             })
@@ -128,31 +116,6 @@ class Profile : AppCompatActivity() {
         user_name_profile_activity.text = user?.username
     }
 
-    // we will remove this code soon
-
-    /*
-
-    fun getWishList(){
-        val ref = FirebaseDatabase.getInstance().getReference("wishlist/${user_id}")
-        ref.addValueEventListener(object:ValueEventListener{
-            override fun onCancelled(p0: DatabaseError) {
-
-            }
-
-            override fun onDataChange(p0: DataSnapshot) {
-                var wishList = ArrayList<wish>()
-                p0.children.forEach{
-                    wishList.add(it.getValue(wish::class.java)!!)
-                }
-                wishList.reverse()
-                wishList.forEach {
-                    adapter.add(wish_item_others(it))
-                }
-            }
-
-        })
-    }
-    */
 
     fun sendFriendRequest(){
         var ref = FirebaseDatabase.getInstance().getReference("friend_request/${user_id}/${CurrentUser?.id}").push()
