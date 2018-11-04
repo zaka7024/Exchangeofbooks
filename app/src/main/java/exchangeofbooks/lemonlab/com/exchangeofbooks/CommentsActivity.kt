@@ -143,7 +143,7 @@ class CommentsActivity : AppCompatActivity() {
             override fun onChildAdded(p0: DataSnapshot, p1: String?) {
                 // get the comments from database and put it into our adapter
                 var comment = p0.getValue(Comment::class.java)
-                adapter.add(comment_item(comment!!))//
+                adapter.add(comment_item(comment!!,this@CommentsActivity))//
                 scrollToLastItem()
             }
             /*
