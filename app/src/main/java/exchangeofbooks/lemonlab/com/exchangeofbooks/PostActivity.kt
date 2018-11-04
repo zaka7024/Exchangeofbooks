@@ -21,6 +21,7 @@ import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity.Companion.Curre
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Post
 import kotlinx.android.synthetic.main.activity_post.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 class PostActivity : AppCompatActivity() {
 
@@ -118,7 +119,7 @@ class PostActivity : AppCompatActivity() {
         post_text = post_text_post_activity.text.toString()
         val ref = FirebaseDatabase.getInstance().getReference("posts").push()
         var post = Post(ref.key!!,FirebaseAuth.getInstance().uid!!,post_text!!,post_image_uri.toString(),
-                book_category_spinner.selectedItem.toString())
+                book_category_spinner.selectedItem.toString(), ArrayList())
 
         ref.setValue(post).addOnCompleteListener {
             Log.i("PostActivity","post pushed")

@@ -39,7 +39,7 @@
     <string name="alreadyFriends">You are already friends</string>
     <string name="rep_profile">Reputation</string>
     <string name="posts_no_prof">Posts #</string>
-    <string name="books_prof">Books</string>
+    <!--<string name="books_prof">Books</string> -->
     <string name="posts_prof">Posts</string>
     <string name="username_prof">Username</string>
     <!-- Register Activity -->

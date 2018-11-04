@@ -10,6 +10,8 @@ import com.squareup.picasso.Picasso
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 import exchangeofbooks.lemonlab.com.exchangeofbooks.CommentsActivity
+import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity
+import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity.Companion.CurrentUser
 import exchangeofbooks.lemonlab.com.exchangeofbooks.Profile
 import exchangeofbooks.lemonlab.com.exchangeofbooks.R
 import exchangeofbooks.lemonlab.com.exchangeofbooks.keys.keys
@@ -63,6 +65,20 @@ class post_item(var post:Post?, var context:Context?):Item<ViewHolder>() {
         // event lestiner
 
         viewHolder.itemView.tkae_book_main_activity.setOnClickListener {
+
+            // change the views of the post
+
+            if(CurrentUser!= null && !(post?.views!!.contains(CurrentUser?.id)) ){
+                post?.views!!.add(CurrentUser!!.id)
+                val ref = FirebaseDatabase.getInstance().getReference("posts/${post?.post_id}")
+                ref.setValue(post).addOnCompleteListener {
+                    Log.i("MainActivity","change the views of the post")
+                }
+
+                val user_ref = FirebaseDatabase.getInstance().getReference("users_post/${post?.from_id}/${post?.post_id}")
+                user_ref.setValue(post)
+            }
+
             var intent = Intent(context,CommentsActivity::class.java)
             intent.putExtra(keys.USER_POST_FROM_ID,post?.from_id)
             intent.putExtra(keys.POST_ID,post?.post_id)

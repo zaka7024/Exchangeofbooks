@@ -30,6 +30,7 @@ class Profile : AppCompatActivity() {
     var adapter = GroupAdapter<ViewHolder>()
     var listOfFriends = ArrayList<String>()
     var isFriend:Boolean = false
+    var views:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -134,11 +135,14 @@ class Profile : AppCompatActivity() {
             override fun onDataChange(p0: DataSnapshot) {
                 var post_list = ArrayList<Post>()
                 if(p0.exists()){
+
                     p0.children.forEach {
                         var post = it.getValue(Post::class.java)
-                        post_list.add(post!!)
+                        views += post!!.views.size
+                        post_list.add(post)
                         Log.i("Profile","post in profile text: ${post.text}")
                     }
+                    view_value_text_view.text = views.toString()
                 }
                 post_list.reverse()
                 post_list.forEach { adapter.add(post_profile_item(it,this@Profile)) }

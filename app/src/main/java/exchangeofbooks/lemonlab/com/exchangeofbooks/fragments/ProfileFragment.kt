@@ -37,28 +37,6 @@ class ProfileFragment() : Fragment() {
         //inti
         setUserData()
 
-        // we will remove this code soon
-        /*
-        //getWishList()
-
-
-        wishlist_recycler_view.adapter = adapter
-        wishlist_recycler_view.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
-
-        // change user image profile
-        image_profile_user_profile.setOnClickListener {
-            changeUserProfileIImage()
-        }
-
-        // add item in wishlist
-        add_wish_btn.setOnClickListener {
-            val ref = FirebaseDatabase.getInstance().getReference("wishlist/${CurrentUser?.id}").push()
-            var new_wish = wish(ref.key!!,"ارغب بالحصول على رواية ارض زيكولا الجزء الثاني",FirebaseAuth.getInstance().uid!!)
-            ref.setValue(new_wish).addOnCompleteListener {
-                Log.i("ProfileFragment","wish added to databse")
-            }
-            getWishList()
-        }*/
     }
 
     private fun setUserData(){
@@ -92,28 +70,4 @@ class ProfileFragment() : Fragment() {
             }
         }
     }
-
-    // we will remov ethis code soon
-
-    /*private fun getWishList(){
-        var ref = FirebaseDatabase.getInstance().getReference("wishlist/${CurrentUser?.id}")
-        ref.addValueEventListener(object:ValueEventListener{
-            override fun onCancelled(p0: DatabaseError) {
-
-            }
-
-            override fun onDataChange(p0: DataSnapshot) {
-                var wish_list = ArrayList<wish>()
-                adapter.clear()
-                p0.children.forEach{
-                    wish_list.add(it.getValue(wish::class.java)!!)
-                }
-                wish_list.reverse()
-                wish_list.forEach {
-                    adapter.add(post_profile_item(it))
-                }
-            }
-
-        })
-    }*/
 }

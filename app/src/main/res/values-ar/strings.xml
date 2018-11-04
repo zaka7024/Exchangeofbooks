@@ -38,7 +38,7 @@
     <string name="alreadyFriends">أنتم أصدقاء بالفعل</string>
     <string name="rep_profile">السمعة</string>
     <string name="posts_no_prof">عدد المنشورات</string>
-    <string name="books_prof">الكتب</string>
+    <!-- <string name="books_prof">الكتب</string> -->
     <string name="posts_prof">المنشورات</string>
     <string name="username_prof">اسم المستخدم</string>
 
