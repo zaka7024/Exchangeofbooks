@@ -147,7 +147,7 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
     private fun modeLightOrNight(){
-        val shrPr=this.getPreferences(Context.MODE_PRIVATE) ?: return
+        val shrPr=this.getSharedPreferences("mode", Context.MODE_PRIVATE) ?: return
         val mode=shrPr.getString(getString(R.string.mode), "")
         if(mode=="ni"){
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)

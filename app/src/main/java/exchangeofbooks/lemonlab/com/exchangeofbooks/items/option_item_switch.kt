@@ -2,6 +2,7 @@ package exchangeofbooks.lemonlab.com.exchangeofbooks.items
 
 import android.app.Activity
 import android.content.Context
+import android.util.Log
 import android.widget.CompoundButton
 import android.widget.Toast
 import com.xwray.groupie.Item
@@ -11,7 +12,7 @@ import kotlinx.android.synthetic.main.option_switch_row.view.*
 
 class option_item_switch(var type:String,var activity:Activity):Item<ViewHolder>() {
 
-    val shrPr=activity.getPreferences(Context.MODE_PRIVATE)
+    val shrPr=activity.getSharedPreferences("mode", Context.MODE_PRIVATE)
     override fun getLayout(): Int {
         return R.layout.option_switch_row
     }
@@ -23,7 +24,7 @@ class option_item_switch(var type:String,var activity:Activity):Item<ViewHolder>
                 if(isChecked){
                     setMode("ni")
                 }
-                else
+                else if(!isChecked)
                     setMode("li")
             }
 
@@ -31,12 +32,14 @@ class option_item_switch(var type:String,var activity:Activity):Item<ViewHolder>
     }
 
     private fun setMode(newMode:String){// pass "ni" for night mode, li for light mode.
-
         with(shrPr.edit()){
             remove(activity.getString(exchangeofbooks.lemonlab.com.exchangeofbooks.R.string.mode))
             putString(activity.getString(exchangeofbooks.lemonlab.com.exchangeofbooks.R.string.mode), newMode)
             apply()
         }
+        val mode=shrPr.getString(activity.getString(exchangeofbooks.lemonlab.com.exchangeofbooks.R.string.mode), "")
+        Log.i("MOOOODE","Mode: $mode")
+
     }
 
 

@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AppCompatDelegate
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import exchangeofbooks.lemonlab.com.exchangeofbooks.items.option_item_switch
@@ -28,7 +29,7 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun modeLightOrNight(){
-        val shrPr=this.getPreferences(Context.MODE_PRIVATE) ?: return
+        val shrPr=this.getSharedPreferences("mode", Context.MODE_PRIVATE) ?: return
         val mode=shrPr.getString(getString(R.string.mode), "")
         if(mode=="ni"){
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)

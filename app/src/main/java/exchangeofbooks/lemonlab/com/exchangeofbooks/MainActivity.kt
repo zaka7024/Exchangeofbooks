@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatDelegate
 import android.transition.Slide
@@ -139,16 +140,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
     private fun modeLightOrNight(){
-        val shrPr=this.getPreferences(Context.MODE_PRIVATE) ?: return
+        val shrPr=this.getSharedPreferences("mode", Context.MODE_PRIVATE) ?: return
         val mode=shrPr.getString(getString(R.string.mode), "")
-        Log.i("MainActivity","app theme mode : ${mode}")
         if(mode=="ni"){
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         }
         else{
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
-
         if(AppCompatDelegate.getDefaultNightMode()== AppCompatDelegate.MODE_NIGHT_YES){
             setTheme(R.style.DarkAppTheme)
         }
