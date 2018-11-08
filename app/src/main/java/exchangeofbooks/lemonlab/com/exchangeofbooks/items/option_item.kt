@@ -3,6 +3,7 @@ package exchangeofbooks.lemonlab.com.exchangeofbooks.items
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
@@ -20,10 +21,10 @@ class option_item(var activity:Activity,var optionType:String): Item<ViewHolder>
         viewHolder.itemView.option_text_view_option_row.text = "Sign Out"
 
         viewHolder.itemView.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            var intent = activity.intent
+            val intent = activity.intent
             intent.putExtra(keys.SIGN_OUT,true)
             activity.setResult(Activity.RESULT_OK,intent)
+            FirebaseAuth.getInstance().signOut()
             activity.finish()
         }
     }

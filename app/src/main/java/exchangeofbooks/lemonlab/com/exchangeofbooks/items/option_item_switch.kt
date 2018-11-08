@@ -39,8 +39,6 @@ class option_item_switch(var type:String,var activity:Activity):Item<ViewHolder>
             putString(activity.getString(exchangeofbooks.lemonlab.com.exchangeofbooks.R.string.mode), newMode)
             apply()
         }
-        val mode=shrPr.getString(activity.getString(exchangeofbooks.lemonlab.com.exchangeofbooks.R.string.mode), "")
-        Log.i("MOOOODE","Mode: $mode")
 
     }
 

@@ -98,18 +98,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
         if(requestCode == 0 && resultCode == Activity.RESULT_OK && data != null){
-            val value:Boolean = data.extras!!.getBoolean(keys.SIGN_OUT)
+            val value = data.extras!!.getBoolean(keys.SIGN_OUT)
             Toast.makeText(this,value.toString(),Toast.LENGTH_SHORT).show()
-            if(value == true){
-                var intent = Intent(this@MainActivity,LoginActivity::class.java)
+            if(value){
+                val intent = Intent(this@MainActivity,LoginActivity::class.java)
                 startActivity(intent)
                 this.finish()
             }
+            super.onActivityResult(requestCode, resultCode, data)
         }
-
     }
     private fun replaceFragment(fragment:Fragment){
         val manager = supportFragmentManager.beginTransaction()
@@ -126,16 +124,16 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when(item!!.itemId){
             R.id.sign_out ->{
-                FirebaseAuth.getInstance().signOut()
                 CurrentUser = null
-                var intent = Intent(this,RegisterActivity::class.java)
-                startActivityForResult(intent,0)
+                var intent = Intent(this, RegisterActivity::class.java)
+                startActivityForResult(intent, 0)
+                FirebaseAuth.getInstance().signOut()
                 this.finish()
             }
 
             R.id.settings_btn ->{
                 var intent = Intent(this@MainActivity,SettingsActivity::class.java)
-                startActivity(intent)
+                startActivityForResult(intent, 0)
             }
 
         }
