@@ -12,6 +12,8 @@
         <item name="textColor">#0c85c2</item>
         <item name="textHintColor">#bdc3c7</item>
         <item name="mainColor">#00b5cc</item>
+        <item name="commentsBackground">#e4f1fe</item>
+        <item name="commentEditTextBackground">#FFF</item>
         <!-- Support library compatibility -->
         <item name="android:windowContentTransitions" tools:ignore="NewApi">true</item>
         <item name="android:windowTransitionBackgroundFadeDuration" tools:ignore="NewApi">1000</item>
@@ -23,13 +25,13 @@
         <item name="colorPrimary">#2d2d2d</item>
         <item name="colorPrimaryDark">#2e3131</item>
         <!-- Colors used in this theme -->
-        <item name="backgroundColor">#ababab</item>
+        <item name="backgroundColor">#2e3131</item>
         <item name="buttonColor">#2d2d2d</item>
         <item name="textColor">#FFF</item>
         <item name="mainColor">#05626e</item>
-
         <item name="textHintColor">#acb0b3</item>
-
+        <item name="commentsBackground">#FFF</item>
+        <item name="commentEditTextBackground">#2e3131</item>
         <!-- Support library compatibility -->
         <item name="android:windowContentTransitions" tools:ignore="NewApi">true</item>
         <item name="android:windowTransitionBackgroundFadeDuration" tools:ignore="NewApi">1000</item>
