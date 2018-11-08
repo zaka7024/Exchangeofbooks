@@ -124,10 +124,6 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
 
-            R.id.search_btn ->{
-                var intent = Intent(this@MainActivity,SearchActivity::class.java)
-                startActivity(intent)
-            }
         }
         return super.onOptionsItemSelected(item)
     }
