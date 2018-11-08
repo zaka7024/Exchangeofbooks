@@ -5,7 +5,7 @@
     android:id="@+id/comment_activity_scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="?attr/backgroundColor">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/post_image_comments_activity"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:text="@string/post_c"
-        android:textColor="@color/mainColorBlue"
+        android:textColor="?attr/textColor"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/cooment_edittext_comments_activity"
@@ -40,7 +40,7 @@
         android:hint="@string/publish_comment"
         android:inputType="textPersonName"
         android:padding="10dp"
-        android:textColorHint="@color/sand"
+        android:textColorHint="?attr/textHintColor"
         app:layout_constraintBottom_toBottomOf="@+id/post_image_comments_activity"
         app:layout_constraintEnd_toStartOf="@+id/send_comment_comments_activity"
         app:layout_constraintStart_toEndOf="@+id/post_image_comments_activity"

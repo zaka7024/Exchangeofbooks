@@ -1,24 +1,21 @@
 package exchangeofbooks.lemonlab.com.exchangeofbooks
 
-import android.app.Activity
+import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.transition.Fade
+import android.support.v7.app.AppCompatDelegate
 import android.transition.Slide
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.storage.FirebaseStorage
 import com.roughike.bottombar.OnTabSelectListener
 import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.ChatFragment
 import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.HomeFragment
@@ -35,6 +32,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //Chooses theme, it changes theme in fragments too.
+        modeLightOrNight()
         super.onCreate(savedInstanceState)
         if(Build.VERSION.SDK_INT >= 21){
             var slide:Slide = Slide(this,null)
@@ -139,5 +138,21 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+    private fun modeLightOrNight(){
+        val shrPr=this.getPreferences(Context.MODE_PRIVATE) ?: return
+        val mode=shrPr.getString(getString(R.string.mode), "")
+        if(mode=="ni"){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+        else{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
 
+        if(AppCompatDelegate.getDefaultNightMode()== AppCompatDelegate.MODE_NIGHT_YES){
+            setTheme(R.style.DarkAppTheme)
+        }
+        else{
+            setTheme(R.style.AppTheme)
+        }
+    }
 }

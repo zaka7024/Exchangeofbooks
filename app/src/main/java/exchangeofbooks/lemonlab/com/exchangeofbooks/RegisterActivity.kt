@@ -2,6 +2,7 @@ package exchangeofbooks.lemonlab.com.exchangeofbooks
 
 import android.app.Activity
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -11,6 +12,7 @@ import android.provider.MediaStore
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.util.Pair
 import android.support.v7.app.AlertDialog
+import android.support.v7.app.AppCompatDelegate
 import android.transition.TransitionInflater
 import android.util.Log
 import android.widget.Toast
@@ -30,6 +32,8 @@ class RegisterActivity : AppCompatActivity() {
     var imageProfileUri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //Chooses theme.
+        modeLightOrNight()
         super.onCreate(savedInstanceState)
         if(Build.VERSION.SDK_INT >= 21){
             var transition_infalter = TransitionInflater.from(this)
@@ -140,6 +144,23 @@ class RegisterActivity : AppCompatActivity() {
         database.setValue(new_user).addOnSuccessListener {
             Log.i("RegisterActivty","user saved to firebase")
             StartMainActivity()
+        }
+    }
+    private fun modeLightOrNight(){
+        val shrPr=this.getPreferences(Context.MODE_PRIVATE) ?: return
+        val mode=shrPr.getString(getString(R.string.mode), "")
+        if(mode=="ni"){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+        else{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+
+        if(AppCompatDelegate.getDefaultNightMode()== AppCompatDelegate.MODE_NIGHT_YES){
+            setTheme(R.style.DarkAppTheme)
+        }
+        else{
+            setTheme(R.style.AppTheme)
         }
     }
 }

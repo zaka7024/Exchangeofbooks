@@ -1,8 +1,10 @@
 package exchangeofbooks.lemonlab.com.exchangeofbooks
 
+import android.content.Context
 import android.media.MediaPlayer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatDelegate
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.text.Editable
@@ -33,6 +35,8 @@ class CommentsActivity : AppCompatActivity() {
     var post:Post? = null
     var adapter = GroupAdapter<ViewHolder>()
     override fun onCreate(savedInstanceState: Bundle?) {
+        //Chooses theme.
+        modeLightOrNight()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_comments)
 
@@ -167,5 +171,22 @@ class CommentsActivity : AppCompatActivity() {
 
     fun scrollToLastItem(){
         comments_recycler_view.smoothScrollToPosition(adapter.itemCount - 1)
+    }
+    private fun modeLightOrNight(){
+        val shrPr=this.getPreferences(Context.MODE_PRIVATE) ?: return
+        val mode=shrPr.getString(getString(R.string.mode), "")
+        if(mode=="ni"){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+        else{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+
+        if(AppCompatDelegate.getDefaultNightMode()== AppCompatDelegate.MODE_NIGHT_YES){
+            setTheme(R.style.DarkAppTheme)
+        }
+        else{
+            setTheme(R.style.AppTheme)
+        }
     }
 }

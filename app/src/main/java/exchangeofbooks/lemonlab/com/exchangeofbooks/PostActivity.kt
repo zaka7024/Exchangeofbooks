@@ -3,12 +3,14 @@ package exchangeofbooks.lemonlab.com.exchangeofbooks
 import android.app.Activity
 import android.app.ProgressDialog
 import android.content.ContentResolver
+import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.support.v7.app.AppCompatDelegate
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -30,9 +32,10 @@ class PostActivity : AppCompatActivity() {
     var post_image: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //Chooses theme.
+        modeLightOrNight()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
-
         //set data to spinner
         book_category_spinner.adapter = ArrayAdapter<String>(this@PostActivity,android.R.layout.simple_spinner_dropdown_item
         ,resources.getStringArray(R.array.book_category))
@@ -46,6 +49,24 @@ class PostActivity : AppCompatActivity() {
             PickImageFromCamera()
         }
     }
+    private fun modeLightOrNight(){
+        val shrPr=this.getPreferences(Context.MODE_PRIVATE) ?: return
+        val mode=shrPr.getString(getString(R.string.mode), "")
+        if(mode=="ni"){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+        else{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+
+        if(AppCompatDelegate.getDefaultNightMode()== AppCompatDelegate.MODE_NIGHT_YES){
+            setTheme(R.style.DarkAppTheme)
+        }
+        else{
+            setTheme(R.style.AppTheme)
+        }
+    }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.post_activity_menu,menu)

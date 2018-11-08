@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
     tools:context=".ChatLogActivity">
 
     <EditText
@@ -38,6 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
+        android:background="?attr/buttonColor"
         android:backgroundTint="@color/mainColorBlue"
         android:src="@drawable/ic_action_send"
         app:layout_constraintBottom_toBottomOf="@+id/chat_message_edit_text_chat_activity"

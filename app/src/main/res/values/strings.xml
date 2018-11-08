@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Exchange of books</string>
+    <!-- Night || Light Mode-->
+    <!--DO NOT Remove or Change string name, else you gotta change it in every activity. -->
+    <string name="mode">ni</string>
+    <!-- End of Night || Light Mode-->
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

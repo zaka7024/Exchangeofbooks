@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">تبادل الكتب</string>
+    <!-- Night || Light Mode-->
+    <!--DO NOT Remove or Change string name, cuz you gotta change it in every activity. -->
+    <string name="mode">ni</string>
+    <!-- End of Night || Light Mode-->
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">مرحبا يالفراغمنت الفاضية</string>

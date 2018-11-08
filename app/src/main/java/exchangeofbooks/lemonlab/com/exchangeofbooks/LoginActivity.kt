@@ -1,10 +1,12 @@
 package exchangeofbooks.lemonlab.com.exchangeofbooks
 
 import android.app.ProgressDialog
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.ActivityOptionsCompat
+import android.support.v7.app.AppCompatDelegate
 import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
@@ -15,6 +17,8 @@ class LoginActivity : AppCompatActivity() {
     var email:String? = null
     var password:String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
+        //Chooses theme.
+        modeLightOrNight()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
@@ -63,5 +67,22 @@ class LoginActivity : AppCompatActivity() {
         startActivity(intent,compat.toBundle())
         Log.i("RegisterActivty","MainActivity is ready")
         this@LoginActivity.finish()
+    }
+    private fun modeLightOrNight(){
+        val shrPr=this.getPreferences(Context.MODE_PRIVATE) ?: return
+        val mode=shrPr.getString(getString(R.string.mode), "")
+        if(mode=="ni"){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+        else{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+
+        if(AppCompatDelegate.getDefaultNightMode()== AppCompatDelegate.MODE_NIGHT_YES){
+            setTheme(R.style.DarkAppTheme)
+        }
+        else{
+            setTheme(R.style.AppTheme)
+        }
     }
 }

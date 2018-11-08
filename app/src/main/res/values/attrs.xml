@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<declare-styleable name="no">
+    <attr name="backgroundColor"> format="color"</attr>
+    <attr name="buttonColor"> format="color"</attr>
+    <attr name="textColor"> format="color"</attr>
+    <attr name="textHintColor"> format="color"</attr>
+    <attr name="mainColor"> format="color"</attr>
+    <!-- ِAdd as much attrs as needed -->
+
+</declare-styleable>
+</resources>

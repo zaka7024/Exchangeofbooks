@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
     tools:context=".PostActivity">
 
     <Spinner
@@ -28,7 +29,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/noto_sans_bold"
         android:text="@string/book_category_p"
-        android:textColor="@color/mainColorBlue"
+        android:textColor="?attr/textColor"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +41,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/noto_sans_bold"
         android:text="@string/post_text_p"
-        android:textColor="@color/mainColorBlue"
+        android:textColor="?attr/textColor"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/book_category_spinner"
         app:layout_constraintTop_toBottomOf="@+id/book_category_spinner" />
@@ -52,7 +53,7 @@
         android:layout_marginTop="8dp"
         android:fontFamily="@font/noto_sans_bold"
         android:text="@string/post_image_p"
-        android:textColor="@color/mainColorBlue"
+        android:textColor="?attr/textColor"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@+id/post_text_post_activity"
         app:layout_constraintTop_toBottomOf="@+id/post_text_post_activity" />
@@ -90,7 +91,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
-        android:background="@drawable/small_rounded_btn_blue"
+        android:background="?attr/buttonColor"
         android:drawableLeft="@drawable/ic_action_upload"
         android:fontFamily="@font/noto_sans_bold"
         android:paddingLeft="4dp"
@@ -109,7 +110,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
-        android:background="@drawable/small_rounded_btn_blue"
+        android:background="?attr/buttonColor"
         android:drawableLeft="@drawable/ic_action_cam"
         android:fontFamily="@font/noto_sans_bold"
         android:paddingLeft="4dp"

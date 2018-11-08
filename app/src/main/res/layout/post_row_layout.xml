@@ -69,7 +69,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/mainColorBlue"
+            android:background="?attr/buttonColor"
             android:text="@string/get_book_pos"
             android:textAllCaps="false"
             android:textColor="@color/white" />

@@ -1,7 +1,9 @@
 package exchangeofbooks.lemonlab.com.exchangeofbooks
 
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatDelegate
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import com.google.firebase.auth.FirebaseAuth
@@ -25,6 +27,8 @@ class ChatLogActivity : AppCompatActivity() {
     var adapter = GroupAdapter<ViewHolder>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //Chooses theme.
+        modeLightOrNight()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_chat_log)
 
@@ -42,7 +46,23 @@ class ChatLogActivity : AppCompatActivity() {
             sendMessage()
         }
     }
+    private fun modeLightOrNight(){
+        val shrPr=this.getPreferences(Context.MODE_PRIVATE) ?: return
+        val mode=shrPr.getString(getString(R.string.mode), "")
+        if(mode=="ni"){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
+        else{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
 
+        if(AppCompatDelegate.getDefaultNightMode()== AppCompatDelegate.MODE_NIGHT_YES){
+            setTheme(R.style.DarkAppTheme)
+        }
+        else{
+            setTheme(R.style.AppTheme)
+        }
+    }
     fun lestenToMessages(){
         val from_id = FirebaseAuth.getInstance().uid
         val to_id = user_id
