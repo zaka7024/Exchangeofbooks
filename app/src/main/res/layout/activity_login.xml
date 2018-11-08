@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:background="?attr/backgroundColor">
 
     <Button
         android:id="@+id/login_btn_login_activity"
-        android:layout_width="220dp"
-        android:layout_height="40dp"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/small_rounded_btn_blue"
@@ -61,7 +62,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/noto_sans"
         android:text="@string/new_l"
-        android:textColor="@color/mainColorBlue"
+        android:textColor="?attr/textColor"
         app:layout_constraintEnd_toEndOf="@+id/login_btn_login_activity"
         app:layout_constraintStart_toStartOf="@+id/login_btn_login_activity"
         app:layout_constraintTop_toBottomOf="@+id/login_btn_login_activity" />
