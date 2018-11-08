@@ -87,7 +87,7 @@
 
     <Button
         android:id="@+id/upload_image_btn_post_activity"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="8dp"
@@ -107,12 +107,13 @@
 
     <Button
         android:id="@+id/select_image_camera_btn_post_activity"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:background="?attr/buttonColor"
         android:drawableLeft="@drawable/ic_action_cam"
         android:fontFamily="@font/noto_sans_bold"
+        android:minWidth="180dp"
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
         android:text="@string/camera_p"

@@ -8,6 +8,7 @@
     <attr name="mainColor" format="color"/>
     <attr name="commentsBackground" format="color"/>
     <attr name="commentEditTextBackground" format="color"/>
+    <attr name="editTextBorderColor" format="color" />
     <!-- ِAdd as much attrs as needed -->
 
 </declare-styleable>

@@ -18,14 +18,18 @@ class option_item(var activity:Activity,var optionType:String): Item<ViewHolder>
     }
 
     override fun bind(viewHolder: ViewHolder, position: Int) {
-        viewHolder.itemView.option_text_view_option_row.text = "Sign Out"
 
-        viewHolder.itemView.setOnClickListener {
-            val intent = activity.intent
-            intent.putExtra(keys.SIGN_OUT,true)
-            activity.setResult(Activity.RESULT_OK,intent)
-            FirebaseAuth.getInstance().signOut()
-            activity.finish()
+        if(optionType == "SIGN_OUT"){
+            viewHolder.itemView.option_text_view_option_row.text = "Sign Out"
+
+            viewHolder.itemView.setOnClickListener {
+                val intent = activity.intent
+                intent.putExtra(keys.SIGN_OUT,true)
+                activity.setResult(Activity.RESULT_OK,intent)
+                FirebaseAuth.getInstance().signOut()
+                activity.finish()
+            }
         }
+
     }
 }

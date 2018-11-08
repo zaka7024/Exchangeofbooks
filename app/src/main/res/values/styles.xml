@@ -14,6 +14,7 @@
         <item name="mainColor">#00b5cc</item>
         <item name="commentsBackground">#e4f1fe</item>
         <item name="commentEditTextBackground">#FFF</item>
+        <item name="editTextBorderColor">@color/mainColorBlue</item>
         <!-- Support library compatibility -->
         <item name="android:windowContentTransitions" tools:ignore="NewApi">true</item>
         <item name="android:windowTransitionBackgroundFadeDuration" tools:ignore="NewApi">1000</item>
@@ -32,6 +33,7 @@
         <item name="textHintColor">#acb0b3</item>
         <item name="commentsBackground">#FFF</item>
         <item name="commentEditTextBackground">#2e3131</item>
+        <item name="editTextBorderColor">@color/white</item>
         <!-- Support library compatibility -->
         <item name="android:windowContentTransitions" tools:ignore="NewApi">true</item>
         <item name="android:windowTransitionBackgroundFadeDuration" tools:ignore="NewApi">1000</item>
