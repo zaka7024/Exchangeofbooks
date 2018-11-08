@@ -1,5 +1,6 @@
 package exchangeofbooks.lemonlab.com.exchangeofbooks
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Build
@@ -12,6 +13,7 @@ import android.transition.Slide
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -22,6 +24,7 @@ import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.ChatFragment
 import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.HomeFragment
 import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.ProfileFragment
 import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.UserpostFragment
+import exchangeofbooks.lemonlab.com.exchangeofbooks.keys.keys
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -96,6 +99,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode == 0 && resultCode == Activity.RESULT_OK && data != null){
+            val value:Boolean = data.extras!!.getBoolean(keys.SIGN_OUT)
+            Toast.makeText(this,value.toString(),Toast.LENGTH_SHORT).show()
+            if(value == true){
+                var intent = Intent(this@MainActivity,LoginActivity::class.java)
+                startActivity(intent)
+                this.finish()
+            }
+        }
+
     }
     private fun replaceFragment(fragment:Fragment){
         val manager = supportFragmentManager.beginTransaction()
@@ -115,7 +129,7 @@ class MainActivity : AppCompatActivity() {
                 FirebaseAuth.getInstance().signOut()
                 CurrentUser = null
                 var intent = Intent(this,RegisterActivity::class.java)
-                startActivity(intent)
+                startActivityForResult(intent,0)
                 this.finish()
             }
 

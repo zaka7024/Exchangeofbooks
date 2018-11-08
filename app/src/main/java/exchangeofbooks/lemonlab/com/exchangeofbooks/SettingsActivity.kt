@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
+import exchangeofbooks.lemonlab.com.exchangeofbooks.items.option_item
 import exchangeofbooks.lemonlab.com.exchangeofbooks.items.option_item_switch
 import kotlinx.android.synthetic.main.activity_settings.*
 
@@ -49,5 +50,7 @@ class SettingsActivity : AppCompatActivity() {
     fun setSettingsInRV(){
         // add theme mode option
         adapter.add(option_item_switch("theme_mode",this@SettingsActivity))
+        // add signout option
+        adapter.add(option_item(this@SettingsActivity,"SIGN_OUT"))
     }
 }

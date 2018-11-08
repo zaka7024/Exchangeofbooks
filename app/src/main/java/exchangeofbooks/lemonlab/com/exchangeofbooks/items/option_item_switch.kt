@@ -19,6 +19,8 @@ class option_item_switch(var type:String,var activity:Activity):Item<ViewHolder>
 
     override fun bind(viewHolder: ViewHolder, position: Int) {
 
+        viewHolder.itemView.option_text_view.text = "Dark Mode"
+
         viewHolder.itemView.switch_btn_switch_item.setOnCheckedChangeListener(object :CompoundButton.OnCheckedChangeListener{
             override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
                 if(isChecked){

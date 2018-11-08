@@ -21,11 +21,11 @@
         android:id="@+id/option_text_view_option_row"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:fontFamily="@font/noto_sans"
         android:text="Change Password"
         android:textColor="#000"
         app:layout_constraintBottom_toBottomOf="@+id/option_image_view_option_row"
-        app:layout_constraintStart_toEndOf="@+id/option_image_view_option_row"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/option_image_view_option_row" />
 </android.support.constraint.ConstraintLayout>

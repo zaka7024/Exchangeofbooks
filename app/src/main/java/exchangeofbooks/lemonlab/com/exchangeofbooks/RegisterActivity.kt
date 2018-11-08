@@ -19,6 +19,7 @@ import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
+import exchangeofbooks.lemonlab.com.exchangeofbooks.keys.keys
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import kotlinx.android.synthetic.main.activity_register.*
 import kotlinx.android.synthetic.main.loadin_layout.*
@@ -40,6 +41,8 @@ class RegisterActivity : AppCompatActivity() {
             var transition = transition_infalter.inflateTransition(R.transition.transition_rgister_main)
             window.exitTransition = transition
         }
+
+
         setContentView(R.layout.activity_register)
 
         // check if user is signed in
@@ -77,6 +80,11 @@ class RegisterActivity : AppCompatActivity() {
             image_profile_register_activity.setImageBitmap(bitmap)
             select_image_profile_register_activity.alpha = 0f
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+
     }
 
     private fun RegisterNewUser(){
