@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/backgroundColor"
     tools:context=".RegisterActivity" >
 
     <EditText
@@ -49,10 +50,9 @@
 
     <Button
         android:id="@+id/register_btn_register_activity"
-        android:layout_width="220dp"
-        android:layout_height="40dp"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/small_rounded_btn_blue"
         android:fontFamily="@font/noto_sans_bold"
@@ -61,8 +61,8 @@
         android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/password_textview_register_activity"
+        app:layout_constraintStart_toStartOf="@+id/password_textview_register_activity" />
 
     <Button
         android:id="@+id/select_image_profile_register_activity"
@@ -99,7 +99,7 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/noto_sans"
         android:text="@string/have_Account_R"
-        android:textColor="@color/mainColorBlue"
+        android:textColor="?attr/textColor"
         app:layout_constraintEnd_toEndOf="@+id/password_textview_register_activity"
         app:layout_constraintStart_toStartOf="@+id/password_textview_register_activity"
         app:layout_constraintTop_toBottomOf="@+id/password_textview_register_activity" />
