@@ -141,6 +141,7 @@ class MainActivity : AppCompatActivity() {
     private fun modeLightOrNight(){
         val shrPr=this.getPreferences(Context.MODE_PRIVATE) ?: return
         val mode=shrPr.getString(getString(R.string.mode), "")
+        Log.i("MainActivity","app theme mode : ${mode}")
         if(mode=="ni"){
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         }

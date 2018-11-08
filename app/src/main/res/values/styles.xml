@@ -8,7 +8,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <!-- Colors used in this theme, must be in attrs file -->
         <item name="backgroundColor">#ffffff</item>
-        <item name="buttonColor">#6675ef</item>
+        <item name="buttonColor">@color/mainColorBlue</item>
         <item name="textColor">#0c85c2</item>
         <item name="textHintColor">#bdc3c7</item>
         <item name="mainColor">#00b5cc</item>
@@ -20,12 +20,12 @@
     <!-- Dark application theme. -->
     <style name="DarkAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:actionBarStyle">@style/MyActionBar</item>
-        <item name="colorPrimary">#064168</item>
-        <item name="colorPrimaryDark">#09251f</item>
+        <item name="colorPrimary">#2d2d2d</item>
+        <item name="colorPrimaryDark">#2e3131</item>
         <!-- Colors used in this theme -->
-        <item name="backgroundColor">#999595</item>
-        <item name="buttonColor">#adba1f</item>
-        <item name="textColor">#094303</item>
+        <item name="backgroundColor">#ababab</item>
+        <item name="buttonColor">#2d2d2d</item>
+        <item name="textColor">#FFF</item>
         <item name="mainColor">#05626e</item>
 
         <item name="textHintColor">#acb0b3</item>

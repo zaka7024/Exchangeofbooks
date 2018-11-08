@@ -4,8 +4,15 @@ import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AppCompatDelegate
+import android.support.v7.widget.LinearLayoutManager
+import com.xwray.groupie.GroupAdapter
+import com.xwray.groupie.ViewHolder
+import exchangeofbooks.lemonlab.com.exchangeofbooks.items.option_item_switch
+import kotlinx.android.synthetic.main.activity_settings.*
 
 class SettingsActivity : AppCompatActivity() {
+
+    var adapter:GroupAdapter<ViewHolder> = GroupAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         //Chooses theme.
@@ -14,19 +21,12 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
         // change appbar title
         supportActionBar?.title = "Settings"
+
+        recyvler_View_settings_activity.adapter = adapter
+        recyvler_View_settings_activity.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
+        setSettingsInRV()
     }
 
-
-
-
-    private fun setMode(newMode:String){// pass "ni" for night mode, li for light mode.
-        val shrPr=this.getPreferences(Context.MODE_PRIVATE) ?: return
-        with(shrPr.edit()){
-            remove(getString(R.string.mode))
-            putString(getString(R.string.mode), newMode)
-            apply()
-        }
-    }
     private fun modeLightOrNight(){
         val shrPr=this.getPreferences(Context.MODE_PRIVATE) ?: return
         val mode=shrPr.getString(getString(R.string.mode), "")
@@ -43,5 +43,10 @@ class SettingsActivity : AppCompatActivity() {
         else{
             setTheme(R.style.AppTheme)
         }
+    }
+
+    fun setSettingsInRV(){
+        // add theme mode option
+        adapter.add(option_item_switch("theme_mode",this@SettingsActivity))
     }
 }
