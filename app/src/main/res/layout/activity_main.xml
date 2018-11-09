@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:id="@+id/coordinatorLayout"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="?attr/backgroundColor">
 
     <com.roughike.bottombar.BottomBar
         android:id="@+id/bottom_navigation"
