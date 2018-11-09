@@ -50,6 +50,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
+
         var uid = FirebaseAuth.getInstance().uid
         var ref = FirebaseDatabase.getInstance().getReference("users/$uid")
         ref.addValueEventListener(object : ValueEventListener{
@@ -72,9 +73,8 @@ class MainActivity : AppCompatActivity() {
         bottom_navigation.setOnTabSelectListener(object :OnTabSelectListener{
             override fun onTabSelected(tabId: Int) {
                 when(tabId){
-                    R.id.home -> {
+                    R.id.main -> {
                         replaceFragment(HomeFragment())
-                        true
                     }
                     R.id.user_post ->{
                         replaceFragment(UserpostFragment())
@@ -96,7 +96,6 @@ class MainActivity : AppCompatActivity() {
         })
 
     }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if(requestCode == 0 && resultCode == Activity.RESULT_OK && data != null){
             val value = data.extras!!.getBoolean(keys.SIGN_OUT)
@@ -123,13 +122,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when(item!!.itemId){
-            R.id.sign_out ->{
-                CurrentUser = null
-                var intent = Intent(this, RegisterActivity::class.java)
-                startActivityForResult(intent, 0)
-                FirebaseAuth.getInstance().signOut()
-                this.finish()
-            }
 
             R.id.settings_btn ->{
                 var intent = Intent(this@MainActivity,SettingsActivity::class.java)
