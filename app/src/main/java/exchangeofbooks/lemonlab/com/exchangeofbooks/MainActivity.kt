@@ -98,11 +98,12 @@ class MainActivity : AppCompatActivity() {
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if(requestCode == 0 && resultCode == Activity.RESULT_OK && data != null){
-            val value = data.extras!!.getBoolean(keys.SIGN_OUT)
-            Toast.makeText(this,value.toString(),Toast.LENGTH_SHORT).show()
-            if(value){
+            //val value = data.extras!!.getBoolean(keys.SIGN_OUT)
+            //Toast.makeText(this,value.toString(),Toast.LENGTH_SHORT).show()
+            if(keys.SIGN_OUT == "TRUE"){
                 val intent = Intent(this@MainActivity,LoginActivity::class.java)
                 startActivity(intent)
+                keys.SIGN_OUT = "FALSE"
                 this.finish()
             }
             super.onActivityResult(requestCode, resultCode, data)

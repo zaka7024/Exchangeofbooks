@@ -24,7 +24,8 @@ class option_item(var activity:Activity,var optionType:String): Item<ViewHolder>
 
             viewHolder.itemView.setOnClickListener {
                 val intent = activity.intent
-                intent.putExtra(keys.SIGN_OUT,true)
+                keys.SIGN_OUT = "TRUE"
+                //intent.putExtra(keys.SIGN_OUT,true)
                 activity.setResult(Activity.RESULT_OK,intent)
                 FirebaseAuth.getInstance().signOut()
                 activity.finish()

@@ -31,7 +31,7 @@ class RegisterActivity : AppCompatActivity() {
     var email:String? = null
     var password:String? = null
     var imageProfileUri: Uri? = null
-
+    var dialog:ProgressDialog = ProgressDialog(this@RegisterActivity)
     override fun onCreate(savedInstanceState: Bundle?) {
         //Chooses theme.
         modeLightOrNight()
@@ -101,7 +101,7 @@ class RegisterActivity : AppCompatActivity() {
             return
         }
 
-        var dialog:ProgressDialog = ProgressDialog(this@RegisterActivity)
+
         val loading=getString(R.string.Loading_L)
         val registeringUser=getString(R.string.Registering_R)
         dialog.setTitle(loading)
@@ -111,7 +111,7 @@ class RegisterActivity : AppCompatActivity() {
             Log.i("RegisterActivty","new user sign up")
             Log.i("RegisterActivty","user id: ${ref.uid}")
             SaveImageInTheStorage()
-            dialog.hide()
+            this@RegisterActivity.finish()
         }
 
     }
@@ -151,6 +151,7 @@ class RegisterActivity : AppCompatActivity() {
         var database = FirebaseDatabase.getInstance().getReference("users/$uid")
         database.setValue(new_user).addOnSuccessListener {
             Log.i("RegisterActivty","user saved to firebase")
+            dialog.hide()
             StartMainActivity()
         }
     }

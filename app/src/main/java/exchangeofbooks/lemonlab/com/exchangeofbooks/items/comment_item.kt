@@ -41,7 +41,7 @@ class comment_item(var comment:Comment,var context: Context):Item<ViewHolder>() 
                 viewHolder.itemView.username_comment_row.text = user_comment?.username
                 Picasso.get().load(user_comment?.image_profile).into(viewHolder.itemView.image_profile_comment_row)
 
-                viewHolder.itemView.setOnClickListener {
+                viewHolder.itemView.image_profile_comment_row.setOnClickListener {
                     var intent = Intent(context,Profile::class.java)
                     intent.putExtra(keys.USER_ID,comment.from_id)
                     context.startActivity(intent)

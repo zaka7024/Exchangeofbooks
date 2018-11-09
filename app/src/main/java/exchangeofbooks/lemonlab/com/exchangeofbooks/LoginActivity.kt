@@ -27,7 +27,8 @@ class LoginActivity : AppCompatActivity() {
         }
 
         bact_to_register.setOnClickListener {
-
+            var intent = Intent(this,RegisterActivity::class.java)
+            startActivity(intent)
             this.finish()
         }
     }

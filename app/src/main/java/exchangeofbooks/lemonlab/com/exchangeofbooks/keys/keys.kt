@@ -6,6 +6,6 @@ class keys {
         val POST_ID = "POST_ID"
         var USER_ID = "USER_ID"
         var USER_NAME = "USER_NAME"
-        var SIGN_OUT = "SIGN_OUT"
+        var SIGN_OUT = "FALSE"
     }
 }

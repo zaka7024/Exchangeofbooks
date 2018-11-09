@@ -146,6 +146,9 @@ class Profile : AppCompatActivity() {
                         post_list.add(post)
                         Log.i("Profile","post in profile text: ${post.text}")
                     }
+                    user_post_progresbar_profile_activity.visibility = View.GONE
+                    wishlist_recycler_view_activity_profile.visibility = View.VISIBLE
+                    post_count_text_view.text = post_list.size.toString()
                     view_value_text_view.text = views.toString()
                 }
                 post_list.reverse()
