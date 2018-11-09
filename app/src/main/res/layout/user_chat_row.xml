@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="?attr/backgroundColor">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/user_image_profile_chat_fragment"
@@ -17,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:textColor="?attr/textColor"
         android:id="@+id/friend_name_chat_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,6 +30,7 @@
         tools:text="zaka7024" />
 
     <ImageView
+        android:tint="?attr/textColor"
         android:id="@+id/user_chat_row_settings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

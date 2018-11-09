@@ -32,7 +32,7 @@
         <item name="mainColor">#2d2d2d</item>
         <item name="textHintColor">#acb0b3</item>
         <item name="commentsBackground">#444444</item>
-        <item name="commentEditTextBackground">#2e3131</item>
+        <item name="commentEditTextBackground">#444444</item>
         <item name="editTextBorderColor">@color/white</item>
         <!-- Support library compatibility -->
         <item name="android:windowContentTransitions" tools:ignore="NewApi">true</item>
