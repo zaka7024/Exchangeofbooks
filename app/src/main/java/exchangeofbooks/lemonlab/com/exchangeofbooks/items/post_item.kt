@@ -57,7 +57,7 @@ class post_item(var post:Post?, var context:Context?):Item<ViewHolder>() {
         // load image from cash or picasso
         //Log.i("post_item",post?.post_image) // temp
         if(post?.post_image == "null"){
-            viewHolder.itemView.post_image_view.setImageDrawable(context!!.resources.getDrawable(R.drawable.default_post_image))
+            viewHolder.itemView.post_image_view.setImageDrawable(context!!.resources.getDrawable(R.drawable.default_image))
         }else{
             Picasso.get().load(post?.post_image).into(viewHolder.itemView.post_image_view)
         }
