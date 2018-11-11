@@ -9,4 +9,11 @@
         android:title="@string/settings_menu"
         app:showAsAction="always" />
 
+    <item
+        android:id="@+id/sign_out_temp"
+        android:icon="@drawable/ic_action_signout"
+        android:iconTint="@color/white"
+        android:title="@string/settings_menu"
+        app:showAsAction="always" />
+
 </menu>

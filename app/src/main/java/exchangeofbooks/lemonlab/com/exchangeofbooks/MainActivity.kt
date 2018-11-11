@@ -68,8 +68,6 @@ class MainActivity : AppCompatActivity() {
         val manager = supportFragmentManager.beginTransaction()
         manager.add(R.id.fragment_container_mainActivity,HomeFragment())
         manager.commit()
-        checkIfUserLoged()
-
         bottom_navigation.setOnTabSelectListener(object :OnTabSelectListener{
             override fun onTabSelected(tabId: Int) {
                 when(tabId){
@@ -123,6 +121,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when(item!!.itemId){
+
+            R.id.sign_out_temp->{
+                FirebaseAuth.getInstance().signOut()
+                var intent = Intent(this,RegisterActivity::class.java)
+                startActivity(intent)
+                this@MainActivity.finish()
+            }
 
             R.id.settings_btn ->{
                 var intent = Intent(this@MainActivity,SettingsActivity::class.java)

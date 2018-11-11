@@ -31,7 +31,7 @@ class RegisterActivity : AppCompatActivity() {
     var email:String? = null
     var password:String? = null
     var imageProfileUri: Uri? = null
-    var dialog:ProgressDialog = ProgressDialog(this@RegisterActivity)
+    internal lateinit var dialog:ProgressDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         //Chooses theme.
         modeLightOrNight()
@@ -44,6 +44,9 @@ class RegisterActivity : AppCompatActivity() {
 
 
         setContentView(R.layout.activity_register)
+
+        //init
+        dialog = ProgressDialog(this@RegisterActivity)
 
         // check if user is signed in
         if(FirebaseAuth.getInstance().uid != null){

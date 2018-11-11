@@ -58,7 +58,7 @@ class SettingsActivity : AppCompatActivity() {
         //add Social section
         adapter.add(option_section_title("Share App"))
         // add share option
-        adapter.add(option_item_switch("SHARE_APP",this@SettingsActivity))
+        adapter.add(option_item(this@SettingsActivity,"SHARE_APP"))
 
 
         //add faq section
