@@ -53,7 +53,27 @@ class SettingsActivity : AppCompatActivity() {
         //add theme section
         adapter.add(option_section_title("App Theme"))
         // add theme mode option
-        adapter.add(option_item_switch("theme_mode",this@SettingsActivity))
+        adapter.add(option_item_switch("THEME_MODE",this@SettingsActivity))
+
+        //add Social section
+        adapter.add(option_section_title("Share App"))
+        // add share option
+        adapter.add(option_item_switch("SHARE_APP",this@SettingsActivity))
+
+
+        //add faq section
+        adapter.add(option_section_title("Help"))
+
+        // add faq option
+        adapter.add(option_item(this@SettingsActivity,"FAQ"))
+        // add faq option
+        adapter.add(option_item(this@SettingsActivity,"USE_IT_IF_YOU_NEED"))
+
+
+        //add About section
+        adapter.add(option_section_title("About Us"))
+        // add About option
+        adapter.add(option_item(this@SettingsActivity,"ABOUT_US"))
 
         //add Account section
         adapter.add(option_section_title("Account"))

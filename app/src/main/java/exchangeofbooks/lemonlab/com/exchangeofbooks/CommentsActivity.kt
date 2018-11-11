@@ -55,6 +55,7 @@ class CommentsActivity : AppCompatActivity() {
         comments_recycler_view.layoutManager = LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false)
         comments_recycler_view.addItemDecoration(DividerItemDecoration(this@CommentsActivity,DividerItemDecoration.VERTICAL ))
         comments_recycler_view.adapter = adapter
+
         Picasso.get().load(CurrentUser?.image_profile).into(post_image_comments_activity)
 
         send_comment_comments_activity.setOnClickListener {
@@ -131,6 +132,8 @@ class CommentsActivity : AppCompatActivity() {
 
     private fun lestenToComments(){
         val ref = FirebaseDatabase.getInstance().getReference("comments/${post_id}")
+        var comments_count = 0
+        var temp_count =
         ref.addChildEventListener(object: ChildEventListener{
             override fun onCancelled(p0: DatabaseError) {
 

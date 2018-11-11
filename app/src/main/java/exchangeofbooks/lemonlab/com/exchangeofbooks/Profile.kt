@@ -157,6 +157,7 @@ class Profile : AppCompatActivity() {
 
         })
     }
+
     private fun modeLightOrNight(){
         val shrPr=this.getSharedPreferences("mode", Context.MODE_PRIVATE) ?: return
         val mode=shrPr.getString(getString(R.string.mode), "")
