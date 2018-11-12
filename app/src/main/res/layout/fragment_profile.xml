@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ProfileFragment">
+    tools:context=".fragments.ProfileFragment"
+    android:background="?attr/backgroundColor">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView"
@@ -14,6 +15,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         app:cardElevation="5dp"
+        app:cardBackgroundColor="?attr/backgroundProfileImageColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_name_user_profile">
@@ -30,6 +32,7 @@
                 android:fontFamily="@font/noto_sans_bold"
                 android:text="@string/posts_no_prof"
                 android:textSize="18sp"
+                android:textColor="?attr/textColor"
                 app:layout_constraintEnd_toStartOf="@+id/textView6"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -42,6 +45,7 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/noto_sans"
                 android:textSize="18sp"
+                android:textColor="?attr/textColor"
                 app:layout_constraintEnd_toEndOf="@+id/textView6"
                 app:layout_constraintStart_toStartOf="@+id/textView6"
                 app:layout_constraintTop_toBottomOf="@+id/textView6"
@@ -54,6 +58,7 @@
                 android:fontFamily="@font/noto_sans_bold"
                 android:text="@string/post_views"
                 android:textSize="18sp"
+                android:textColor="?attr/textColor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/textView8"
@@ -66,21 +71,13 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/noto_sans"
                 android:text="100"
+                android:textColor="?attr/textColor"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/textView8"
                 app:layout_constraintStart_toStartOf="@+id/textView8"
                 app:layout_constraintTop_toBottomOf="@+id/textView8" />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
-
-    <ImageView
-        android:id="@+id/imageview"
-        android:layout_width="0dp"
-        android:layout_height="196dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/mainColorBlue" />
 
     <TextView
         android:id="@+id/user_name_user_profile"
@@ -89,18 +86,20 @@
         android:layout_marginTop="16dp"
         android:fontFamily="@font/noto_sans_bold"
         android:text="@string/username_prof"
-        android:textColor="@color/white"
+        android:textColor="?attr/textColor"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/image_profile_user_profile"
         app:layout_constraintStart_toStartOf="@+id/image_profile_user_profile"
         app:layout_constraintTop_toBottomOf="@+id/image_profile_user_profile" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/image_profile_user_profile"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="18dp"
         android:layout_marginEnd="8dp"
+        app:civ_border_color="?attr/textColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
