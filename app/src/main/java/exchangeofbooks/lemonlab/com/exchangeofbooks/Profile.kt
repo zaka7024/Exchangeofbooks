@@ -82,22 +82,8 @@ class Profile : AppCompatActivity() {
 
         }
 
-        rate_frined_btn.setOnClickListener {
-            val ref = FirebaseDatabase.getInstance().getReference("friends/${FirebaseAuth.getInstance().uid}")
-
-            ref.addValueEventListener(object:ValueEventListener{
-                override fun onCancelled(p0: DatabaseError) {
-
-                }
-
-                override fun onDataChange(p0: DataSnapshot) {
-                    listOfFriends.clear()
-                    p0.children.forEach {
-                        listOfFriends.add(it.getValue(String::class.java)!!)
-                    }
-                }
-
-            })
+        report_person_btn.setOnClickListener {
+            Toast.makeText(this@Profile,"Soon",Toast.LENGTH_SHORT).show()
         }
     }
 

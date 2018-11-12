@@ -136,7 +136,6 @@
             android:id="@+id/fab_menu"
             android:layout_width="wrap_content"
             android:layout_height="199dp"
-
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -160,19 +159,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
+                app:fab_colorNormal="?attr/mainColor"
+                app:fab_colorPressed="@color/irisBlue"
+                app:fab_colorRipple="#99FFFFFF"
                 android:src="@drawable/ic_action_add_friend"
                 app:fabSize="auto"
-
                 />
 
             <com.github.clans.fab.FloatingActionButton
-                android:id="@+id/rate_frined_btn"
+                android:id="@+id/report_person_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:src="@drawable/ic_action_star"
+                app:fab_colorNormal="?attr/mainColor"
+                app:fab_colorPressed="@color/irisBlue"
+                app:fab_colorRipple="#99FFFFFF"
+                android:src="@drawable/ic_action_report_person"
                 app:fabSize="auto"
-
                 />
 
         </com.github.clans.fab.FloatingActionMenu>
