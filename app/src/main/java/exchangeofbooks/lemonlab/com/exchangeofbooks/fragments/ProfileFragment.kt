@@ -29,6 +29,7 @@ class ProfileFragment() : Fragment() {
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_profile, container, false)
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -37,6 +38,9 @@ class ProfileFragment() : Fragment() {
         //inti
         setUserData()
 
+        image_profile_user_profile.setOnClickListener {
+            changeUserProfileIImage()
+        }
     }
 
     private fun setUserData(){
@@ -46,7 +50,6 @@ class ProfileFragment() : Fragment() {
 
     private fun changeUserProfileIImage(){
         startActivityForResult(Intent(Intent.ACTION_PICK).apply { type = "image/*" }, 1)
-        //activity?.startActivityForResult()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

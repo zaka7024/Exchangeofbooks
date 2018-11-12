@@ -104,8 +104,8 @@ class MainActivity : AppCompatActivity() {
                 keys.SIGN_OUT = "FALSE"
                 this.finish()
             }
-            super.onActivityResult(requestCode, resultCode, data)
         }
+        super.onActivityResult(requestCode, resultCode, data)
     }
     private fun replaceFragment(fragment:Fragment){
         val manager = supportFragmentManager.beginTransaction()
