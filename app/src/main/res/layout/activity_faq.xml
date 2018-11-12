@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/scrollView"
+    tools:context=".FaqActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.AppCompatTextView
+    android:id="@+id/questionNo1"
+    android:text="@string/action_placeholder"
+    style="@style/questions_Style" />
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/answerNo1"
+        android:text="@string/action_placeholder"
+        style="@style/answers_Style" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/questionNo2"
+        android:text="@string/action_placeholder"
+        style="@style/questions_Style" />
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/answerNo2"
+        android:text="@string/action_placeholder"
+        style="@style/answers_Style" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/questionNo3"
+        android:text="@string/action_placeholder"
+        style="@style/questions_Style" />
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/answerNo3"
+        android:text="@string/action_placeholder"
+        style="@style/answers_Style" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/questionNo4"
+        android:text="@string/action_placeholder"
+        style="@style/questions_Style" />
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/answerNo4"
+        android:text="@string/action_placeholder"
+        style="@style/answers_Style" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/questionNo5"
+        android:text="@string/action_placeholder"
+        style="@style/questions_Style" />
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/answerNo5"
+        android:text="@string/action_placeholder"
+        style="@style/answers_Style" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/questionNo6"
+        android:text="@string/action_placeholder"
+        style="@style/questions_Style" />
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/answerNo6"
+        android:text="@string/action_placeholder"
+        style="@style/answers_Style" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/questionNo7"
+        android:text="@string/action_placeholder"
+        style="@style/questions_Style" />
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/answerNo7"
+        android:text="@string/action_placeholder"
+        style="@style/answers_Style" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/questionNo8"
+        android:text="@string/action_placeholder"
+        style="@style/questions_Style" />
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/answerNo8"
+        android:text="@string/action_placeholder"
+        style="@style/answers_Style" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/questionNo9"
+        android:text="@string/action_placeholder"
+        style="@style/questions_Style" />
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/answerNo9"
+        android:text="@string/action_placeholder"
+        style="@style/answers_Style" />
+</LinearLayout>
+    </ScrollView>
