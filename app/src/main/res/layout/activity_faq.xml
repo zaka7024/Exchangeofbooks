@@ -1,94 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/scrollView"
-    tools:context=".FaqActivity">
+    tools:context=".FaqActivity"
+    android:background="?attr/mainColor">
 <LinearLayout
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="wrap_content">
 
     <android.support.v7.widget.AppCompatTextView
-    android:id="@+id/questionNo1"
-    android:text="@string/action_placeholder"
-    style="@style/questions_Style" />
+        android:id="@+id/questionNo1"
+        style="@style/questions_Style"
+        android:text="@string/action_placeholder"
+        app:fontFamily="@font/noto_sans" />
+
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/answerNo1"
+        style="@style/answers_Style"
         android:text="@string/action_placeholder"
-        style="@style/answers_Style" />
+        app:fontFamily="@font/noto_sans" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/questionNo2"
+        style="@style/questions_Style"
         android:text="@string/action_placeholder"
-        style="@style/questions_Style" />
+        app:fontFamily="@font/noto_sans" />
+
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/answerNo2"
+        style="@style/answers_Style"
         android:text="@string/action_placeholder"
-        style="@style/answers_Style" />
+        app:fontFamily="@font/noto_sans" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/questionNo3"
+        style="@style/questions_Style"
         android:text="@string/action_placeholder"
-        style="@style/questions_Style" />
+        app:fontFamily="@font/noto_sans" />
+
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/answerNo3"
+        style="@style/answers_Style"
         android:text="@string/action_placeholder"
-        style="@style/answers_Style" />
+        app:fontFamily="@font/noto_sans" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/questionNo4"
+        style="@style/questions_Style"
         android:text="@string/action_placeholder"
-        style="@style/questions_Style" />
+        app:fontFamily="@font/noto_sans" />
+
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/answerNo4"
+        style="@style/answers_Style"
         android:text="@string/action_placeholder"
-        style="@style/answers_Style" />
+        app:fontFamily="@font/noto_sans" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/questionNo5"
+        style="@style/questions_Style"
         android:text="@string/action_placeholder"
-        style="@style/questions_Style" />
+        app:fontFamily="@font/noto_sans" />
+
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/answerNo5"
+        style="@style/answers_Style"
         android:text="@string/action_placeholder"
-        style="@style/answers_Style" />
+        app:fontFamily="@font/noto_sans" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/questionNo6"
+        style="@style/questions_Style"
         android:text="@string/action_placeholder"
-        style="@style/questions_Style" />
+        app:fontFamily="@font/noto_sans" />
+
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/answerNo6"
+        style="@style/answers_Style"
         android:text="@string/action_placeholder"
-        style="@style/answers_Style" />
+        app:fontFamily="@font/noto_sans" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/questionNo7"
+        style="@style/questions_Style"
         android:text="@string/action_placeholder"
-        style="@style/questions_Style" />
+        app:fontFamily="@font/noto_sans" />
+
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/answerNo7"
+        style="@style/answers_Style"
         android:text="@string/action_placeholder"
-        style="@style/answers_Style" />
+        app:fontFamily="@font/noto_sans" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/questionNo8"
+        style="@style/questions_Style"
         android:text="@string/action_placeholder"
-        style="@style/questions_Style" />
+        app:fontFamily="@font/noto_sans" />
+
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/answerNo8"
+        style="@style/answers_Style"
         android:text="@string/action_placeholder"
-        style="@style/answers_Style" />
+        app:fontFamily="@font/noto_sans" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/questionNo9"
+        style="@style/questions_Style"
         android:text="@string/action_placeholder"
-        style="@style/questions_Style" />
+        app:fontFamily="@font/noto_sans" />
+
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/answerNo9"
+        style="@style/answers_Style"
         android:text="@string/action_placeholder"
-        style="@style/answers_Style" />
+        app:fontFamily="@font/noto_sans" />
 </LinearLayout>
     </ScrollView>

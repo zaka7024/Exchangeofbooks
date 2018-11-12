@@ -22,11 +22,15 @@ class FaqActivity : AppCompatActivity() {
 
 private fun showQuestions(){
     val answers=resources.getStringArray(R.array.FRN)
+
+    // set all questions views in a list
     val answersView:List<TextView> =
             listOf(answerNo1, answerNo2, answerNo3, answerNo4,
                     answerNo5, answerNo6, answerNo7, answerNo8,
                     answerNo9)
     val questions=resources.getStringArray(R.array.FAQ)
+
+    // set all answers views in a list
     val questionsView:List<TextView> =
             listOf(questionNo1, questionNo2, questionNo3, questionNo4,
                     questionNo5, questionNo6, questionNo7, questionNo8,
@@ -69,11 +73,6 @@ private fun showQuestions(){
         }
     }
 }
-
-
-
-
-
 
     private fun modeLightOrNight(){
         val shrPr=this.getSharedPreferences("mode", Context.MODE_PRIVATE) ?: return
