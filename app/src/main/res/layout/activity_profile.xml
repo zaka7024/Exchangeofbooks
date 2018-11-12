@@ -24,7 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@color/mainColorBlue" />
+        app:srcCompat="?attr/backgroundPorfileImageColor" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/user_image_profile_activity"
@@ -182,8 +182,8 @@
     </android.support.constraint.ConstraintLayout>
 
     <ProgressBar
+        android:theme="@style/ProgressBarStyle"
         android:id="@+id/user_post_progresbar_profile_activity"
-        style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

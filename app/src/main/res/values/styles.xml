@@ -15,6 +15,7 @@
         <item name="commentsBackground">#e4f1fe</item>
         <item name="commentEditTextBackground">#FFF</item>
         <item name="editTextBorderColor">@color/mainColorBlue</item>
+        <item name="backgroundPorfileImageColor">@color/mainColorBlue</item>
         <!-- Support library compatibility -->
         <item name="android:windowContentTransitions" tools:ignore="NewApi">true</item>
         <item name="android:windowTransitionBackgroundFadeDuration" tools:ignore="NewApi">1000</item>
@@ -34,6 +35,7 @@
         <item name="commentsBackground">#444444</item>
         <item name="commentEditTextBackground">#444444</item>
         <item name="editTextBorderColor">@color/white</item>
+        <item name="backgroundPorfileImageColor">#4183d7</item>
         <!-- Support library compatibility -->
         <item name="android:windowContentTransitions" tools:ignore="NewApi">true</item>
         <item name="android:windowTransitionBackgroundFadeDuration" tools:ignore="NewApi">1000</item>
@@ -92,6 +94,12 @@
         <item name="android:fontFamily">casual</item>
         <item name="android:padding">20dp</item>
         <item name="android:background">?attr/backgroundColor</item>
+    </style>
+
+    <!-- ProgressBarStyle [NOT WORKING] -->
+    <style name="ProgressBarStyle">
+        <item name="android:colorAccent" tools:targetApi="lollipop">#00F</item>
+        <item name="android:progressBackgroundTint" tools:targetApi="lollipop">#F00</item>
     </style>
 
 </resources>

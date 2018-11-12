@@ -9,6 +9,7 @@
     <attr name="commentsBackground" format="color"/>
     <attr name="commentEditTextBackground" format="color"/>
     <attr name="editTextBorderColor" format="color" />
+    <attr name="backgroundPorfileImageColor" format="color" />
     <!-- ِAdd as much attrs as needed -->
 
 </declare-styleable>

@@ -7,6 +7,7 @@
     tools:context=".fragments.HomeFragment">
 
     <ProgressBar
+        android:theme="@style/ProgressBarStyle"
         android:id="@+id/post_progress_bar_fragment_home"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="263dp"
