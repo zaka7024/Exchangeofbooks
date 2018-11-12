@@ -69,7 +69,32 @@
     <string name="sign_out_menu">Sign Out</string>
     <string name="settings_menu">Settings</string>
     <string name="search_menu">Search</string>
+    <!-- FAQ ACTIVITY-->
+    <array name="FAQ">
+        <item>Trading &amp; Buying Books</item>
+        <item>Can I deactivate or delete my account?</item>
+        <item>What Information do I need to provide when placing a book to trade?</item>
+        <item>Can Books Exchange protect me from being spammed?</item>
+        <item>How can I block a user?</item>
+        <item>Is Books Exchange available on other platforms?</item>
+        <item>is Books Exchange available in other countries?</item>
+        <item>How do I share my location in messages?</item>
+        <item>Does this app have in-app ads?</item>
 
+    </array>
+    <array name="FRN">
+        <item>You place your post, people see it, they contact you and try to come to an agreement.</item>
+        <item>No, we are working on it.</item>
+        <item>Your city, usually. It is up to you whether you want to give your phone number or not.</item>
+        <item>No, we offer no guarantee.</item>
+        <item>You currently cannot block a user.</item>
+        <item>Books Exchange is currently not available at any other platforms.</item>
+        <item>Books exchange is only supported in HKJ.</item>
+        <item>You cannot share your location via messages.</item>
+        <item>No, this app is not monetized.</item>
+
+
+    </array>
 
     <array name="book_category">
         <!-- Books used in school -->

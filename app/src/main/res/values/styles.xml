@@ -68,5 +68,29 @@
         <item name="colorControlActivated">#EEEEEE</item>
         <item name="android:numStars">5</item>
     </style>
-    
+
+    <style name="questions_Style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:fontFamily">serif</item>
+        <item name="android:padding">6dp</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <style name="answers_Style">
+        <item name="android:visibility"> gone</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:fontFamily">casual</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:layout_marginStart">6dp</item>
+        <item name="android:layout_marginEnd">6dp</item>
+    </style>
+
 </resources>
