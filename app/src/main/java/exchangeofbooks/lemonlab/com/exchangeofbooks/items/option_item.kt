@@ -51,7 +51,9 @@ class option_item(var activity:Activity,var optionType:String): Item<ViewHolder>
             viewHolder.itemView.option_text_view_option_row.text = "Share"
 
             viewHolder.itemView.setOnClickListener {
-                Toast.makeText(activity,"Share",Toast.LENGTH_SHORT).show()
+                var intent = Intent(Intent.ACTION_SEND)
+                intent.type = "text/plain"
+                activity.startActivity(Intent.createChooser(intent,"شارك لـ"))
             }
         }
 
