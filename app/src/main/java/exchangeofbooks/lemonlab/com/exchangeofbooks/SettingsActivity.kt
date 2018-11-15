@@ -1,6 +1,7 @@
 package exchangeofbooks.lemonlab.com.exchangeofbooks
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AppCompatDelegate
@@ -79,5 +80,13 @@ class SettingsActivity : AppCompatActivity() {
         adapter.add(option_section_title("Account"))
         // add signout option
         adapter.add(option_item(this@SettingsActivity,"SIGN_OUT"))
+    }
+
+    // restart app
+    override fun onBackPressed() {
+        super.onBackPressed()
+        var intent = Intent(this,MainActivity::class.java)
+        startActivity(intent)
+        this.finish()
     }
 }

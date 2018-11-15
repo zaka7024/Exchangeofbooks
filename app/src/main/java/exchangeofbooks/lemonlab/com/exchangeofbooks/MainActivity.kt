@@ -132,6 +132,7 @@ class MainActivity : AppCompatActivity() {
             R.id.settings_btn ->{
                 var intent = Intent(this@MainActivity,SettingsActivity::class.java)
                 startActivityForResult(intent, 0)
+                this.finish()
             }
 
         }
