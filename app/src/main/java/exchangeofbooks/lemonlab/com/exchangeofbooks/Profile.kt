@@ -109,10 +109,57 @@ class Profile : AppCompatActivity() {
 
 
     fun sendFriendRequest(){
-        var ref = FirebaseDatabase.getInstance().getReference("friend_request/${user_id}/${CurrentUser?.id}").push()
-        ref.setValue(FirebaseAuth.getInstance().uid).addOnCompleteListener {
-            Log.i("Profile","friend request send")
-        }
+
+        // check if the current user is already friend
+
+        val friendRef = FirebaseDatabase.getInstance().getReference("friends/${CurrentUser?.id}")
+        friendRef.addValueEventListener(object :ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                var isFriend = false
+                p0.children.forEach {
+                    if(it.key == user_id){
+                        isFriend = true
+                    }
+                }
+                Log.i("Profile","is friend : ${isFriend}")
+                if(isFriend == false){
+                    // if not send request
+                    val checkRef = FirebaseDatabase.getInstance().getReference("friend_request/${user_id}")
+                    checkRef.addValueEventListener(object :ValueEventListener{
+                        override fun onCancelled(p0: DatabaseError) {
+
+                        }
+
+                        override fun onDataChange(p0: DataSnapshot) {
+                            var canSendRequest:Boolean = true
+                            if(p0.exists()){
+
+                                p0.children.forEach {
+                                    if(CurrentUser?.id!=null && it.key == CurrentUser?.id){
+                                        canSendRequest = false
+                                    }
+                                }
+                            }
+                            // if no any send request is exists send one
+                            Log.i("Profile","can send friend request : ${canSendRequest}")
+                            if(canSendRequest){
+                                var ref = FirebaseDatabase.getInstance().getReference("friend_request/${user_id}/${CurrentUser?.id}").push()
+                                ref.setValue(FirebaseAuth.getInstance().uid).addOnCompleteListener {
+                                    Log.i("Profile","friend request send")
+                                }
+                            }
+                        }
+
+                    })
+                }
+            }
+
+        })
+
     }
 
     fun getUserPosts(){
