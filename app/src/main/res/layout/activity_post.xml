@@ -8,6 +8,7 @@
     tools:context=".PostActivity">
 
     <Spinner
+
         android:id="@+id/book_category_spinner"
         android:layout_width="0dp"
         android:layout_height="50dp"

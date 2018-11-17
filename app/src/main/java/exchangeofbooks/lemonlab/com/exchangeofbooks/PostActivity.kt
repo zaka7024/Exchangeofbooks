@@ -37,7 +37,7 @@ class PostActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_post)
         //set data to spinner
-        book_category_spinner.adapter = ArrayAdapter<String>(this@PostActivity,android.R.layout.simple_spinner_dropdown_item
+        book_category_spinner.adapter = ArrayAdapter<String>(this@PostActivity,R.layout.spinner_item
         ,resources.getStringArray(R.array.book_category))
 
 
