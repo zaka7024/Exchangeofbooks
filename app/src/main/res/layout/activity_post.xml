@@ -60,6 +60,8 @@
         app:layout_constraintTop_toBottomOf="@+id/post_text_post_activity" />
 
     <EditText
+        android:textColor="@color/mainColorBlue"
+        android:theme="@style/edite_text_style_post"
         android:id="@+id/post_text_post_activity"
         android:layout_width="0dp"
         android:layout_height="100dp"
@@ -70,6 +72,7 @@
         android:fontFamily="@font/noto_sans"
         android:inputType="textMultiLine"
         android:textSize="14sp"
+        android:padding="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />

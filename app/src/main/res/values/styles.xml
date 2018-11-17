@@ -63,6 +63,11 @@
         <item name="android:colorControlNormal" tools:targetApi="lollipop">@color/mainColorBlue</item>
         <item name="android:colorControlActivated" tools:targetApi="lollipop">@color/white</item>
     </style>
+    <!-- EditTextStyle[Post Activity] -->
+    <style name="edite_text_style_post">
+        <item name="android:colorControlNormal" tools:targetApi="lollipop">@color/mainColorBlue</item>
+        <item name="android:colorControlActivated" tools:targetApi="lollipop">@color/irisBlue</item>
+    </style>
 
     <style name="questions_Style">
         <item name="android:layout_width">match_parent</item>
