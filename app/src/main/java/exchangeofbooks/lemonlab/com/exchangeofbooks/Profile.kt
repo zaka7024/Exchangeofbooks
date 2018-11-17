@@ -129,7 +129,7 @@ class Profile : AppCompatActivity() {
                 if(isFriend == false){
                     // if not send request
                     val checkRef = FirebaseDatabase.getInstance().getReference("friend_request/${user_id}")
-                    checkRef.addValueEventListener(object :ValueEventListener{
+                    var event = checkRef.addValueEventListener(object :ValueEventListener{
                         override fun onCancelled(p0: DatabaseError) {
 
                         }
@@ -146,16 +146,27 @@ class Profile : AppCompatActivity() {
                             }
                             // if no any send request is exists send one
                             Log.i("Profile","can send friend request : ${canSendRequest}")
+
                             if(canSendRequest){
                                 var ref = FirebaseDatabase.getInstance().getReference("friend_request/${user_id}/${CurrentUser?.id}").push()
                                 ref.setValue(FirebaseAuth.getInstance().uid).addOnCompleteListener {
                                     Log.i("Profile","friend request send")
+                                    Toast.makeText(this@Profile,"لقد تم إرسال الطلب",Toast.LENGTH_SHORT).show()
                                 }
+                            }else{ // there is an friend request in the database
+                                Toast.makeText(this@Profile,"لقد تم إرسال الطلب مسبقًا",Toast.LENGTH_SHORT).show()
                             }
+                            checkRef.removeEventListener(this)
                         }
 
                     })
+
+
+                }else{ // if the user is already friend
+                    Toast.makeText(this@Profile,"هذا الشخص صديق لديك بالفعل",Toast.LENGTH_SHORT).show()
                 }
+
+                friendRef.removeEventListener(this)
             }
 
         })
