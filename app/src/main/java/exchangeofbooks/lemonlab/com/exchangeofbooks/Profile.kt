@@ -110,6 +110,11 @@ class Profile : AppCompatActivity() {
 
     fun sendFriendRequest(){
 
+        if(user_id == CurrentUser?.id){
+            Toast.makeText(this,"لا يمكنك إرسال طلب مصادقة إلى نفسك 😊",Toast.LENGTH_SHORT).show()
+            return
+        }
+
         // check if the current user is already friend
 
         val friendRef = FirebaseDatabase.getInstance().getReference("friends/${CurrentUser?.id}")
