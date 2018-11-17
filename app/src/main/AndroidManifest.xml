@@ -45,7 +45,8 @@
                 android:value=".MainActivity" />
         </activity>
         <activity android:name=".ChatLogActivity" />
-        <activity android:name=".FaqActivity"></activity>
+        <activity android:name=".FaqActivity" />
+        <activity android:name=".ImageViewerActivity"></activity>
     </application>
 
 </manifest>

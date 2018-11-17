@@ -7,5 +7,6 @@ class keys {
         var USER_ID = "USER_ID"
         var USER_NAME = "USER_NAME"
         var SIGN_OUT = "FALSE"
+        var IMAGE_VIEWER = "IMAGE_VIEWER"
     }
 }

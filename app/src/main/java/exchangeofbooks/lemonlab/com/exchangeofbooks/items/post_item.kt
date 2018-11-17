@@ -9,10 +9,8 @@ import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
-import exchangeofbooks.lemonlab.com.exchangeofbooks.CommentsActivity
-import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity
+import exchangeofbooks.lemonlab.com.exchangeofbooks.*
 import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity.Companion.CurrentUser
-import exchangeofbooks.lemonlab.com.exchangeofbooks.Profile
 import exchangeofbooks.lemonlab.com.exchangeofbooks.R
 import exchangeofbooks.lemonlab.com.exchangeofbooks.keys.keys
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Post
@@ -63,6 +61,16 @@ class post_item(var post:Post?, var context:Context?):Item<ViewHolder>() {
         }
 
         // event lestiner
+
+        // show the image of post in imageViewer
+        viewHolder.itemView.post_image_view.setOnClickListener{
+
+            if(post?.post_image == "null") return@setOnClickListener
+
+            var intent = Intent(context,ImageViewerActivity::class.java)
+            intent.putExtra(keys.IMAGE_VIEWER,post?.post_image)
+            context!!.startActivity(intent)
+        }
 
         viewHolder.itemView.tkae_book_main_activity.setOnClickListener {
 
