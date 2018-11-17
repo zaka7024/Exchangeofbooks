@@ -113,6 +113,7 @@ class Profile : AppCompatActivity() {
         // check if the current user is already friend
 
         val friendRef = FirebaseDatabase.getInstance().getReference("friends/${CurrentUser?.id}")
+
         friendRef.addValueEventListener(object :ValueEventListener{
             override fun onCancelled(p0: DatabaseError) {
 

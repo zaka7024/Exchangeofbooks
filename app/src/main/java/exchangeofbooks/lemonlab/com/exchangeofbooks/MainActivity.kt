@@ -20,10 +20,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.roughike.bottombar.OnTabSelectListener
-import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.ChatFragment
-import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.HomeFragment
-import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.ProfileFragment
-import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.UserpostFragment
+import exchangeofbooks.lemonlab.com.exchangeofbooks.fragments.*
 import exchangeofbooks.lemonlab.com.exchangeofbooks.keys.keys
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import kotlinx.android.synthetic.main.activity_main.*
@@ -75,7 +72,7 @@ class MainActivity : AppCompatActivity() {
                         replaceFragment(HomeFragment())
                     }
                     R.id.user_post ->{
-                        replaceFragment(UserpostFragment())
+                        replaceFragment(ActivitiesFragment())
                     }
                     R.id.user_profile ->{
                         replaceFragment(ProfileFragment())
