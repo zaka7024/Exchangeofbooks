@@ -15,7 +15,7 @@
         <item name="commentsBackground">#e4f1fe</item>
         <item name="commentEditTextBackground">#FFF</item>
         <item name="editTextBorderColor">@color/mainColorBlue</item>
-        <item name="backgroundProfileImageColor">@color/irisBlue</item>
+        <item name="backgroundProfileImageColor">#EEE</item>
         <!-- Support library compatibility -->
         <item name="android:windowContentTransitions" tools:ignore="NewApi">true</item>
         <item name="android:windowTransitionBackgroundFadeDuration" tools:ignore="NewApi">1000</item>

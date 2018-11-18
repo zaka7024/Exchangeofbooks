@@ -6,8 +6,8 @@
         title="Home" />
     <tab
         id="@+id/user_post"
-        icon="@drawable/ic_action_post"
-        title="Posts" />
+        icon="@drawable/ic_action_notification"
+        title="Activities" />
     <tab
         id="@+id/user_profile"
         icon="@drawable/ic_action_user"

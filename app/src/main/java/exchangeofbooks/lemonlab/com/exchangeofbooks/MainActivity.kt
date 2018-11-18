@@ -84,7 +84,6 @@ class MainActivity : AppCompatActivity() {
                         replaceFragment(HomeFragment())
                         true
                     }
-
                 }
             }
 
