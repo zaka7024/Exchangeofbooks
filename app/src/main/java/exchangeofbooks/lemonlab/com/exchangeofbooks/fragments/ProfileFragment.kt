@@ -110,8 +110,10 @@ class ProfileFragment() : Fragment() {
                     adapter.add(current_user_profile_item(it))
                 }
 
-                userPostRecyclerView.visibility = View.VISIBLE
-                progress_bar_profile_fragment.visibility = View.GONE
+                if(userPostRecyclerView != null && progress_bar_profile_fragment!= null){
+                    userPostRecyclerView.visibility = View.VISIBLE
+                    progress_bar_profile_fragment.visibility = View.GONE
+                }
             }
         })
     }

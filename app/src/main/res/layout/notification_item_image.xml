@@ -14,19 +14,20 @@
         android:layout_marginEnd="8dp"
         android:textColor="?attr/textColor"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
+        app:layout_constraintBottom_toBottomOf="@+id/notification_image_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/circleImageView"
-        app:layout_constraintTop_toTopOf="@+id/circleImageView"
+        app:layout_constraintStart_toEndOf="@+id/notification_image_view"
+        app:layout_constraintTop_toTopOf="@+id/notification_image_view"
         tools:text="هذا مثال لنص قابل للاستبدال تم توليد هذا النص من مولد النص العربي" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageView"
+        android:id="@+id/notification_image_view"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        app:civ_border_color="?attr/mainColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
