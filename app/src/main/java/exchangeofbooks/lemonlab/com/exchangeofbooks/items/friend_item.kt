@@ -16,6 +16,7 @@ import exchangeofbooks.lemonlab.com.exchangeofbooks.ChatLogActivity
 import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity.Companion.CurrentUser
 import exchangeofbooks.lemonlab.com.exchangeofbooks.R
 import exchangeofbooks.lemonlab.com.exchangeofbooks.keys.keys
+import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Notification
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import kotlinx.android.synthetic.main.user_chat_row.view.*
 
@@ -45,6 +46,7 @@ class friend_item(var user: User,var context: Context, var adapter: GroupAdapter
             ref.removeValue().addOnCompleteListener {
                 Log.i("ChatLogFragment","friend removed from database")
                 Toast.makeText(context,"تم الحذف",Toast.LENGTH_SHORT).show()
+                pushNotification()
             }
 
             var other_ref = FirebaseDatabase.getInstance().getReference("friends/${user.id}/${FirebaseAuth.getInstance().uid}")
@@ -54,6 +56,14 @@ class friend_item(var user: User,var context: Context, var adapter: GroupAdapter
 
         viewHolder.itemView.user_chat_row_settings.setOnClickListener {
             pop.show()
+        }
+    }
+
+    fun pushNotification(){
+        val activityRef = FirebaseDatabase.getInstance().getReference("notifications/${user.id}").push()
+        var new_notification = Notification(activityRef.key!!,  " من قائىة اصدقاءه" + "${CurrentUser?.username}" + "لقد حذفك ", CurrentUser?.id!!)
+        activityRef.setValue(new_notification).addOnCompleteListener {
+            Log.i("Profile","new notification added")
         }
     }
 }
