@@ -12,10 +12,12 @@ import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity.Companion.CurrentUser
 import exchangeofbooks.lemonlab.com.exchangeofbooks.R
+import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Notification
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import kotlinx.android.synthetic.main.friend_request_row.view.*
 
 class friend_request_item(var user_id:String, var adapter: GroupAdapter<ViewHolder>): Item<ViewHolder> (){
+    var user:User? = null
     override fun getLayout(): Int {
         return R.layout.friend_request_row
     }
@@ -28,7 +30,7 @@ class friend_request_item(var user_id:String, var adapter: GroupAdapter<ViewHold
             }
 
             override fun onDataChange(p0: DataSnapshot) {
-                var user = p0.getValue(User::class.java)
+                user = p0.getValue(User::class.java)
                 Picasso.get().load(user?.image_profile).into(viewHolder.itemView.user_image_profile_friend_request)
                 viewHolder.itemView.user_name_friend_request.text = user?.username
             }
@@ -47,6 +49,7 @@ class friend_request_item(var user_id:String, var adapter: GroupAdapter<ViewHold
 
             other_ref.setValue(CurrentUser?.id).addOnCompleteListener {
                 Log.i("Profile", "other friend added to database ")
+                pushNotificationAccept()
             }
         }
 
@@ -60,6 +63,23 @@ class friend_request_item(var user_id:String, var adapter: GroupAdapter<ViewHold
         val ref = FirebaseDatabase.getInstance().getReference("friend_request/${CurrentUser?.id}/${user_id}")
         ref.removeValue().addOnCompleteListener {
             Log.i("Profile","friend request removed from database ")
+            pushNotificationReject()
+        }
+    }
+
+    fun pushNotificationAccept(){
+        val activityRef = FirebaseDatabase.getInstance().getReference("notifications/${user_id}").push()
+        var new_notification = Notification(activityRef.key!!,"اصدقاء ${user?.username}" + "لقد اصبحت انتَ و ", CurrentUser?.id!!)
+        activityRef.setValue(new_notification).addOnCompleteListener {
+            Log.i("Profile","new notification added")
+        }
+    }
+
+    fun pushNotificationReject(){
+        val activityRef = FirebaseDatabase.getInstance().getReference("notifications/${user_id}").push()
+        var new_notification = Notification(activityRef.key!!,"على الطلب الذي ارسلته"+"${CurrentUser?.username}" + "لم يوافق", CurrentUser?.id!!)
+        activityRef.setValue(new_notification).addOnCompleteListener {
+            Log.i("Profile","new notification added")
         }
     }
 }
