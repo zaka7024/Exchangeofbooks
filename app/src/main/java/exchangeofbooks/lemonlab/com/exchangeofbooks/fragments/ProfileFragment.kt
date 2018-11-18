@@ -6,10 +6,16 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.DividerItemDecoration
+import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.squareup.picasso.Picasso
 import com.xwray.groupie.GroupAdapter
@@ -17,8 +23,11 @@ import com.xwray.groupie.ViewHolder
 import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity.Companion.CurrentUser
 
 import exchangeofbooks.lemonlab.com.exchangeofbooks.R
+import exchangeofbooks.lemonlab.com.exchangeofbooks.items.current_user_profile_item
+import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Post
 import kotlinx.android.synthetic.main.fragment_profile.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 class ProfileFragment() : Fragment() {
 
@@ -37,7 +46,13 @@ class ProfileFragment() : Fragment() {
 
         //inti
         setUserData()
+        getUserPost()
+        userPostRecyclerView.visibility = View.INVISIBLE
+        userPostRecyclerView.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
+        userPostRecyclerView.adapter = adapter
+        userPostRecyclerView.addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL))
 
+        //to change user image profile
         image_profile_user_profile.setOnClickListener {
             changeUserProfileIImage()
         }
@@ -72,5 +87,32 @@ class ProfileFragment() : Fragment() {
                 Log.i("ProfileFragment","image uri: ${CurrentUser?.image_profile}")
             }
         }
+    }
+
+    private fun getUserPost(){
+        var ref = FirebaseDatabase.getInstance().getReference("users_post/${CurrentUser?.id}")
+        ref.addValueEventListener(object :ValueEventListener{
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(p0: DataSnapshot) {
+                var temp_lsit:ArrayList<Post> = ArrayList()
+                adapter.clear()
+
+                p0.children.forEach {
+                    var post = it.getValue(Post::class.java)
+                    temp_lsit.add(post!!)
+                }
+
+                temp_lsit.reverse()
+                temp_lsit.forEach {
+                    adapter.add(current_user_profile_item(it))
+                }
+
+                userPostRecyclerView.visibility = View.VISIBLE
+                progress_bar_profile_fragment.visibility = View.GONE
+            }
+        })
     }
 }

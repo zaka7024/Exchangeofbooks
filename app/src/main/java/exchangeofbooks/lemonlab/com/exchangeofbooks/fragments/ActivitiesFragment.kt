@@ -21,7 +21,6 @@ import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity
 import exchangeofbooks.lemonlab.com.exchangeofbooks.R
 import exchangeofbooks.lemonlab.com.exchangeofbooks.items.notification_item
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Notification
-import kotlinx.android.synthetic.main.fragment_activities.*
 import kotlinx.android.synthetic.main.fragment_fragment_activities.*
 
 class ActivitiesFragment : Fragment() {
