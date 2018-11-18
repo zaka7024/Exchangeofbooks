@@ -20,6 +20,7 @@ import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity.Companion.Curre
 import exchangeofbooks.lemonlab.com.exchangeofbooks.items.comment_item
 import exchangeofbooks.lemonlab.com.exchangeofbooks.keys.keys
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Comment
+import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Notification
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Post
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import kotlinx.android.synthetic.main.activity_comments.*
@@ -126,6 +127,11 @@ class CommentsActivity : AppCompatActivity() {
         val ref = FirebaseDatabase.getInstance().getReference("comments/${post_id}").push()
         comment.id = ref.key.toString()
                 ref.setValue(comment).addOnCompleteListener {
+                    val activityRef = FirebaseDatabase.getInstance().getReference("notifications/${user_id}").push()
+                    var new_notification = Notification(activityRef.key!!,"لديك تعليق جديد من:", CurrentUser?.id!!)
+                    activityRef.setValue(new_notification).addOnCompleteListener {
+                        Log.i("CommentsActivity","new notification added: ${comment?.text}")
+                    }
             Log.i("CommentsActivity","new comment posted: ${comment?.text}")
         }
     }
