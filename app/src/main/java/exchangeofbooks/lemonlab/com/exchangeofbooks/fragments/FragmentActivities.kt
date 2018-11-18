@@ -3,6 +3,7 @@ package exchangeofbooks.lemonlab.com.exchangeofbooks.fragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -35,9 +36,9 @@ class FragmentActivities : Fragment() {
         getActivities()
         activitiesRecyclerView.adapter = adapter
         activitiesRecyclerView.layoutManager = LinearLayoutManager(context,LinearLayoutManager.VERTICAL,false)
+        activitiesRecyclerView.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL ))
 
-
-
+        
     }
 
     fun getActivities(){

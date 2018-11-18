@@ -128,7 +128,7 @@ class CommentsActivity : AppCompatActivity() {
         comment.id = ref.key.toString()
                 ref.setValue(comment).addOnCompleteListener {
                     val activityRef = FirebaseDatabase.getInstance().getReference("notifications/${user_id}").push()
-                    var new_notification = Notification(activityRef.key!!,"لديك تعليق جديد من:", CurrentUser?.id!!)
+                    var new_notification = Notification(activityRef.key!!,  "${CurrentUser?.username}" + "لديك تعليق جديد من: ", CurrentUser?.id!!)
                     activityRef.setValue(new_notification).addOnCompleteListener {
                         Log.i("CommentsActivity","new notification added: ${comment?.text}")
                     }

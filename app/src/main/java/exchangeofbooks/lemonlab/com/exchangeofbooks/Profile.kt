@@ -21,6 +21,7 @@ import exchangeofbooks.lemonlab.com.exchangeofbooks.MainActivity.Companion.Curre
 import exchangeofbooks.lemonlab.com.exchangeofbooks.items.post_item
 import exchangeofbooks.lemonlab.com.exchangeofbooks.items.post_profile_item
 import exchangeofbooks.lemonlab.com.exchangeofbooks.keys.keys
+import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Notification
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.Post
 import exchangeofbooks.lemonlab.com.exchangeofbooks.models.User
 import kotlinx.android.synthetic.main.activity_profile.*
@@ -158,6 +159,7 @@ class Profile : AppCompatActivity() {
                                 ref.setValue(FirebaseAuth.getInstance().uid).addOnCompleteListener {
                                     Log.i("Profile","friend request send")
                                     Toast.makeText(this@Profile,"لقد تم إرسال الطلب",Toast.LENGTH_SHORT).show()
+                                    pushNotification()
                                 }
                             }else{ // there is an friend request in the database
                                 Toast.makeText(this@Profile,"لقد تم إرسال الطلب مسبقًا",Toast.LENGTH_SHORT).show()
@@ -223,6 +225,14 @@ class Profile : AppCompatActivity() {
         }
         else{
             setTheme(R.style.AppTheme)
+        }
+    }
+
+    fun pushNotification(){
+        val activityRef = FirebaseDatabase.getInstance().getReference("notifications/${user_id}").push()
+        var new_notification = Notification(activityRef.key!!,  "${CurrentUser?.username}" + "لديك طلب مصادقة من: ", CurrentUser?.id!!)
+        activityRef.setValue(new_notification).addOnCompleteListener {
+            Log.i("Profile","new notification added")
         }
     }
 }
