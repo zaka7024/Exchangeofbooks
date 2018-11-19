@@ -1,7 +1,9 @@
 package exchangeofbooks.lemonlab.com.exchangeofbooks.items
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import android.support.v4.content.ContextCompat.startActivity
 import android.widget.Toast
@@ -21,6 +23,7 @@ class option_item(var activity:Activity,var optionType:String): Item<ViewHolder>
 
     override fun bind(viewHolder: ViewHolder, position: Int) {
 
+
         if(optionType == "SIGN_OUT"){
             viewHolder.itemView.option_text_view_option_row.text = "Sign Out"
 
@@ -37,7 +40,14 @@ class option_item(var activity:Activity,var optionType:String): Item<ViewHolder>
             viewHolder.itemView.option_text_view_option_row.text = "About us"
 
             viewHolder.itemView.setOnClickListener {
-                Toast.makeText(activity,"ABOUT_US",Toast.LENGTH_SHORT).show()
+                var dialog = AlertDialog.Builder(activity)
+                dialog.setTitle("About us")
+                dialog.setMessage("Lemon Lab Team")
+                dialog.show()
+                dialog.setPositiveButton("OK",DialogInterface.OnClickListener{
+                    dialog, which ->
+                    dialog.dismiss()
+                })
             }
         }else if(optionType == "FAQ"){
             viewHolder.itemView.option_text_view_option_row.text = "FAQ"

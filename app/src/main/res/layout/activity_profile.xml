@@ -148,7 +148,6 @@
             app:menu_icon="@drawable/ic_action_list"
             app:menu_labels_colorNormal="@color/white"
             app:menu_labels_colorPressed="#444444"
-            app:menu_labels_position="left"
             app:menu_labels_textColor="@color/mainColorBlue"
             app:menu_labels_textSize="14sp"
             app:menu_openDirection="up"
@@ -163,7 +162,7 @@
                 app:fab_colorPressed="@color/irisBlue"
                 app:fab_colorRipple="#99FFFFFF"
                 android:src="@drawable/ic_action_add_friend"
-                app:fabSize="auto"
+                app:fabSize="mini"
                 />
 
             <com.github.clans.fab.FloatingActionButton
@@ -175,7 +174,7 @@
                 app:fab_colorPressed="@color/irisBlue"
                 app:fab_colorRipple="#99FFFFFF"
                 android:src="@drawable/ic_action_report_person"
-                app:fabSize="auto"
+                app:fabSize="mini"
                 />
 
         </com.github.clans.fab.FloatingActionMenu>
